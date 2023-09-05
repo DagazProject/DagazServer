@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340.48 409.43">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f20000;
+      }
+
+      .cls-2 {
+        fill: #2e1b10;
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-4, .cls-5, .cls-6 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4, .cls-6 {
+        stroke: #3b2314;
+        stroke-width: 6px;
+      }
+
+      .cls-5 {
+        fill: #00aeb7;
+        stroke: #007a72;
+        stroke-width: 4px;
+      }
+
+      .cls-6 {
+        fill: none;
+      }
+    </style>
+    <clipPath id="clippath">
+      <path id="Form_big" data-name="Form big" class="cls-6" d="M166.27,406.32h146.45c19.27,0,16.7-18.28,16.7-18.28,0,0,1.54-253.78-30.06-308.36C267.76,25.1,186.31,3,166.27,3S64.78,25.1,33.18,79.68C1.57,134.26,3.11,388.04,3.11,388.04c0,0-2.57,18.28,16.7,18.28H166.27Z"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="11703.55" y1="-1253.84" x2="12030.09" y2="-1253.84" gradientTransform="translate(-11700.55 1466.5)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcdab"/>
+      <stop offset="1" stop-color="#fde4d9"/>
+    </linearGradient>
+  </defs>
+  <g id="Main_JAP_copy" data-name="Main JAP copy">
+    <g id="north_big_jap_copy_37" data-name="north big jap copy 37">
+      <path id="Shadow" class="cls-2" d="M171.52,409.43h151.56c19.94,0,17.28-18.5,17.28-18.5,0,0,1.6-256.77-31.11-311.99C276.55,23.73,192.26,1.36,171.52,1.36S66.49,23.73,33.78,78.94C1.08,134.16,2.67,390.93,2.67,390.93c0,0-2.66,18.5,17.28,18.5H171.52Z"/>
+      <g>
+        <g class="cls-3">
+          <rect id="Color_gradient" data-name="Color gradient" class="cls-4" x="3" y="-40.31" width="326.53" height="505.92"/>
+        </g>
+        <path id="Form_big-2" data-name="Form big" class="cls-6" d="M166.27,406.32h146.45c19.27,0,16.7-18.28,16.7-18.28,0,0,1.54-253.78-30.06-308.36C267.76,25.1,186.31,3,166.27,3S64.78,25.1,33.18,79.68C1.57,134.26,3.11,388.04,3.11,388.04c0,0-2.57,18.28,16.7,18.28H166.27Z"/>
+      </g>
+      <g id="Pieces_copy_73" data-name="Pieces copy 73">
+        <g id="Heavenly_Horse_copy_34" data-name="Heavenly Horse copy 34">
+          <g id="HH_move_copy_32" data-name="HH move copy 32">
+            <g id="red_dots_copy_42" data-name="red dots copy 42">
+              <rect class="cls-1" x="118.27" y="218.92" width="14.25" height="15.01" transform="translate(-123.38 154.99) rotate(-45)"/>
+              <rect class="cls-1" x="196.26" y="218.73" width="14.25" height="15.24" transform="translate(-100.48 210.11) rotate(-45)"/>
+              <rect class="cls-1" x="196.44" y="378.99" width="15.01" height="14.25" transform="translate(-213.29 257.3) rotate(-45)"/>
+              <rect class="cls-1" x="118.34" y="378.91" width="15.24" height="14.25" transform="translate(-236.08 202.13) rotate(-45)"/>
+              <g>
+                <rect class="cls-1" x="160.41" y="273.07" width="8.6" height="8.6"/>
+                <rect class="cls-1" x="160.41" y="259.57" width="8.6" height="8.6"/>
+                <rect class="cls-1" x="160.41" y="246.82" width="8.6" height="8.6"/>
+                <rect class="cls-1" x="147.91" y="234.82" width="8.6" height="8.6"/>
+                <rect class="cls-1" x="171.53" y="234.82" width="8.6" height="8.6"/>
+              </g>
+              <g>
+                <rect class="cls-1" x="159.72" y="326.49" width="8.6" height="8.6"/>
+                <rect class="cls-1" x="159.72" y="339.99" width="8.6" height="8.6"/>
+                <rect class="cls-1" x="159.72" y="352.74" width="8.6" height="8.6"/>
+                <rect class="cls-1" x="172.22" y="364.74" width="8.6" height="8.6"/>
+                <rect class="cls-1" x="148.6" y="364.74" width="8.6" height="8.6"/>
+              </g>
+            </g>
+            <rect id="Center" class="cls-5" x="145.74" y="285.25" width="37.93" height="37.93"/>
+          </g>
+          <g>
+            <path class="cls-5" d="M154.98,142.57h-40.2c7.92,20.16,22.56,33.84,47.52,39.48-3.36,3.24-7.8,9.84-9.96,14.04-23.28-6.48-37.44-19.32-46.8-38.64-6.6,15.6-20.4,30-48.84,38.76-1.56-3.72-6-9.96-8.88-12.96,30.84-9,42.24-24.96,46.2-40.68H54.79v-14.76h41.16v-22.2H51.07v-14.88h107.28v14.88h-47.04v22.2h43.68v14.76Z"/>
+            <path class="cls-5" d="M192.79,164.05c-2.28,11.88-5.76,23.76-13.92,31.08-4.32-2.76-7.92-5.04-11.64-7.32,6.96-6.36,11.04-16.56,12.84-27.24l12.72,3.48Zm77.88-19.2l8.28,1.08c-.12,1.2-.24,2.76-.48,4.08-2.64,44.04-4.56,45.96-24.84,45.96-1.8,0-3.72,0-5.76-.12-.12-4.08-1.68-9.6-3.84-13.32,3.72,.36,7.08,.48,9.48,.48,3.84,0,4.8,0,6-1.32,1.68-2.04,3-8.52,4.08-24.24h-80.52V87.49h86.88v12.36h-36.48v7.56h32.16v11.28h-32.16v7.56h32.16v11.16h-32.16v7.68h34.08l3.12-.24Zm-51.48-45h-21.96v7.56h21.96v-7.56Zm0,26.4v-7.56h-21.96v7.56h21.96Zm-21.96,11.16v7.68h21.96v-7.68h-21.96Zm4.08,53.76c-.12-6.72-1.8-17.16-3.96-25.08l12.12-1.92c2.52,7.92,4.32,18.12,4.68,24.84l-12.84,2.16Zm23.4-3c-.72-5.88-3.48-15.24-6.6-22.44l11.16-2.76c3.24,6.96,6.36,16.2,7.32,22.08l-11.88,3.12Zm23.16-27.96c3.6,5.16,7.56,12.12,9.12,16.8l-11.16,4.08c-1.32-4.68-4.92-12-8.4-17.4l10.44-3.48Z"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

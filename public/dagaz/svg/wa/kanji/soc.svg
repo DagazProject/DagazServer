@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340.48 409.43">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-2 {
+        fill: #2e1b10;
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-6, .cls-5 {
+        stroke: #3b2314;
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+      }
+    </style>
+    <clipPath id="clippath">
+      <path id="Form_big" data-name="Form big" class="cls-5" d="M166.27,406.32h146.45c19.27,0,16.7-18.28,16.7-18.28,0,0,1.54-253.78-30.06-308.36C267.76,25.1,186.31,3,166.27,3S64.78,25.1,33.18,79.68C1.57,134.26,3.11,388.04,3.11,388.04c0,0-2.57,18.28,16.7,18.28H166.27Z"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="10922.72" y1="-2280.45" x2="11249.25" y2="-2280.45" gradientTransform="translate(-10919.72 2493.1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcdab"/>
+      <stop offset="1" stop-color="#fde4d9"/>
+    </linearGradient>
+    <clipPath id="clippath-1">
+      <polygon class="cls-4" points="130.24 386.03 82.12 337.91 82.12 269.86 130.24 221.74 198.3 221.74 246.42 269.86 246.42 337.91 198.3 386.03 130.24 386.03"/>
+    </clipPath>
+  </defs>
+  <g id="Main_JAP_copy" data-name="Main JAP copy">
+    <g id="north_big_jap_copy_51" data-name="north big jap copy 51">
+      <path id="Shadow" class="cls-2" d="M171.52,409.43h151.56c19.94,0,17.28-18.5,17.28-18.5,0,0,1.6-256.77-31.11-311.99C276.55,23.73,192.26,1.36,171.52,1.36S66.49,23.73,33.78,78.94C1.08,134.16,2.67,390.93,2.67,390.93c0,0-2.66,18.5,17.28,18.5H171.52Z"/>
+      <g>
+        <g class="cls-3">
+          <rect id="Color_gradient" data-name="Color gradient" class="cls-6" x="3" y="-40.31" width="326.53" height="505.92"/>
+        </g>
+        <path id="Form_big-2" data-name="Form big" class="cls-5" d="M166.27,406.32h146.45c19.27,0,16.7-18.28,16.7-18.28,0,0,1.54-253.78-30.06-308.36C267.76,25.1,186.31,3,166.27,3S64.78,25.1,33.18,79.68C1.57,134.26,3.11,388.04,3.11,388.04c0,0-2.57,18.28,16.7,18.28H166.27Z"/>
+      </g>
+      <g id="Pieces_copy_87" data-name="Pieces copy 87">
+        <g id="Oxcart_copy_17" data-name="Oxcart copy 17">
+          <g id="OC_move_copy_15" data-name="OC move copy 15">
+            <g id="Arrows_copy_50" data-name="Arrows copy 50">
+              <polygon class="cls-2" points="149.01 234.95 164.27 208.53 179.52 234.95 149.01 234.95"/>
+            </g>
+            <g id="Lines">
+              <g class="cls-1">
+                <rect class="cls-2" x="160.16" y="221.7" width="9.1" height="82.18"/>
+              </g>
+            </g>
+            <rect id="Center" class="cls-2" x="145.74" y="285.25" width="37.93" height="37.93"/>
+          </g>
+          <g>
+            <path class="cls-2" d="M159.9,141.49v14.28h-47.64v40.08h-15.36v-40.08H49.75v-14.28h47.16v-24.24h-23.88c-3.48,7.8-7.32,14.88-11.64,20.4-3.36-2.28-9.72-5.4-13.8-7.08,8.64-10.2,15.84-28.08,19.56-45.24l18,4.2c-.36,1.32-1.68,1.8-3.12,1.68-1.08,3.96-2.16,7.92-3.48,11.88h18.36v-20.4l18.6,1.08c-.12,1.2-1.08,1.92-3.24,2.28v17.04h40.8v14.16h-40.8v24.24h47.64Z"/>
+            <path class="cls-2" d="M280.02,166.69v13.08h-48.36v16.08h-14.88v-16.08h-46.92v-13.08h46.92v-6.36h-34.8v-48.72h34.8v-5.88h-44.04v-13.08h44.04v-9.96l18.24,1.08c-.12,1.2-1.08,1.92-3.36,2.28v6.6h44.88v13.08h-44.88v5.88h35.88v48.72h-35.88v6.36h48.36Zm-84.24-43.56v7.32h21v-7.32h-21Zm0,25.68h21v-7.56h-21v7.56Zm57.12-25.68h-21.24v7.32h21.24v-7.32Zm0,25.68v-7.56h-21.24v7.56h21.24Z"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

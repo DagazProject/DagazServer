@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 337.98 409.43">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-2 {
+        fill: #2e1b10;
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-6, .cls-5 {
+        stroke: #3b2314;
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+      }
+    </style>
+    <clipPath id="clippath">
+      <path id="Form_big" data-name="Form big" class="cls-5" d="M166.27,3.1H19.82C.54,3.1,3.11,21.39,3.11,21.39c0,0-1.54,253.78,30.06,308.36,31.6,54.58,113.05,76.68,133.09,76.68s101.49-22.1,133.09-76.68c31.6-54.58,30.06-308.36,30.06-308.36,0,0,2.57-18.28-16.7-18.28H166.27Z"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="13649.07" y1="-1768.51" x2="13975.6" y2="-1768.51" gradientTransform="translate(-13646.07 1965.28)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbcdab"/>
+      <stop offset="1" stop-color="#fde4d9"/>
+    </linearGradient>
+    <clipPath id="clippath-1">
+      <polygon class="cls-4" points="202.3 23.39 250.42 71.51 250.42 139.57 202.3 187.69 134.24 187.69 86.12 139.57 86.12 71.51 134.24 23.39 202.3 23.39"/>
+    </clipPath>
+  </defs>
+  <g id="Main_JAP_copy" data-name="Main JAP copy">
+    <g id="north_big_jap_copy" data-name="north big jap copy">
+      <path id="Shadow" class="cls-2" d="M169.02,0H17.45C-2.49,0,.17,18.5,.17,18.5c0,0-1.6,256.77,31.11,311.99,32.7,55.22,116.99,77.58,137.73,77.58s105.03-22.36,137.73-77.58c32.71-55.22,31.11-311.99,31.11-311.99,0,0,2.66-18.5-17.28-18.5H169.02Z"/>
+      <g>
+        <g class="cls-3">
+          <rect id="Color_gradient" data-name="Color gradient" class="cls-6" x="3" y="-56.19" width="326.53" height="505.92"/>
+        </g>
+        <path id="Form_big-2" data-name="Form big" class="cls-5" d="M166.27,3.1H19.82C.54,3.1,3.11,21.39,3.11,21.39c0,0-1.54,253.78,30.06,308.36,31.6,54.58,113.05,76.68,133.09,76.68s101.49-22.1,133.09-76.68c31.6-54.58,30.06-308.36,30.06-308.36,0,0,2.57-18.28-16.7-18.28H166.27Z"/>
+      </g>
+      <g id="Pieces_copy_37" data-name="Pieces copy 37">
+        <g id="Blind_Dog_copy_8" data-name="Blind Dog copy 8">
+          <g id="BD_move_copy_8" data-name="BD move copy 8">
+            <g id="Lines">
+              <g class="cls-1">
+                <g>
+                  <rect class="cls-2" x="202.83" y="85.24" width="9.1" height="119.71" transform="translate(-41.86 189.12) rotate(-45)"/>
+                  <rect class="cls-2" x="68.39" y="140.48" width="119.9" height="9.1" transform="translate(-64.96 133.21) rotate(-45)"/>
+                  <rect class="cls-2" x="85.95" y="100.99" width="163.75" height="9.1"/>
+                  <rect class="cls-2" x="163.28" y="23.36" width="9.1" height="82.18"/>
+                </g>
+              </g>
+            </g>
+            <rect class="cls-2" x="148.86" y="86.25" width="37.93" height="37.93"/>
+          </g>
+          <g>
+            <path class="cls-2" d="M172.63,303.1h82.68v-6.12c0-3.72-1.32-5.16-8.4-5.16h-42.48c-6.96,0-18.12,.36-22.68,1.2-.6-3.96-1.08-8.76-1.56-11.76,3.72-.84,14.16-1.08,22.44-1.08h43.56c17.52,0,23.04,4.32,23.04,16.92v6h13.56v11.04h-47.76v12.6l-17.28-.84c.12-1.2,.96-1.92,3.24-2.28v-9.48h-48.36v-11.04Zm92.4-89.64v60.12h-75.84v-59.64h14.64v3.36h47.28v-3.84h13.92Zm-61.2,49.8h47.28v-5.52h-47.28v5.52Zm47.28-20.52h-47.28v5.64h47.28v-5.64Zm0-15.12h-47.28v5.76h47.28v-5.76Z"/>
+            <path class="cls-2" d="M53.35,277.78h44.28c-7.68-24.36-22.08-42.36-47.64-50.16,3.48-3.24,8.28-9.96,10.44-14.28,24,8.88,38.04,25.44,46.92,48.72,6.6-19.8,19.68-37.08,46.92-48.36,2.04,4.2,6.48,9.84,10.44,13.08-29.4,11.16-40.8,29.52-45.36,51h42.96v14.88h-45c-.96,11.04-.84,22.44-.96,33.96l-19.08-1.2c.24-1.32,1.32-2.16,3.36-2.52,.24-9.96,.36-20.16,1.08-30.24H53.35v-14.88Zm28.56,47.16c-8.16-5.16-18.48-12.96-23.4-18.84l10.92-9.96c4.44,5.88,14.4,14.28,22.68,19.92l-10.2,8.88Z"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
