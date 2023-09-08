@@ -957,12 +957,7 @@ export class SessionService {
         .where(`session_id in (select a.id
                                from   game_sessions a
                                where  a.status_id = 1 and a.is_protected = 0
-                               and    a.changed + interval '1 month' < :dt
-                               except
-                               select c.id
-                               from   bonuses a
-                               inner  join user_games b on (b.id = a.uid)
-                               inner  join game_sessions c on (c.id = b.session_id))`, {dt: dt})
+                               and    a.changed + interval '1 month' < :dt)`, {dt: dt})
         .execute();
         await this.service.createQueryBuilder("game_moves")
         .delete()
@@ -970,12 +965,7 @@ export class SessionService {
         .where(`session_id in (select a.id
                                from   game_sessions a
                                where  a.status_id = 1 and a.is_protected = 0
-                               and    a.changed + interval '1 month' < :dt
-                               except
-                               select c.id
-                               from   bonuses a
-                               inner  join user_games b on (b.id = a.uid)
-                               inner  join game_sessions c on (c.id = b.session_id))`, {dt: dt})
+                               and    a.changed + interval '1 month' < :dt)`, {dt: dt})
         .execute();
         await this.service.createQueryBuilder("challenge")
         .delete()
@@ -983,12 +973,7 @@ export class SessionService {
         .where(`session_id in (select a.id
                                from   game_sessions a
                                where  a.status_id = 1 and a.is_protected = 0
-                               and    a.changed + interval '1 month' < :dt
-                               except
-                               select c.id
-                               from   bonuses a
-                               inner  join user_games b on (b.id = a.uid)
-                               inner  join game_sessions c on (c.id = b.session_id))`, {dt: dt})
+                               and    a.changed + interval '1 month' < :dt)`, {dt: dt})
         .execute();
         await this.service.createQueryBuilder("user_games")
         .delete()
@@ -996,12 +981,7 @@ export class SessionService {
         .where(`session_id in (select a.id
                                from   game_sessions a
                                where  a.status_id = 1 and a.is_protected = 0
-                               and    a.changed + interval '1 month' < :dt
-                               except
-                               select c.id
-                               from   bonuses a
-                               inner  join user_games b on (b.id = a.uid)
-                               inner  join game_sessions c on (c.id = b.session_id))`, {dt: dt})
+                               and    a.changed + interval '1 month' < :dt)`, {dt: dt})
         .execute();
         await this.service.createQueryBuilder("game_sessions")
         .delete()
@@ -1009,12 +989,7 @@ export class SessionService {
         .where(`id in (select a.id
                        from   game_sessions a
                        where  a.status_id = 1 and a.is_protected = 0
-                       and    a.changed + interval '1 month' < :dt
-                       except
-                       select c.id
-                       from   bonuses a
-                       inner  join user_games b on (b.id = a.uid)
-                       inner  join game_sessions c on (c.id = b.session_id))`, {dt: dt})
+                       and    a.changed + interval '1 month' < :dt)`, {dt: dt})
         .execute();
         return true;
     }
