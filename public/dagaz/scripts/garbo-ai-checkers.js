@@ -556,8 +556,8 @@ Dagaz.AI.IsHashMoveValid = function(move) {
     // Can't move to a square that has something of the same color
     if ((captured != pieceEmpty) && (Dagaz.AI.g_toMove == (captured & Dagaz.AI.colorWhite))) return false;
 
+    var dir = to - from;
     if (captured == pieceEmpty) {
-        var dir = to - from;
         if (pieceType == pieceMan) {
             if ((dir > 17) || (dir < -17)) return false;
             if ((Dagaz.AI.g_toMove == Dagaz.AI.colorWhite) != (dir < 0)) return false;
