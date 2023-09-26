@@ -316,6 +316,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(279, 25, 'Wa Shogi', 'wa-shogi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, max_selector) values(280, 30, 'Genesis Chess', 'genesis-chess', 2, 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(281, 25, 'Go-Roku Shogi', 'goroku-shogi', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(282, 24, 'Stavropol Adiyukh Checkers', 'stavropol-adiuh-checkers', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -1157,6 +1158,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(667, 'genesis-chess', 2, 'genesis-chess-2')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(668, 'goroku-shogi', null, 'goroku', '2018 Shingeki Watanabe')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(669, 'goroku-shogi-kanji', null, 'goroku-kanji', '2018 Shingeki Watanabe')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(670, 'stavropol-adiuh-checkers', null, 'adiuh-checkers', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

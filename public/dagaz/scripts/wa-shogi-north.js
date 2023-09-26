@@ -1,6 +1,7 @@
 Dagaz.Controller.persistense = "none";
 
-Dagaz.View.CHECK_CANVAS = true;
+Dagaz.View.CHECK_CANVAS   = true;
+Dagaz.View.SCALE_SIZE     = true;
 
 Dagaz.Model.WIDTH         = 11;
 Dagaz.Model.HEIGHT        = 11;
