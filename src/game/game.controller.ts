@@ -50,6 +50,18 @@ export class GameController {
         }
     }
 
+    @Get('map/:id')
+    @ApiOkResponse({ description: 'Successfully.'})
+    @ApiInternalServerErrorResponse({ description: 'Internal Server error.'})
+    async getMap(@Res() res, @Param('id') id): Promise<Game[]> {
+        try {
+            const r = await this.service.getMapEx(id);
+            return res.status(HttpStatus.OK).json(r);
+        } catch(e) {
+            return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ error: e.message.error.toString(), stack: e.stack});
+        }
+    }
+
     @Get('map')
     @ApiOkResponse({ description: 'Successfully.'})
     @ApiInternalServerErrorResponse({ description: 'Internal Server error.'})

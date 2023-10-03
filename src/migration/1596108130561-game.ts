@@ -317,6 +317,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, max_selector) values(280, 30, 'Genesis Chess', 'genesis-chess', 2, 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(281, 25, 'Go-Roku Shogi', 'goroku-shogi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(282, 24, 'Stavropol Adiyukh Checkers', 'stavropol-adiuh-checkers', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, max_selector) values(283, 37, 'Fox and Geese', 'fox-and-geese', 2, 4)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -518,6 +519,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(173, 25, 281, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(174, 30, 179, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(175, 24, 282, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(176, 37, 283, null, 1)`);
 
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(1, 25, 10, 1, 'Without Handicap')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(2, 25, 10, 2, 'Left-Kyo Handicap')`);
@@ -558,6 +560,10 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(37, 35, 50, 2, 'Dyzym')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(38, 35, 51, 1, 'Morris')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(39, 35, 51, 2, 'Dyzym')`);
+        await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(40, 37, 283, 1, '13 men')`);
+        await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(41, 37, 283, 2, '15 men')`);
+        await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(42, 37, 283, 3, 'British')`);
+        await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(43, 37, 283, 4, 'French')`);
 
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(1, 'doubutsu-shogi', null, 'doubutsu-shogi', 'https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi', 'Madoka Kitao')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(2, 'atari-go', null, 'atari-go', 'https://en.wikipedia.org/wiki/Go_variants#First_Capture')`);
@@ -570,7 +576,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(9, 'dual-go', null, 'dual-go')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(10, 'russian-checkers', 1, 'russian-checkers-1', 'https://en.wikipedia.org/wiki/Russian_draughts')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(11, 'international-checkers', null, 'international-checkers', 'https://en.wikipedia.org/wiki/International_draughts')`);
-        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(12, 'frisian-checkers', null, 'frisian-checkers')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(12, 'frisian-checkers', null, 'international-checkers')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(13, '80-cells-checkers', null, '80-cells-checkers', 'https://en.wikipedia.org/wiki/Russian_draughts', 'Nikolay Spancireti (1916-1991)')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(14, 'xiangqi', null, 'xiangqi', 'https://en.wikipedia.org/wiki/Xiangqi')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(15, 'column-checkers', null, 'column-checkers', 'https://en.wikipedia.org/wiki/Bashni')`);
@@ -1035,8 +1041,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(543, 'co-ganh', null, 'co-ganh', 'https://vi.wikipedia.org/wiki/C%E1%BB%9D_g%C3%A1nh')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(544, 'adiuh-checkers', null, 'adiuh-checkers', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(545, 'adiuh-checkers-8x10', null, 'adiuh-checkers-8x10', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
-        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(546, 'sovereign-chess', null, 'sovereign-chess', 'https://en.wikipedia.org/wiki/Sovereign_Chess', 'Sovereign Chess')`);
-        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(547, 'sovereign-chess-12x12', null, 'sovereign-chess-12x12', 'https://en.wikipedia.org/wiki/Sovereign_Chess', 'Sovereign Chess')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(546, 'sovereign-chess', null, 'sovereign-chess', 'https://en.wikipedia.org/wiki/Sovereign_Chess', 'Mark Bates, Infinite Pi Games')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(547, 'sovereign-chess-12x12', null, 'sovereign-chess-12x12', 'https://en.wikipedia.org/wiki/Sovereign_Chess', 'Mark Bates, Infinite Pi Games')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(548, 'ur', null, 'ur', 'https://www.ancientgames.org/royal-game-ur-game-20-squares/', '2011 Dmitry Skyruk')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(549, 'shen', null, 'shen', 'https://en.wikipedia.org/wiki/Hounds_and_Jackals')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(550, 'puluc', null, 'puluc', 'https://en.wikipedia.org/wiki/Bul_(game)')`);
@@ -1160,6 +1166,10 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(668, 'goroku-shogi', null, 'goroku', '2018 Shingeki Watanabe')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(669, 'goroku-shogi-kanji', null, 'goroku-kanji', '2018 Shingeki Watanabe')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(670, 'stavropol-adiuh-checkers', null, 'adiuh-checkers', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(671, 'fox-and-geese', 1, 'fox-and-geese-13')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(672, 'fox-and-geese', 2, 'fox-and-geese-15')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(673, 'fox-and-geese', 3, 'fox-and-geese-british')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(674, 'fox-and-geese', 4, 'fox-and-geese-french')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

@@ -48,6 +48,41 @@ export class GameService {
           }
       }
 
+      async getMapEx(id: number): Promise<Game[]> {
+        try {
+            const x = await this.service.query(
+                `select coalesce(b.game_id, a.id) as id, b.variant_id, a.name,
+                        a.preview, a.rules, a.copyright, a.filename
+                 from   game_map a
+                 left   join (
+                    select c.id as game_id, d.id as variant_id,
+                           coalesce(d.filename, c.filename) as filename
+                    from   games c
+                    left   join game_variants d on (d.game_id = c.id)
+                 ) b on (a.filename = b.filename)
+                 where  coalesce(a.parent_id, 0) = $1
+                 order  by a.id`, [id]);
+                 let l: Game[] = x.map(x => {
+                    let it = new Game();
+                    it.id = x.id;
+                    it.variant_id = x.variant_id;
+                    it.name = x.name;
+                    it.preview = x.preview;
+                    it.rules = x.rules;
+                    it.copyright = x.copyright;
+                    it.filename = x.filename;
+                    return it;
+                });
+                return l;
+          } catch (error) {
+            console.error(error);
+            throw new InternalServerErrorException({
+                status: HttpStatus.BAD_REQUEST,
+                error: error
+            });
+          }
+      }
+
       async getMap(): Promise<Game[]> {
           try {
             const x = await this.service.query(
