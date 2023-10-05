@@ -151,11 +151,11 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1720, 17, 'Dameo', 'dameo', 'dameo', 'http://www.iggamecenter.com/info/en/dameo.html', '2000 Christian Freeling')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(1721, 17, 'Lika', 'lika', 'russian-checkers-1')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(1722, 17, 'Pskov Checkers', 'pskov-checkers', 'pskov-checkers')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1723, 17, 'Shafran''s Checkers', 'shafran-checkers', 'shafran-checkers', 'Isaak Shafran')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1723, 17, 'Shafran''s Checkers', 'shafran-checkers', 'shafran', 'Isaak Shafran')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1801, 18, 'Cheskers 8x8', 'cheskers-8x8', 'cheskers-8x8', 'https://en.wikipedia.org/wiki/Cheskers', '1948 Solomon W. Golomb')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1802, 18, 'Cheskers 9x9', 'cheskers-9x9', 'cheskers-9x9', 'Peter Aronson')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1803, 18, 'Cheskers 10x10', 'cheskers-10x10', 'cheskers-10x10', 'Peter Aronson')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1803, 18, 'Cheskers 10x10', 'cheskers-10x10', 'cheskers-10x10-1', 'Peter Aronson')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1901, 19, 'Knight''s Court', 'knights-court', 'knights-court', 'https://www.chessvariants.com/small.dir/knightcourt.html', '2000 Jason D. Wittman')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1902, 19, 'Silverman''s Chess', 'silverman-chess', 'silverman', '1981 David Silverman')`);
@@ -260,7 +260,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(6208, 62, 'Windmill', 'windmill', 'windmill', 'https://en.wikipedia.org/wiki/Nine_Men%27s_Morris')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7001, 70, 'Renju', 'renju', 'renju', 'https://en.wikipedia.org/wiki/Renju')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7002, 70, 'Gomoku', 'gomoku', 'renju', 'https://en.wikipedia.org/wiki/Gomoku')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7002, 70, 'Gomoku', 'gomoku', 'gomoku', 'https://en.wikipedia.org/wiki/Gomoku')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7003, 70, 'Gomoku Knights', 'gomoku-knights', 'gomoku-knights', '2001 Chris Huntoon')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7004, 70, 'Ninuki Renju', 'ninuki-renju', 'pente', 'https://en.wikipedia.org/wiki/Pente')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7005, 70, 'Pente', 'pente', 'pente', 'https://en.wikipedia.org/wiki/Pente', '1977 Gary Gabrel')`);
@@ -282,7 +282,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7709, 77, '5x7 Shogi', '5x7-shogi', '5x7-shogi', '1977 Hirobumi Serizawa')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7710, 77, 'Rocket Shogi', 'rocket-shogi', 'rocket-shogi', '2012 Itsubaki Yoshihisa')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7711, 77, 'Ikusa Shogi', 'ikusa-shogi', 'ikusa-shogi', '2011 Yamamoto Mitsuo')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7712, 77, 'Judkins Shogi', 'judkins-shogi', 'judkins-shogi', 'https://en.wikipedia.org/wiki/Judkins_shogi', '1998 Paul Judkins')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7712, 77, 'Judkins Shogi', 'judkins-shogi', 'judkins', 'https://en.wikipedia.org/wiki/Judkins_shogi', '1998 Paul Judkins')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7713, 77, 'Renge Shogi', 'renge-shogi', 'renge-shogi', '1999 Michel Sandeman')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7714, 77, 'Kantorai Shogi', 'kantorai', 'kantorai-1', 'http://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=541', '2001 Chris Huntoon')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7715, 77, 'Shogi', 'shogi', 'shogi-1', 'https://en.wikipedia.org/wiki/Shogi')`);

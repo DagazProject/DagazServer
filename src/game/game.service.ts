@@ -59,6 +59,7 @@ export class GameService {
                            coalesce(d.filename, c.filename) as filename
                     from   games c
                     left   join game_variants d on (d.game_id = c.id)
+                    where  c.realm_id = 1
                  ) b on (a.filename = b.filename)
                  where  coalesce(a.parent_id, 0) = $1
                  order  by a.id`, [id]);
