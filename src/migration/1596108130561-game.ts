@@ -318,6 +318,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(281, 25, 'Go-Roku Shogi', 'goroku-shogi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(282, 24, 'Stavropol Adiyukh Checkers', 'stavropol-adiuh-checkers', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, max_selector) values(283, 37, 'Fox and Geese', 'fox-and-geese', 2, 4)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(284, 22, 'Werewolf Checkers', 'werewolf-checkers', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -520,6 +521,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(174, 30, 179, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(175, 24, 282, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(176, 37, 283, null, 1)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(177, 22, 284, null, 1)`);
 
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(1, 25, 10, 1, 'Without Handicap')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(2, 25, 10, 2, 'Left-Kyo Handicap')`);
@@ -1170,6 +1172,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(672, 'fox-and-geese', 2, 'fox-and-geese-15')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(673, 'fox-and-geese', 3, 'fox-and-geese-british')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(674, 'fox-and-geese', 4, 'fox-and-geese-french')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(675, 'werewolf-checkers', null, 'russian-checkers-1')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

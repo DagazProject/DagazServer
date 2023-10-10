@@ -150,8 +150,9 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1719, 17, 'Harzdame', 'harzdame', 'harzdame', 'http://www.iggamecenter.com/info/de/harzdame.html', '2009 Benedikt Rosenau')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1720, 17, 'Dameo', 'dameo', 'dameo', 'http://www.iggamecenter.com/info/en/dameo.html', '2000 Christian Freeling')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(1721, 17, 'Lika', 'lika', 'russian-checkers-1')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(1722, 17, 'Pskov Checkers', 'pskov-checkers', 'pskov-checkers')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1723, 17, 'Shafran''s Checkers', 'shafran-checkers', 'shafran', 'Isaak Shafran')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(1722, 17, 'Werewolf Checkers', 'werewolf-checkers', 'russian-checkers-1')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(1723, 17, 'Pskov Checkers', 'pskov-checkers', 'pskov-checkers')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1724, 17, 'Shafran''s Checkers', 'shafran-checkers', 'shafran', 'Isaak Shafran')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1801, 18, 'Cheskers 8x8', 'cheskers-8x8', 'cheskers-8x8', 'https://en.wikipedia.org/wiki/Cheskers', '1948 Solomon W. Golomb')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1802, 18, 'Cheskers 9x9', 'cheskers-9x9', 'cheskers-9x9', 'Peter Aronson')`);
