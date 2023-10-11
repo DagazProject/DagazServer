@@ -83,7 +83,8 @@ export class AuthService {
           refresh_token: r,
           role: u.is_admin,
           realm: u.realm,
-          user_id: user.id
+          user_id: user.id,
+          flags: u.flags
         };
       } catch (error) {
         console.error(error);

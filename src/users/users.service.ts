@@ -235,6 +235,7 @@ export class UsersService {
           it.created = x.created;
           it.deleted = x.deleted;
           it.last_actived = x.last_actived;
+          it.flags = x.flags;
           return it;
         } catch (error) {
           console.error(error);
@@ -282,7 +283,8 @@ export class UsersService {
           .set({ 
             name: x.name,
             login: x.username,
-            email: x.email
+            email: x.email,
+            flags: x.flags
           })
           .where("id = :id", {id: user})
           .execute();

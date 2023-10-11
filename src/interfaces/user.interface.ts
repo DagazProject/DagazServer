@@ -34,4 +34,7 @@ export class User {
 
     @ApiPropertyOptional()
     device: string;
+
+    @ApiProperty()
+    flags: number;
 }
