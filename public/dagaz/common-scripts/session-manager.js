@@ -125,7 +125,7 @@ var undoMove = function(uid) {
      },
      statusCode: {
         404: function() {
-             alert('Can\'t rollback move');
+             if (!(localStorage.getItem('myFlags') & 1)) alert('Can\'t rollback move');
         },
         500: function() {
              console.log('undo: 500');
@@ -136,7 +136,7 @@ var undoMove = function(uid) {
 
 Dagaz.Controller.undo = function() {
   if (undoUid !== null) {
-      if (!confirm("Rollback last move?")) return;
+      if (!(localStorage.getItem('myFlags') & 1) && !confirm("Rollback last move?")) return;
       undoMove(undoUid);
       Dagaz.Controller.setUndoVisible(null);
       return;

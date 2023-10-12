@@ -63,7 +63,7 @@ var gameOver = function(text, self, player) {
       if (!_.isUndefined(Dagaz.Controller.clearGame)) {
           Dagaz.Controller.clearGame();
       }
-      alert(text);
+      if (!(localStorage.getItem('myFlags') & 1)) alert(text);
   }
 }
 
@@ -327,7 +327,7 @@ App.prototype.determinate = function(move) {
   var moves = move.determinate();
   determinated = null;
   if (moves.length > 1) {
-      var promote = confirm("Promote piece?");
+      var promote = (localStorage.getItem('myFlags') & 1) || confirm("Promote piece?");
       if (promote) {
           move = moves[1];
       } else {
@@ -908,7 +908,7 @@ var getConfirmed = function() {
                      app.winPlayer   = -app.board.player;
                      gameOver(app.doneMessage, app, app.winPlayer);
                  } else {
-                     if (confirm("Do you agree to a draw?")) {
+                     if ((localStorage.getItem('myFlags') & 1) || confirm("Do you agree to a draw?")) {
                          drawGame();
                          if (!_.isUndefined(Dagaz.Controller.play) && onceWinPlay && (uid || !dice)) {
                              Dagaz.Controller.play(Dagaz.Sounds.draw);
@@ -1003,12 +1003,12 @@ var addMove = function(move, setup, id) {
 }
 
 Dagaz.Controller.resign = function() {
-  if (uid && !confirm("Resign?")) return;
+  if (uid && !(localStorage.getItem('myFlags') & 1) && !confirm("Resign?")) return;
   loseGame();
 }
 
 Dagaz.Controller.drawOffer = function() {
-  if (uid && !confirm("Draw Offer?")) return;
+  if (uid && !(localStorage.getItem('myFlags') & 1) && !confirm("Draw Offer?")) return;
   if (bot === null) {
       sendAlert(3);
   } else {
