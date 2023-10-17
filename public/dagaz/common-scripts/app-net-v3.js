@@ -748,6 +748,7 @@ Dagaz.Controller.drawOffer = function() {
       sendAlert(3);
   } else {
       drawGame();
+      window.location = window.location;
   }
 }
 
