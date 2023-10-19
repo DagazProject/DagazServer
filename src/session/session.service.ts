@@ -179,32 +179,38 @@ export class SessionService {
                  where  a.status_id = 2 and a.closed is null
                  group  by a.id, a.status_id, a.game_id, d.id, d.name, b.name, d.filename, b.filename, a.created, c.name, b.players_total, a.last_setup, h.suffix, x.id, a.timecontrol_id, t.name, a.is_protected
                  union
-                 select a.id as id, a.status_id as status, a.game_id as game_id, d.id as variant_id,
-                        coalesce(d.name, e.name) || ' (' || a.id || ')' as game, coalesce(d.filename, e.filename) || coalesce(h.suffix, '') as filename,
-                        a.created as created, j.name as creator, e.players_total as players_total, a.last_setup as last_setup,
+                 select z.id, z.status, z.game_id, z.variant_id, z.game, z.filename, z.created, z.creator, z.players_total, z.last_setup,
                         string_agg(
                             case
-                              when k.is_ai = 1 then 'AI'
-                              else f.name
-                            end || ' (' || k.player_num || ')', ' / ' order by k.player_num) as player_name,
-                        coalesce(a.last_turn, 0) as last_turn, coalesce(a.selector_value, 0) as selector_value, x.id as ai, a.changed as changed,
-                        a.timecontrol_id, t.name as timecontrol, a.is_protected
-                 from   game_sessions a
-                 inner  join user_games b on (b.session_id = a.id and b.player_num = 1 and b.user_id = $5)
-                 left   join game_moves c on (c.session_id = a.id)
-                 left   join game_variants d on (d.id = a.variant_id)
-                 inner  join games e on (e.id = a.game_id)
-                 left   join user_games g on (g.session_id = a.id and g.user_id = $6 and g.is_ai = 0)
-                 left   join game_styles h on (h.game_id = e.id and h.player_num = g.player_num)
-                 inner  join users j on (j.id = a.user_id and j.realm_id = $7)
-                 inner  join user_games k on (k.session_id = a.id)
-                 inner  join users f on (f.id = k.user_id and f.realm_id = $8)
-                 left   join user_games x on (x.session_id = a.id and x.is_ai = 1)
-                 left   join time_controls t on (t.id = a.timecontrol_id)
-                 where  c.id is null and a.closed is null
-                 group  by a.id, a.status_id, a.game_id, d.id, d.name, e.name, d.filename, e.filename, a.created, e.players_total, a.last_setup, h.suffix, x.id, j.name, a.timecontrol_id, t.name, a.is_protected
+                               when z.is_ai = 1 then 'AI'
+                               else z.player_name
+                            end || ' (' || z.player_num || ')', ' / ' order by z.player_num) as player_name,
+                        z.last_turn, z.selector_value, z.ai, z.changed, z.timecontrol_id, z.timecontrol, z.is_protected
+                 from ( select a.id as id, a.status_id as status, a.game_id as game_id, d.id as variant_id,
+                               coalesce(d.name, e.name) || ' (' || a.id || ')' as game, coalesce(d.filename, e.filename) || coalesce(h.suffix, '') as filename,
+                               a.created as created, j.name as creator, e.players_total as players_total, a.last_setup as last_setup,
+                               f.name as player_name, k.player_num, k.is_ai,
+                               coalesce(a.last_turn, 0) as last_turn, coalesce(a.selector_value, 0) as selector_value, x.id as ai, a.changed as changed,
+                               a.timecontrol_id, t.name as timecontrol, a.is_protected
+                        from   game_sessions a
+                        inner  join user_games b on (b.session_id = a.id and b.user_id = $5)
+                        left   join game_moves c on (c.session_id = a.id)
+                        left   join game_variants d on (d.id = a.variant_id)
+                        inner  join games e on (e.id = a.game_id)
+                        left   join user_games g on (g.session_id = a.id and g.user_id = $6 and g.is_ai = 0)
+                        left   join game_styles h on (h.game_id = e.id and h.player_num = g.player_num)
+                        inner  join users j on (j.id = a.user_id and j.realm_id = $7)
+                        inner  join user_games k on (k.session_id = a.id)
+                        inner  join users f on (f.id = k.user_id and f.realm_id = $8)
+                        left   join user_games x on (x.session_id = a.id and x.is_ai = 1)
+                        left   join time_controls t on (t.id = a.timecontrol_id)
+                        where  a.closed is null
+                        and  ( (c.id is null and b.player_num = 1) or 
+                        a.id in (select session_id from game_alerts where result_id = 3) and d.external_ai = $9 )
+                        group  by a.id, a.status_id, a.game_id, d.id, d.name, e.name, d.filename, e.filename, a.created, e.players_total, a.last_setup, h.suffix, x.id, j.name, a.timecontrol_id, t.name, a.is_protected, f.name, k.player_num, k.is_ai ) z
+                 group  by z.id, z.status, z.game_id, z.variant_id, z.game, z.filename, z.created, z.creator, z.players_total, z.last_setup, z.last_turn, z.selector_value, z.ai, z.changed, z.timecontrol_id, z.timecontrol, z.is_protected
                  order  by changed desc
-                 limit  200`, [realm, realm, user, user, user, user, realm, realm]);
+                 limit  200`, [realm, realm, user, user, user, user, realm, realm, user]);
                  let l: Sess[] = x.map(x => {
                     let it = new Sess();
                     it.id = x.id;

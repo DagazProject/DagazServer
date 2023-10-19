@@ -1178,8 +1178,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(672, 'fox-and-geese', 2, 'fox-and-geese-15')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(673, 'fox-and-geese', 3, 'fox-and-geese-british')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(674, 'fox-and-geese', 4, 'fox-and-geese-french')`);
-        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(675, 'werewolf-checkers', null, 'russian-checkers-1')`);
-        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(676, 'metacheckers', null, 'metacheckers')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(675, 'werewolf-checkers', null, 'russian-checkers-1', 'https://granddicechess.livejournal.com/9075.html', '2023 Vadrya Pokshtya')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(676, 'metacheckers', null, 'metacheckers', 'https://granddicechess.livejournal.com/9604.html', '2023 Vadrya Pokshtya')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(677, 'north-american-checkers', null, 'english-checkers')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(678, 'alaska-checkers', null, 'russian-checkers-1')`);
     }
