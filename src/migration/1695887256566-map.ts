@@ -197,7 +197,8 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1934, 19, 'Anti King Chess', 'anti-king', 'anti-king', 'https://www.chessvariants.com/diffobjective.dir/anti-king-chess.html', 'Peter Aronson')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1935, 19, 'Balbo''s Game', 'balbo-chess', 'balbo', 'https://en.wikipedia.org/wiki/Balbo%27s_Game', '1974 M. [Monsieur] G. Balbo')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1936, 19, 'Troitzky Chess', 'troitzky-chess', 'troitzky-1', 'http://mlwi.magix.net/bg/troitzkychess.htm', 'Paul Byway')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1937, 19, 'Platform Chess', 'platform-chess', 'platform-chess-1', '2001 Robert Price')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1937, 19, 'Battle of the Kings', 'botk', 'botk', 'https://www.chessvariants.com/rules/battle-of-kings-', '2021 Vadrya Pokshtya')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1938, 19, 'Platform Chess', 'platform-chess', 'platform-chess-1', '2001 Robert Price')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(2501, 25, 'Hex', 'hex', 'hex', 'http://www.iggamecenter.com/info/en/hex.html', '1942 Piet Hein and John Nash')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(2502, 25, 'Gonnect', 'gonnect', 'gonnect', '2000 Joao Pedro Neto')`);
