@@ -1135,6 +1135,47 @@ export class SessionService {
         return true;
     }
 
+    async getKoSetup(id: number, variant_id: number): Promise<string> {
+        let x = await this.service.query(
+            `select a.ko_shift as ko_shift
+             from   game_variants a
+             where  a.id = $1`, [variant_id]);
+        if (!x || x.length == 0) {
+            return null;
+        }
+        const ko_shift = x[0].ko_shift;
+        if (!ko_shift) {
+            return null;
+        }
+        x = await this.service.query(
+            `select max(a.turn_num) as last_num
+             from   game_moves a
+             where  a.session_id = $1`, [id]);
+        if (!x || x.length == 0) {
+             return null;
+        }
+        const last_num = x[0].last_num;
+        if (!last_num || (last_num < ko_shift)) {
+            return null;
+        }
+        if (last_num == ko_shift) {
+            x = await this.service.query(
+                `select a.last_setup as setup_str
+                 from   game_moves a
+                 where  a.session_id = $1 and a.turn_num = 1`, [id]);
+
+        } else {
+            x = await this.service.query(
+                `select a.setup_str as setup_str
+                 from   game_moves a
+                 where  a.session_id = $1 and a.turn_num = $2`, [id, last_num - ko_shift]);
+        }
+        if (!x || x.length == 0) {
+             return null;
+        }
+        return x[0].setup_str;
+    }
+
     async recovery(user:number, s: Sess): Promise<Sess> {
         try {
             await this.service.createQueryBuilder("game_moves")
@@ -1190,6 +1231,7 @@ export class SessionService {
                 s.is_admin = await this.isRoot(user);
             }
             s.ai_timeout = await this.getAiTimeout(s.id);
+            s.ko_setup = await this.getKoSetup(s.id, s.variant_id);
             x = x.filter((it) => { return (it.user_id == user) && (it.is_ai == 0); });
             if ((x.length == 1) && (x[0].status_id != 3)) {
                 s.player_num = x[0].player_num;

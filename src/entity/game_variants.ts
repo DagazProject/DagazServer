@@ -50,4 +50,7 @@ export class game_variants {
 
     @Column({ nullable: true })
     height: number;
+
+    @Column({ nullable: true })
+    ko_shift: number;
 }

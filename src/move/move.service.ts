@@ -125,6 +125,48 @@ export class MoveService {
         });
     }
 
+    async getKoSetup(id: number): Promise<string> {
+        let x = await this.service.query(
+            `select b.ko_shift as ko_shift
+             from   game_sessions a
+             inner  join game_variants b on (b.id = a.variant_id)
+             where  a.id = $1`, [id]);
+        if (!x || x.length == 0) {
+             return null;
+        }
+        const ko_shift = x[0].ko_shift;
+        if (!ko_shift) {
+             return null;
+        }
+        x = await this.service.query(
+            `select max(a.turn_num) as last_num
+             from   game_moves a
+             where  a.session_id = $1`, [id]);
+        if (!x || x.length == 0) {
+             return null;
+        }
+        const last_num = x[0].last_num;
+        if (!last_num || (last_num < ko_shift)) {
+            return null;
+        }
+        if (last_num == ko_shift) {
+            x = await this.service.query(
+                `select a.last_setup as setup_str
+                 from   game_moves a
+                 where  a.session_id = $1 and a.turn_num = 1`, [id]);
+
+        } else {
+            x = await this.service.query(
+                `select a.setup_str as setup_str
+                 from   game_moves a
+                 where  a.session_id = $1 and a.turn_num = $2`, [id, last_num - ko_shift]);
+        }
+        if (!x || x.length == 0) {
+             return null;
+        }
+        return x[0].setup_str;
+    }
+
     async getConfirmedMove(uid: number): Promise<Move[]> {
         try {
             const sid: number = await this.getSession(uid);
@@ -162,6 +204,7 @@ export class MoveService {
                 it.time_delta = x[0].time_delta;
                 it.time_limit = await this.getTimeLimit(uid);
                 it.additional_time = await this.getAdditionalTime(it.session_id);
+                it.ko_setup = await this.getKoSetup(it.session_id);
                 l.push(it);
                 await this.acceptMove(it.id);
                 await this.touchSession(it.uid, sid);

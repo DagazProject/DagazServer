@@ -40,4 +40,7 @@ export class Move {
 
     @ApiPropertyOptional()
     result_id: number;
+
+    @ApiPropertyOptional()
+    ko_setup: string;
 }

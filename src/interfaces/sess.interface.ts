@@ -106,4 +106,7 @@ export class Sess {
 
     @ApiPropertyOptional()
     is_protected: boolean;
+
+    @ApiPropertyOptional()
+    ko_setup: string;
 }

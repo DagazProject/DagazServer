@@ -460,6 +460,7 @@ var recovery = function(s) {
          setup = data.last_setup;
          time_limit = data.time_limit;
          additional_time = data.additional_time;
+         Dagaz.Controller.SERVER_KO = data.ko_setup;
          dice = !!data.is_dice;
          time_stamp = Date.now();
          isAdmin = data.is_admin;
@@ -923,6 +924,7 @@ var getConfirmed = function() {
                      }
                  }
              } else {
+                 Dagaz.Controller.SERVER_KO = data[0].ko_setup;
                  last_move  = data[0].move_str;
                  last_setup = data[0].setup_str;
                  time_limit = data[0].time_limit;
