@@ -37,6 +37,7 @@ var time_stamp = null;
 var onceWinPlay = true;
 var last_setup = null;
 var dice = false;
+var last_turn = null;
 
 function App(canvas, params) {
   this.design = Dagaz.Model.getDesign();
@@ -480,6 +481,7 @@ var recovery = function(s) {
          if (data.ai) {
              bot = data.ai;
          }
+         last_turn = data.last_turn;
          player_num = data.player_num;
          setup = data.last_setup;
          time_limit = data.time_limit;
@@ -850,6 +852,7 @@ var getConfirmed = function() {
                  last_move  = data[0].move_str;
                  last_setup = data[0].setup_str;
                  time_limit = data[0].time_limit;
+                 last_turn  = data[0].turn_num;
                  time_stamp = Date.now();
                  additional_time = data[0].additional_time;
                  console.log('Confirmed: Succeed [move = ' + last_move + '], time_limit = ' + time_limit + ', additional_time = ' + additional_time);
@@ -888,6 +891,11 @@ var addMove = function(move, setup, id) {
   inProgress = true;
   var app = Dagaz.Controller.app;
   var design = app.design;
+  var tn = null;
+  if (last_turn !== null) {
+      last_turn++;
+      tn = last_turn;
+  }
   $.ajax({
      url: SERVICE + "move",
      type: "POST",
@@ -895,7 +903,8 @@ var addMove = function(move, setup, id) {
          uid: id,
          next_player: design.currPlayer(app.board.turn),
          move_str: move,
-         setup_str: setup
+         setup_str: setup,
+         turn_num: tn
      },
      dataType: "json",
      beforeSend: function (xhr) {
@@ -910,6 +919,9 @@ var addMove = function(move, setup, id) {
          console.log('Move: Error!');
      },
      statusCode: {
+        403: function() {
+             window.location = window.location;
+        },
         401: function() {
              Dagaz.Controller.app.state = STATE.STOP;
              console.log('Move: Bad User!');
