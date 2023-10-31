@@ -73,6 +73,7 @@ export class MoveController {
     @ApiBody({ type: [Move] })
     @ApiCreatedResponse({ description: 'Successfully.'})
     @ApiNotFoundResponse({ description: 'Not Found.'})
+    @ApiForbiddenResponse({ description: 'Restart needed.'})
     @ApiInternalServerErrorResponse({ description: 'Internal Server error.'})
     async update(@Res() res, @Body() x: Move): Promise<Move> {
         try {
@@ -80,7 +81,11 @@ export class MoveController {
             if (!r) {
                 return res.status(HttpStatus.NOT_FOUND).json();
             } else {
-                return res.status(HttpStatus.CREATED).json(r);
+                if (r.session_id === null) {
+                    return res.status(HttpStatus.FORBIDDEN).json();
+                } else {
+                    return res.status(HttpStatus.CREATED).json(r);
+                }
             }
         } catch (e) {
             return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ error: e.message.error.toString(), stack: e.stack});

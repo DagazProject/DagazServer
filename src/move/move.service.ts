@@ -391,7 +391,7 @@ export class MoveService {
             }
             const sid = t[0].session_id;
             const closed = t[0].closed;
-            const next_player = (t[0].player_num == 1) ? 2 : 1;
+            const next_player = t[0].player_num;
             const timecontrol_id = t[0].timecontrol_id;
             const is_sandglass = t[0].is_sandglass;
             if (closed) {
@@ -502,6 +502,17 @@ export class MoveService {
         }
     }
 
+    async getLastTurn(id: number): Promise<number> {
+        let x = await this.service.query(
+            `select coalesce(max(a.turn_num), 0) as last_turn
+             from   game_moves a
+             where  a.session_id = $1`, [id]);
+        if (!x || x.length == 0) {
+             return null;
+        }
+        return x[0].last_turn;
+    }
+
     async addMove(x: Move): Promise<Move> {
         try {
             const t = await this.service.query(
@@ -512,12 +523,19 @@ export class MoveService {
             if (!t || t.length == 0) {
                  return null;
             }
+            x.session_id = t[0].session_id;
+            if (x.turn_num !== null) {
+                const last_turn = await this.getLastTurn(x.session_id);
+                if (x.turn_num - 1 != last_turn) {
+                    x.session_id = null;
+                    return x;
+                }
+            }
             const last_setup = t[0].last_setup;
             const last_user = t[0].last_user;
             const is_sandglass = t[0].is_sandglass;
             const last_player = t[0].last_player;
             const last_turn = t[0].last_turn;
-            x.session_id = t[0].session_id;
             x.user_id = await this.getUser(x.uid);
             const f = await this.checkSession(x.session_id);
             if (!f) {

@@ -1176,6 +1176,17 @@ export class SessionService {
         return x[0].setup_str;
     }
 
+    async getLastTurn(id: number): Promise<number> {
+        let x = await this.service.query(
+            `select coalesce(max(a.turn_num), 0) as last_turn
+             from   game_moves a
+             where  a.session_id = $1`, [id]);
+        if (!x || x.length == 0) {
+             return null;
+        }
+        return x[0].last_turn;
+    }
+
     async recovery(user:number, s: Sess): Promise<Sess> {
         try {
             await this.service.createQueryBuilder("game_moves")
@@ -1227,6 +1238,7 @@ export class SessionService {
             s.players_total = x[0].players_total;
             s.last_setup = x[0].last_setup;
             s.is_dice = x[0].is_dice;
+            s.last_turn = await this.getLastTurn(s.id);
             if (x[0].status_id == 2) {
                 s.is_admin = await this.isRoot(user);
             }
