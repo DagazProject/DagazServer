@@ -323,6 +323,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(286, 22, 'North American Checkers', 'north-american-checkers', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(287, 22, 'Alaska Checkers', 'alaska-checkers', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, ko_shift) values(288, 30, 'Battle of the Kings', 'botk', 2, 3)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(289, 25, 'Heian Shogi', 'heian-shogi', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(290, 25, 'Sho Shogi', 'sho-shogi', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -530,6 +532,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(179, 22, 286, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(180, 22, 287, null, null)`);
 //      await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(181, 30, 288, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(182, 25, 289, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(183, 25, 290, null, null)`);
 
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(1, 25, 10, 1, 'Without Handicap')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(2, 25, 10, 2, 'Left-Kyo Handicap')`);
@@ -1185,6 +1189,10 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(677, 'north-american-checkers', null, 'english-checkers')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(678, 'alaska-checkers', null, 'russian-checkers-1')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(679, 'botk', null, 'botk', 'https://www.chessvariants.com/rules/battle-of-kings-', '2021 Vadrya Pokshtya')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(680, 'heian-shogi', null, 'heian-shogi', 'https://en.wikipedia.org/wiki/Heian_shogi')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(681, 'heian-shogi-kanji', null, 'heian-shogi-kanji', 'https://en.wikipedia.org/wiki/Heian_shogi')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(682, 'sho-shogi', null, 'sho-shogi', 'https://en.wikipedia.org/wiki/Sho_shogi')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(683, 'sho-shogi-kanji', null, 'sho-shogi-kanji', 'https://en.wikipedia.org/wiki/Sho_shogi')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
