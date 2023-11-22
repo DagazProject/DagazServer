@@ -22,7 +22,7 @@ var getName = function() {
   var str = window.location.pathname.toString();
   var result = str.match(/\/([^.\/]+)\./);
   if (result) {
-      return result[1].replace("-board", "").replace("-ai", "");
+      return result[1].replace("-board", "").replace("-ai", "").replace("-kanji", "").replace("-opened", "");
   } else {
       return str;
   }
@@ -81,7 +81,6 @@ var addPiece = function(board, type, player, cnt, avail) {
 var setup = Dagaz.Model.setup;
 
 Dagaz.Model.setup = function(board, init) {
-  console.log('*** ' + init);
   var s = getSetup(init);
   if (s) {
       setup(board, init);

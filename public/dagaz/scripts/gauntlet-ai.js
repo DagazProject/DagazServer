@@ -377,7 +377,6 @@ function GenerateCaptureMovesFrom(moves, from) {
 function GenerateQuietMovesFrom(moves, from) {
     var to; var steps;
     var piece = Dagaz.AI.g_board[from] & Dagaz.AI.TYPE_MASK;
-//  console.log('*** ' + Dagaz.AI.FormatSquare(from) + ', piece = ' + piece);
     if (piece == pieceMan) {
         to = from - 16; steps = new Array();
         if (Dagaz.AI.g_board[to] == 0) GenerateQuietStep(steps, from, to);
