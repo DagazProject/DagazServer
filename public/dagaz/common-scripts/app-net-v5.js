@@ -1274,6 +1274,9 @@ App.prototype.exec = function() {
           var m = move.toString() + ' ';
           if (m.startsWith(last_move + ' ')) {
               this.move = move;
+              if (!_.isUndefined(Dagaz.Model.PostProcessing)) {
+                  Dagaz.Model.PostProcessing(this.board, [this.move]);
+              }
           }
       }, this);
       if (this.move === null) {

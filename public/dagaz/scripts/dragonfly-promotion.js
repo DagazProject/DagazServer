@@ -10,7 +10,7 @@ Dagaz.Model.checkVersion = function(design, name, value) {
 
 Dagaz.Model.moveToString = function(move) {
   var r = "";
-  for (var i = 0; i < move.actions.length; i++) {
+  for (var i = 0; i < Math.min(move.actions.length, 1); i++) {
       var a = move.actions[i];
       if (a[0] != null) {
           r = r + Dagaz.Model.posToString(a[0][0]);
