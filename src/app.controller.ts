@@ -1,5 +1,5 @@
 import { Controller, UseGuards, Request, Post, Get, Param, Res, Body, HttpStatus } from '@nestjs/common';
-import { ApiSecurity, ApiBody, ApiCreatedResponse, ApiUnauthorizedResponse, ApiOkResponse, ApiNotFoundResponse, ApiInternalServerErrorResponse } from '@nestjs/swagger';
+import { ApiSecurity, ApiBody, ApiCreatedResponse, ApiUnauthorizedResponse, ApiOkResponse, ApiNotFoundResponse, ApiInternalServerErrorResponse, ApiBadRequestResponse } from '@nestjs/swagger';
 import { AuthService } from './auth/auth.service';
 import { LocalAuthGuard } from './auth/local-auth.guard';
 import { User } from './interfaces/user.interface';
@@ -21,13 +21,26 @@ export class AppController {
     return await this.authService.guest();
   }
 
+  @Post('api/auth/user')
+  @ApiBody({ type: [User] })
+  @ApiCreatedResponse({ description: 'Successfully.'})
+  @ApiBadRequestResponse({ description: 'Unauthorized.'})
+  async create(@Body() x: User) {
+    const device:string = x.device;
+    const r = await this.authService.create(x, device);
+    return r;
+  }
+
   @UseGuards(LocalAuthGuard)
   @Post('api/auth/login')
   @ApiBody({ type: [User] })
   @ApiCreatedResponse({ description: 'Successfully.'})
   @ApiUnauthorizedResponse({ description: 'Unauthorized.'})
-  async login(@Request() req) {
-    const device: string = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  async login(@Request() req, @Body() x: User) {
+    let device:string = x.device;
+    if (!device) {
+        device = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    }
     const r = await this.authService.login(req.user, device);
     return r;
   }
@@ -36,8 +49,11 @@ export class AppController {
   @Get('api/auth/refresh')
   @ApiCreatedResponse({ description: 'Successfully.'})
   @ApiUnauthorizedResponse({ description: 'Unauthorized.'})
-  async refresh(@Request() req) {
-    const device: string = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  async refresh(@Request() req, @Body() x: User) {
+    let device:string = x.device;
+    if (!device) {
+        device = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    }
     const r = await this.authService.login(req.user, device);
     return r;
   }

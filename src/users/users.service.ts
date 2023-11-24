@@ -142,7 +142,7 @@ export class UsersService {
            from   tokens a
            inner  join users b on (b.id = a.user_id)
            where  a.value_str = $1`, [token]);
-           if (!x || x.length == 0) {
+        if (!x || x.length == 0) {
                 return null;
         }
         let it = new User();
@@ -252,7 +252,6 @@ export class UsersService {
           if (u) {
               return null;
           }
-          // TODO: Verify EMail
           const y = await this.service.createQueryBuilder("users")
           .insert()
           .into(users)
@@ -260,8 +259,8 @@ export class UsersService {
             realm_id: x.realm,
             name: x.name,
             login: x.username,
-            pass: x.password/*,
-            email: x.email*/
+            pass: x.password,
+            email: x.email ? x.email : null
           })
           .returning('*')
           .execute();

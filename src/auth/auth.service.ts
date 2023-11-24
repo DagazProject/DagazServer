@@ -69,6 +69,40 @@ export class AuthService {
       }
     }
 
+    async create(user: any, device: string) {
+      user.realm = 1;
+      user.name = user.username;
+      let u = null;
+      try {
+        u = await this.usersService.addUser(user);
+      } catch (error) {
+        throw new InternalServerErrorException({
+          status: HttpStatus.BAD_REQUEST,
+          error: error
+        });
+      }
+      if (u) {
+        const payload = { username: user.username, sub: user.id };
+        const a = this.jwtService.sign(payload, { expiresIn: jwtConstants.access + "s" });
+        const r = this.jwtService.sign(payload, { expiresIn: jwtConstants.refresh + "s" });
+        await this.usersService.clearTokens(user.id, device);
+        await this.usersService.addToken(user.id, device, 1, a, jwtConstants.access);
+        await this.usersService.addToken(user.id, device, 2, r, jwtConstants.refresh);
+        return {
+          access_token: a,
+          refresh_token: r,
+          role: u.is_admin,
+          realm: u.realm,
+          user_id: user.id,
+          flags: u.flags
+        };
+      } else {
+        throw new InternalServerErrorException({
+          status: HttpStatus.BAD_REQUEST
+        });
+      }
+    }
+
     async login(user: any, device: string) {
       try {
         const payload = { username: user.username, sub: user.id };
