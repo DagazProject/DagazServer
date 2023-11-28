@@ -97,9 +97,7 @@ export class AuthService {
           flags: u.flags
         };
       } else {
-        throw new InternalServerErrorException({
-          status: HttpStatus.BAD_REQUEST
-        });
+        return null;
       }
     }
 

@@ -25,9 +25,12 @@ export class AppController {
   @ApiBody({ type: [User] })
   @ApiCreatedResponse({ description: 'Successfully.'})
   @ApiBadRequestResponse({ description: 'Unauthorized.'})
-  async create(@Body() x: User) {
+  async create(@Res() res, @Body() x: User) {
     const device:string = x.device;
     const r = await this.authService.create(x, device);
+    if (r === null) {
+        return res.status(HttpStatus.BAD_REQUEST).json();
+    }
     return r;
   }
 
