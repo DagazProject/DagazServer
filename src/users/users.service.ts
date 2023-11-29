@@ -4,6 +4,7 @@ import { users } from '../entity/users';
 import { User } from '../interfaces/user.interface';
 import { tokens } from '../entity/tokens';
 import { picture } from '../entity/picture';
+import { tickets } from '../entity/tickets';
 
 @Injectable()
 export class UsersService {
@@ -69,6 +70,54 @@ export class UsersService {
       r.username = username;
       r.created = new Date();
       return r;
+    }
+
+    async checkTicket(ticket: string): Promise<User> {
+      const x = await this.service.query(
+        `select a.user_id
+         from   tickets a
+         where  a.value_str = $1`, [ticket]);
+      if (!x || x.length == 0) return null;
+      const u = await this.findOneById(x[0].user_id);
+      await this.tokens.createQueryBuilder("tickets")
+      .delete()
+      .from(tickets)
+      .where("user_id = :user_id", { user_id: x[0].user_id })
+      .execute();
+      return u;
+    }
+
+    async createTicket(user: number, sec: number): Promise<string> {
+      try {
+        const x = await this.service.query(
+          `select array_to_string(
+            array(select string_agg(substring('0123456789bcdfghjkmnpqrstvwxyz', round(random() * 30)::integer, 1), '')
+                  from generate_series(1, 20)), '') as str`);
+        if (!x || x.length == 0) return null;
+        const val: string = x[0].str;
+        await this.tokens.createQueryBuilder("tickets")
+        .delete()
+        .from(tickets)
+        .where("user_id = :user_id", { user_id: user })
+        .execute();
+        let t: tickets = new tickets();
+        t.user_id = user;
+        t.value_str = val;
+        t.created = new Date();
+        t.expired = new Date(t.created.getTime() + sec);
+        await this.service.createQueryBuilder("tickets")
+        .insert()
+        .into(tickets)
+        .values(t)
+        .execute();
+        return val;
+      } catch (error) {
+        console.error(error);
+        throw new InternalServerErrorException({
+            status: HttpStatus.BAD_REQUEST,
+            error: error
+        });
+      }
     }
 
     async addToken(user: number, dev: string, type: number, val: string, sec: number): Promise<tokens> {
@@ -186,7 +235,6 @@ export class UsersService {
 
       async findOneByLogin(name: string): Promise<User> {
         try {
-          // TODO: Check Activated EMail
           const x = await this.service.createQueryBuilder("users")
           .where("users.login = :name", {name: name})
           .getOne();

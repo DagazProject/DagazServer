@@ -17,9 +17,11 @@ export class users {
     @Column({ default: 0, nullable: false  })
     is_admin: number;
 
+    @Index()
     @Column({ type: "varchar", length: 200 })
     name: string;
 
+    @Index()
     @Column({ type: "varchar", length: 200, unique: true })
     login: string;
 
@@ -46,7 +48,4 @@ export class users {
 
     @Column({ default: 0, nullable: false })
     flags: number;
-    
-//  @Column({ nullable: true })
-//  img: string;
 }

@@ -69,7 +69,36 @@ export class AuthService {
       }
     }
 
-    async create(user: any, device: string) {
+    async useTicket(ticket: string, device: string) {
+      const u = await this.usersService.checkTicket(ticket);
+      if (!u) return null;
+      const payload = { username: u.username, sub: u.id };
+      const a = this.jwtService.sign(payload, { expiresIn: jwtConstants.access + "s" });
+      const r = this.jwtService.sign(payload, { expiresIn: jwtConstants.refresh + "s" });
+      await this.usersService.clearTokens(u.id, device);
+      await this.usersService.addToken(u.id, device, 1, a, jwtConstants.access);
+      await this.usersService.addToken(u.id, device, 2, r, jwtConstants.refresh);
+      return {
+        access_token: a,
+        refresh_token: r,
+        role: u.is_admin,
+        realm: u.realm,
+        user_id: u.id,
+        flags: u.flags
+      };
+    }
+
+    async createTicket(user: any) {
+      const u = await this.usersService.findOneByLogin(user.username);
+      if (!u || (u.password != user.password)) return null;
+      const r = await this.usersService.createTicket(u.id, jwtConstants.refresh);
+      if (r === null) return null;
+      return {
+        ticket: r
+      };
+    }
+
+    async createUser(user: any, device: string) {
       user.realm = 1;
       user.name = user.username;
       let u = null;

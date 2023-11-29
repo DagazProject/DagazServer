@@ -21,22 +21,49 @@ export class AppController {
     return await this.authService.guest();
   }
 
-  @Post('api/auth/user')
-  @ApiBody({ type: [User] })
+  @Get('api/auth/ticket/:t')
   @ApiCreatedResponse({ description: 'Successfully.'})
   @ApiBadRequestResponse({ description: 'Unauthorized.'})
-  async create(@Res() res, @Body() x: User) {
-    const device:string = x.device;
-    const r = await this.authService.create(x, device);
+  async useTicket(@Request() req, @Res() res, @Param('t') t) {
+    const device = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    const r = await this.authService.useTicket(t, device);
+    if (r === null) {
+      return res.status(HttpStatus.BAD_REQUEST).json();
+    } else {
+      return res.status(HttpStatus.OK).json(r);
+    }
+  }
+
+  @Post('api/auth/ticket')
+  @ApiBody({ type: User })
+  @ApiCreatedResponse({ description: 'Successfully.'})
+  @ApiBadRequestResponse({ description: 'Unauthorized.'})
+  async createTicket(@Res() res, @Body() x: User) {
+    const r = await this.authService.createTicket(x);
     if (r === null) {
         return res.status(HttpStatus.BAD_REQUEST).json();
+    } else {
+        return res.status(HttpStatus.OK).json(r);
     }
-    return r;
+  }
+
+  @Post('api/auth/user')
+  @ApiBody({ type: User })
+  @ApiCreatedResponse({ description: 'Successfully.'})
+  @ApiBadRequestResponse({ description: 'Unauthorized.'})
+  async createUser(@Res() res, @Body() x: User) {
+    const device:string = x.device;
+    const r = await this.authService.createUser(x, device);
+    if (r === null) {
+        return res.status(HttpStatus.BAD_REQUEST).json();
+    } else {
+        return res.status(HttpStatus.OK).json(r);
+    }
   }
 
   @UseGuards(LocalAuthGuard)
   @Post('api/auth/login')
-  @ApiBody({ type: [User] })
+  @ApiBody({ type: User })
   @ApiCreatedResponse({ description: 'Successfully.'})
   @ApiUnauthorizedResponse({ description: 'Unauthorized.'})
   async login(@Request() req, @Body() x: User) {
