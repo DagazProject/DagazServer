@@ -5,6 +5,8 @@ import { Move } from '../interfaces/move.interface';
 import { user_games } from '../entity/user_games';
 import { game_sessions } from '../entity/game_sessions';
 import { game_alerts } from '../entity/game_alerts';
+import { notify } from '../entity/notify';
+import { jwtConstants } from '../auth/constants';
 
 @Injectable()
 export class MoveService {
@@ -564,6 +566,37 @@ export class MoveService {
             })
             .returning('*')
             .execute();
+            const u = await this.service.query(
+                `select a.session_id, b.user_id, 
+                        c.name || '(' || a.player_num || ')' as opponent,
+                        coalesce(f.filename, e.filename) || coalesce(g.suffix, '') || '.html' as game
+                 from   user_games a
+                 inner  join user_games b on (b.session_id = a.session_id and b.id <> a.id)
+                 inner  join users c on (c.id = a.user_id)
+                 inner  join game_sessions d on (d.id = a.session_id)
+                 inner  join games e on (e.id = d.game_id)
+                 left   join game_variants f on (f.game_id = d.game_id and f.id = d.variant_id)
+                 left   join game_styles g on (g.game_id = e.id and g.player_num = b.player_num)
+                 where  a.id = $1`, [x.uid]);
+            if (u && u.length > 0) {
+                const dt = new Date();
+                await this.service.createQueryBuilder("notify")
+                .delete()
+                .from(notify)
+                .where(`session_id = :sid`, {sid: u[0].session_id})
+                .execute();
+                await this.service.createQueryBuilder("notify")
+                .insert()
+                .into(notify)
+                .values({
+                    session_id: u[0].session_id,
+                    user_id: u[0].user_id,
+                    opponent: u[0].opponent,
+                    game: u[0].game,
+                    scheduled: new Date(dt.getTime() + jwtConstants.access * 1000)
+                })
+                .execute();
+            }
             x.id = y.generatedMaps[0].id;
             if (!time_limit) {
                 time_delta = null;

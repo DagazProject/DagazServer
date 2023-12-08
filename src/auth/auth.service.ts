@@ -91,7 +91,7 @@ export class AuthService {
     async createTicket(user: any) {
       const u = await this.usersService.findOneByLogin(user.username);
       if (!u || (u.password != user.password)) return null;
-      const r = await this.usersService.createTicket(u.id, jwtConstants.refresh);
+      const r = await this.usersService.createTicket(u.id, jwtConstants.access);
       if (r === null) return null;
       return {
         ticket: r

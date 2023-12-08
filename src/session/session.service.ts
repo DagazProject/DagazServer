@@ -15,6 +15,8 @@ import { user_ratings } from '../entity/user_ratings';
 import { GameTime } from '../interfaces/gametime.interface';
 import { ai_response } from '../entity/ai_response';
 import { ai_request } from '../entity/ai_request';
+import { Notify } from '../interfaces/notify.interface';
+import { notify } from '../entity/notify';
 
 @Injectable()
 export class SessionService {
@@ -658,6 +660,41 @@ export class SessionService {
              return null;
         }
         return x[0].player_num;
+    }
+
+    async notify(): Promise<Notify[]> {
+        try {
+            let r = [];
+            const dt = new Date();
+            const x = await this.service.query(
+                `select a.user_id, a.session_id as sid, a.game, a.opponent, a.created
+                 from   notify a
+                 where  a.scheduled < $1`, [dt]);
+            if (!x || x.length == 0) {
+                 return r;
+            }
+            for (let i = 0; i < x.length; i++) {
+                let t = new Notify();
+                t.user_id = x[i].user_id;
+                t.sid = x[i].sid;
+                t.game = x[i].game;
+                t.opponent = x[i].opponent;
+                t.created = x[i].created;
+                r.push(t);
+            }
+            await this.service.createQueryBuilder("notify")
+            .delete()
+            .from(notify)
+            .where(`a.scheduled < :dt`, {dt: dt})
+            .execute();
+            return r;
+        } catch (error) {
+          console.error(error);
+          throw new InternalServerErrorException({
+              status: HttpStatus.BAD_REQUEST,
+              error: error
+          });
+        }
     }
 
     async anonymous(user:number, s: Sess): Promise<Sess> {

@@ -8,6 +8,7 @@ import { TokenGuard } from '../auth/token.guard';
 import { RolesGuard } from '../auth/roles.guard';
 import { Roles } from '../auth/roles.decorator';
 import { Exp } from '../interfaces/exp.interface';
+import { Notify } from '../interfaces/notify.interface';
 
 @ApiSecurity('bearer')
 @Controller('api/session')
@@ -58,6 +59,18 @@ export class SessionController {
         const auth: any = request.user;
         try {
             const r = await this.service.getTournSessions(tourn, auth.id, user);
+            return res.status(HttpStatus.OK).json(r);
+        } catch(e) {
+            return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ error: e.message.error.toString(), stack: e.stack});
+        }
+    }
+
+    @Get('notify')
+    @ApiOkResponse({ description: 'Successfully.'})
+    @ApiInternalServerErrorResponse({ description: 'Internal Server error.'})
+    async getNotify(@Res() res): Promise<Notify[]> {
+        try {
+            const r = await this.service.notify();
             return res.status(HttpStatus.OK).json(r);
         } catch(e) {
             return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ error: e.message.error.toString(), stack: e.stack});

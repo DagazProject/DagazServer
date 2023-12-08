@@ -98,13 +98,13 @@ export class UsersService {
         await this.tokens.createQueryBuilder("tickets")
         .delete()
         .from(tickets)
-        .where("user_id = :user_id", { user_id: user })
+        .where("expired < now()")
         .execute();
         let t: tickets = new tickets();
         t.user_id = user;
         t.value_str = val;
         t.created = new Date();
-        t.expired = new Date(t.created.getTime() + sec);
+        t.expired = new Date(t.created.getTime() + sec * 1000);
         await this.service.createQueryBuilder("tickets")
         .insert()
         .into(tickets)
