@@ -667,7 +667,7 @@ export class SessionService {
             let r = [];
             const dt = new Date();
             const x = await this.service.query(
-                `select a.user_id, a.session_id as sid, a.game, a.opponent, a.created
+                `select a.user, a.session_id as sid, a.game, a.url, a.opponent, a.created
                  from   notify a
                  where  a.scheduled < $1`, [dt]);
             if (!x || x.length == 0) {
@@ -675,9 +675,10 @@ export class SessionService {
             }
             for (let i = 0; i < x.length; i++) {
                 let t = new Notify();
-                t.user_id = x[i].user_id;
+                t.user = x[i].user;
                 t.sid = x[i].sid;
                 t.game = x[i].game;
+                t.url = x[i].url;
                 t.opponent = x[i].opponent;
                 t.created = x[i].created;
                 r.push(t);

@@ -1,24 +1,22 @@
-import { Column, Entity, Index, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { users } from "./users";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class notify {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Index()
     @Column({ nullable: false })
-    user_id: number;
-    @ManyToOne(type => users)
-    @JoinColumn({ name: "user_id" })
-    user: users;
+    user: string;
 
     @Index({unique: true})
-    @Column({ nullable: true })
+    @Column({ nullable: false })
     session_id: number;
 
     @Column({ nullable: false })
     game: string;
+
+    @Column({ nullable: false })
+    url: string;
 
     @Column({ nullable: false })
     opponent: string;

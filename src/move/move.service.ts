@@ -6,7 +6,6 @@ import { user_games } from '../entity/user_games';
 import { game_sessions } from '../entity/game_sessions';
 import { game_alerts } from '../entity/game_alerts';
 import { notify } from '../entity/notify';
-import { jwtConstants } from '../auth/constants';
 
 @Injectable()
 export class MoveService {
@@ -567,9 +566,10 @@ export class MoveService {
             .returning('*')
             .execute();
             const u = await this.service.query(
-                `select a.session_id, b.user_id, 
+                `select a.session_id, c.login as user, 
                         c.name || '(' || a.player_num || ')' as opponent,
-                        coalesce(f.filename, e.filename) || coalesce(g.suffix, '') || '.html' as game
+                        coalesce(f.filename, e.filename) as game,
+                        coalesce(f.filename, e.filename) || coalesce(g.suffix, '') || '.html' as url
                  from   user_games a
                  inner  join user_games b on (b.session_id = a.session_id and b.id <> a.id)
                  inner  join users c on (c.id = a.user_id)
@@ -590,10 +590,11 @@ export class MoveService {
                 .into(notify)
                 .values({
                     session_id: u[0].session_id,
-                    user_id: u[0].user_id,
+                    user: u[0].user,
                     opponent: u[0].opponent,
                     game: u[0].game,
-                    scheduled: new Date(dt.getTime() + jwtConstants.access * 1000)
+                    url: u[0].url,
+                    scheduled: new Date(dt.getTime() + 18000 * 1000)
                 })
                 .execute();
             }

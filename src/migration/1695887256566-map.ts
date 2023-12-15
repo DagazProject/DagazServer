@@ -106,17 +106,21 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(204, 2, 'Tavrida', 'tavrida-8x10', 'adiuh-checkers-8x10', '2007 Viktor Pankovich')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(205, 2, 'Stavropol Adiyukh Checkers (8x8)', 'stavropol-adiuh-checkers', 'adiuh-checkers', '2007 Viktor Pankovich')`);
 
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(501, 5, 'Alquerque', 'alquerque', 'alquerque', 'https://en.wikipedia.org/wiki/Alquerque')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(502, 5, 'Double Alquerque', 'double-alquerque', 'double-alquerque', 'https://en.wikipedia.org/wiki/Alquerque')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(503, 5, 'Dablot Frostviken (Child)', 'dablot-child', 'dablot-child', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(504, 5, 'Dablot Frostviken', 'dablot-frostviken', 'dablot-frostviken', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(505, 5, 'Dablot Asele', 'dablot-asele', 'dablot-asele', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(506, 5, 'Dablot Dares', 'dablot-dares', 'dablot-dares', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(507, 5, 'Dablot Prejjesne', 'dablot-prejjesne', 'dablot-prejjesne', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(501, 5, 'Alquerque', 'alquerque', 'https://en.wikipedia.org/wiki/Alquerque')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(507, 5, 'Dablot', 'dablot-prejjesne', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(508, 5, 'Kharbaga', 'kharbaga', 'kharbaga', 'https://en.wikipedia.org/wiki/Kharbaga')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(509, 5, 'Zamma', 'zamma', 'zamma', 'https://en.wikipedia.org/wiki/Zamma')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(510, 5, 'Permainan Tabal', 'permainan-tabal', 'permainan-tabal', 'https://en.wikipedia.org/wiki/Permainan-Tabal')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(511, 5, 'Kolowisi Awithlaknannai', 'serpents', 'serpents', 'https://www.bead.game/games/traditional/fighting-serpents')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(512, 507, 'Dablot Frostviken (Child)', 'dablot-child', 'dablot-child', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(513, 507, 'Dablot Frostviken', 'dablot-frostviken', 'dablot-frostviken', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(514, 507, 'Dablot Asele', 'dablot-asele', 'dablot-asele', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(515, 507, 'Dablot Dares', 'dablot-dares', 'dablot-dares', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(516, 507, 'Dablot Prejjesne', 'dablot-prejjesne', 'dablot-prejjesne', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(517, 501, 'Alquerque', 'alquerque', 'alquerque', 'https://en.wikipedia.org/wiki/Alquerque')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(518, 501, 'Double Alquerque', 'double-alquerque', 'double-alquerque', 'https://en.wikipedia.org/wiki/Alquerque')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1001, 10, 'Hypergammon', 'hypergammon', 'hypergammon', 'https://bkgm.com/variants/HyperBackgammon.html')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1002, 10, 'Backgammon', 'backgammon', 'backgammon', 'https://bkgm.com/rules.html')`);
@@ -156,6 +160,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(1725, 17, 'Alaska Checkers', 'alaska-checkers', 'russian-checkers-1')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(1726, 17, 'Pskov Checkers', 'pskov-checkers', 'pskov-checkers')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1727, 17, 'Shafran''s Checkers', 'shafran-checkers', 'shafran', 'Isaak Shafran')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1728, 17, 'Anathem', 'anathem', 'anathem', '2016 Valentin Chelnokov')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1801, 18, 'Cheskers 8x8', 'cheskers-8x8', 'cheskers-8x8', 'https://en.wikipedia.org/wiki/Cheskers', '1948 Solomon W. Golomb')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1802, 18, 'Cheskers 9x9', 'cheskers-9x9', 'cheskers-9x9', 'Peter Aronson')`);
@@ -182,8 +187,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(1919, 19, 'Belarusian Chess', 'belarusian-chess', 'belarusian-chess-1')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1920, 19, 'Men Row Chess', 'menrow', 'menrow', 'https://www.iggamecenter.com/info/en/menrowchess.html', '2008 Giuseppe Acciaro')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1921, 19, 'Chessgi', 'chessgi', 'chess-1', 'https://www.chessvariants.com/other.dir/chessgi.html')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1922, 19, 'Dragonfly', 'dragonfly', 'dragonfly', 'https://en.wikipedia.org/wiki/Dragonfly_(chess_variant)', '1983 Christian Freeling')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1923, 19, 'Hexagonal Dragonfly', 'dragonfly-hex', 'dragonfly-hex', 'https://en.wikipedia.org/wiki/Dragonfly_(chess_variant)', '1983 Christian Freeling')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules, copyright) values(1922, 19, 'Dragonfly', 'dragonfly', 'https://en.wikipedia.org/wiki/Dragonfly_(chess_variant)', '1983 Christian Freeling')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1924, 19, 'Alice Chess', 'alice-chess', 'chess-1', 'https://en.wikipedia.org/wiki/Alice_Chess', '1953 V.R. Parton')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1925, 19, 'Andernach Chess', 'andernach-chess', 'chess-1', 'https://en.wikipedia.org/wiki/Andernach_chess')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1926, 19, 'Benedict Chess', 'benedict-chess', 'chess-1', 'https://www.chessvariants.com/difftaking.dir/benedict.html', '2001 W. D. Troyka')`);
@@ -201,6 +205,9 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1938, 19, 'Troitzky Chess', 'troitzky-chess', 'troitzky-1', 'http://mlwi.magix.net/bg/troitzkychess.htm', 'Paul Byway')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1939, 19, 'Battle of the Kings', 'botk', 'botk', 'https://www.chessvariants.com/rules/battle-of-kings-', '2021 Vadrya Pokshtya')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1940, 19, 'Platform Chess', 'platform-chess', 'platform-chess-1', '2001 Robert Price')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1941, 1922, 'Dragonfly', 'dragonfly', 'dragonfly', 'https://en.wikipedia.org/wiki/Dragonfly_(chess_variant)', '1983 Christian Freeling')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1942, 1922, 'Hexagonal Dragonfly', 'dragonfly-hex', 'dragonfly-hex', 'https://en.wikipedia.org/wiki/Dragonfly_(chess_variant)', '1983 Christian Freeling')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(2501, 25, 'Hex', 'hex', 'hex', 'http://www.iggamecenter.com/info/en/hex.html', '1942 Piet Hein and John Nash')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(2502, 25, 'Gonnect', 'gonnect', 'gonnect', '2000 Joao Pedro Neto')`);
@@ -278,30 +285,41 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7501, 75, 'Shatranj', 'shatranj', 'shatranj-93', 'https://en.wikipedia.org/wiki/Shatranj')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7502, 75, 'Oblong Shatranj', 'oblong-shatranj', 'oblong-1', 'http://history.chess.free.fr/oblong.htm')`);
 
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7701, 77, 'Doubutsu Shogi', 'doubutsu-shogi', 'doubutsu-shogi', 'https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi', 'Madoka Kitao')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7702, 77, 'Goro Goro Shogi', 'gorogoro-shogi', 'goro', 'https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi', 'Madoka Kitao')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7703, 77, 'Simple Shogi', 'simple-shogi', 'simple-shogi', '2012 Itsubaki Yoshihisa')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7704, 77, 'Treasure Shogi', 'treasure-shogi', 'treasure-shogi', '2010 Yamamoto Mitsuo')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7705, 77, 'Go-Roku Shogi', 'goroku-shogi', 'goroku', '2018 Shingeki Watanabe')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7706, 77, 'Le Shogi', 'le-shogi', 'le-shogi', '2009 Yamamoto Mitsuo')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7707, 77, 'Mini Shogi', 'mini-shogi', 'mini-shogi', 'https://en.wikipedia.org/wiki/Minishogi', '1970 Shigeo Kusumoto')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(7708, 77, 'REN Shogi', 'ren-shogi', 'ren-shogi')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7709, 77, '5x7 Shogi', '5x7-shogi', '5x7-shogi', '1977 Hirobumi Serizawa')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7710, 77, 'Rocket Shogi', 'rocket-shogi', 'rocket-shogi', '2012 Itsubaki Yoshihisa')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7711, 77, 'Ikusa Shogi', 'ikusa-shogi', 'ikusa-shogi', '2011 Yamamoto Mitsuo')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7712, 77, 'Judkins Shogi', 'judkins-shogi', 'judkins', 'https://en.wikipedia.org/wiki/Judkins_shogi', '1998 Paul Judkins')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7713, 77, 'Renge Shogi', 'renge-shogi', 'renge-shogi', '1999 Michel Sandeman')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7714, 77, 'Kantorai Shogi', 'kantorai', 'kantorai-1', 'http://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=541', '2001 Chris Huntoon')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7715, 77, 'Heian Shogi', 'heian-shogi', 'heian-shogi', 'https://en.wikipedia.org/wiki/Heian_shogi')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7716, 77, 'Sho Shogi', 'sho-shogi', 'sho-shogi', 'https://en.wikipedia.org/wiki/Sho_shogi')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7717, 77, 'Shogi', 'shogi', 'shogi-1', 'https://en.wikipedia.org/wiki/Shogi')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7718, 77, 'Annan Shogi', 'annan-shogi', 'annan-shogi', 'https://en.wikipedia.org/wiki/Annan_shogi')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7719, 77, 'Micro Shogi', 'micro-shogi', 'micro-shogi', 'https://en.wikipedia.org/wiki/Micro_shogi', '1982 Oyama Yasuharu')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7720, 77, 'Kyoto Shogi', 'kyoto-shogi', 'kyoto-shogi', 'https://en.wikipedia.org/wiki/Kyoto_shogi', '1976 Tamiya Katsuya')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7721, 77, 'Hexagonal Kyoto Shogi', 'hex-kyoto-shogi', 'hex-kyoto-shogi', '2000 Jochen Drechsler')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7722, 77, 'Chu Shogi', 'chu-shogi', 'chu-shogi', 'https://en.wikipedia.org/wiki/Chu_shogi')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7723, 77, 'Tenjiku Shogi', 'tenjiku-shogi', 'tenjiku-shogi', 'https://en.wikipedia.org/wiki/Tenjiku_shogi')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7724, 77, 'Wa Shogi', 'wa-shogi', 'wa-shogi', 'https://www.chessvariants.com/rules/wa-shogi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules, copyright) values(7701, 77, 'Doubutsu Shogi', 'doubutsu-shogi', 'https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi', 'Madoka Kitao')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(7717, 77, 'Shogi', 'shogi-1', 'https://en.wikipedia.org/wiki/Shogi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules, copyright) values(7720, 77, 'Kyoto Shogi', 'kyoto-shogi', 'https://en.wikipedia.org/wiki/Kyoto_shogi', '1976 Tamiya Katsuya')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(7722, 77, 'Chu Shogi', 'chu-shogi', 'https://en.wikipedia.org/wiki/Chu_shogi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(7724, 77, 'Wa Shogi', 'wa-shogi', 'https://www.chessvariants.com/rules/wa-shogi')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7726, 7701, 'Doubutsu Shogi', 'doubutsu-shogi', 'doubutsu-shogi', 'https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi', 'Madoka Kitao')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7727, 7701, 'Goro Goro Shogi', 'gorogoro-shogi', 'goro', 'https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi', 'Madoka Kitao')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7728, 7717, 'Simple Shogi', 'simple-shogi', 'simple-shogi', '2012 Itsubaki Yoshihisa')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7729, 7717, 'Treasure Shogi', 'treasure-shogi', 'treasure-shogi', '2010 Yamamoto Mitsuo')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7730, 7717, 'Go-Roku Shogi', 'goroku-shogi', 'goroku', '2018 Shingeki Watanabe')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7731, 7717, 'Le Shogi', 'le-shogi', 'le-shogi', '2009 Yamamoto Mitsuo')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7732, 7717, 'Mini Shogi', 'mini-shogi', 'mini-shogi', 'https://en.wikipedia.org/wiki/Minishogi', '1970 Shigeo Kusumoto')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(7733, 7717, 'REN Shogi', 'ren-shogi', 'ren-shogi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7734, 7717, '5x7 Shogi', '5x7-shogi', '5x7-shogi', '1977 Hirobumi Serizawa')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7735, 7717, 'Rocket Shogi', 'rocket-shogi', 'rocket-shogi', '2012 Itsubaki Yoshihisa')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7736, 7717, 'Ikusa Shogi', 'ikusa-shogi', 'ikusa-shogi', '2011 Yamamoto Mitsuo')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7737, 7717, 'Judkins Shogi', 'judkins-shogi', 'judkins', 'https://en.wikipedia.org/wiki/Judkins_shogi', '1998 Paul Judkins')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7738, 7717, 'Renge Shogi', 'renge-shogi', 'renge-shogi', '1999 Michel Sandeman')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7739, 7717, 'Kantorai Shogi', 'kantorai', 'kantorai-1', 'http://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=541', '2001 Chris Huntoon')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7740, 7717, 'Heian Shogi', 'heian-shogi', 'heian-shogi', 'https://en.wikipedia.org/wiki/Heian_shogi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7741, 7717, 'Sho Shogi', 'sho-shogi', 'sho-shogi', 'https://en.wikipedia.org/wiki/Sho_shogi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7742, 7717, 'Shogi', 'shogi', 'shogi-1', 'https://en.wikipedia.org/wiki/Shogi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7743, 7717, 'Annan Shogi', 'annan-shogi', 'annan-shogi', 'https://en.wikipedia.org/wiki/Annan_shogi')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7744, 7720, 'Micro Shogi', 'micro-shogi', 'micro-shogi', 'https://en.wikipedia.org/wiki/Micro_shogi', '1982 Oyama Yasuharu')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7745, 7720, 'Kyoto Shogi', 'kyoto-shogi', 'kyoto-shogi', 'https://en.wikipedia.org/wiki/Kyoto_shogi', '1976 Tamiya Katsuya')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7746, 7720, 'Hexagonal Kyoto Shogi', 'hex-kyoto-shogi', 'hex-kyoto-shogi', '2000 Jochen Drechsler')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7747, 7722, 'Chu Shogi', 'chu-shogi', 'chu-shogi', 'https://en.wikipedia.org/wiki/Chu_shogi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7748, 7722, 'Tenjiku Shogi', 'tenjiku-shogi', 'tenjiku-shogi', 'https://en.wikipedia.org/wiki/Tenjiku_shogi')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7749, 7724, 'Wa Shogi', 'wa-shogi', 'wa-shogi', 'https://www.chessvariants.com/rules/wa-shogi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7750, 7724, 'Tori Shogi', 'tori-shogi', 'tori-shogi', 'https://en.wikipedia.org/wiki/Tori_shogi', '1799 Toyota Genryu')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7901, 79, 'Sovereign Chess', 'sovereign-chess', 'sovereign-chess', 'https://en.wikipedia.org/wiki/Sovereign_Chess', 'Mark Bates, Infinite Pi Games')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7902, 79, 'Sovereign Chess Arena', 'sovereign-chess-12x12', 'sovereign-chess-12x12', 'https://en.wikipedia.org/wiki/Sovereign_Chess', 'Mark Bates, Infinite Pi Games')`);

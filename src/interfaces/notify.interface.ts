@@ -3,13 +3,16 @@ import { ApiProperty } from "@nestjs/swagger";
 export class Notify {
 
     @ApiProperty()
-    user_id: number;
+    user: string;
 
     @ApiProperty()
     sid: number;
 
     @ApiProperty()
     game: string;
+
+    @ApiProperty()
+    url: string;
 
     @ApiProperty()
     opponent: string;
