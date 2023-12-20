@@ -686,7 +686,7 @@ export class SessionService {
             await this.service.createQueryBuilder("notify")
             .delete()
             .from(notify)
-            .where(`a.scheduled < :dt`, {dt: dt})
+            .where(`scheduled < :dt`, {dt: dt})
             .execute();
             return r;
         } catch (error) {

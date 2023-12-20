@@ -566,13 +566,14 @@ export class MoveService {
             .returning('*')
             .execute();
             const u = await this.service.query(
-                `select a.session_id, c.login as user, 
+                `select a.session_id, u.login as user, 
                         c.name || '(' || a.player_num || ')' as opponent,
                         coalesce(f.filename, e.filename) as game,
                         coalesce(f.filename, e.filename) || coalesce(g.suffix, '') || '.html' as url
                  from   user_games a
                  inner  join user_games b on (b.session_id = a.session_id and b.id <> a.id)
                  inner  join users c on (c.id = a.user_id)
+                 inner  join users u on (u.id = b.user_id)
                  inner  join game_sessions d on (d.id = a.session_id)
                  inner  join games e on (e.id = d.game_id)
                  left   join game_variants f on (f.game_id = d.game_id and f.id = d.variant_id)
@@ -594,7 +595,7 @@ export class MoveService {
                     opponent: u[0].opponent,
                     game: u[0].game,
                     url: u[0].url,
-                    scheduled: new Date(dt.getTime() + 18000 * 1000)
+                    scheduled: new Date(dt.getTime() + 18000 * 200)
                 })
                 .execute();
             }
