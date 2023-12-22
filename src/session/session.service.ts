@@ -1741,6 +1741,11 @@ export class SessionService {
                 if (!x.loser) x.id = null;
             }
             if (!x.id) return null;
+            await this.service.createQueryBuilder("notify")
+            .delete()
+            .from(notify)
+            .where(`session_id = :sid`, {sid: x.id})
+            .execute();
             await this.service.createQueryBuilder("game_sessions")
             .update(game_sessions)
             .set({ 
