@@ -76,6 +76,24 @@ export class UsersController {
         }
     }
 
+    @Post('edit')
+    @ApiBody({ type: User })
+    @ApiOkResponse({ description: 'Successfully.'})
+    @ApiNotFoundResponse({ description: 'Not Found.'})
+    @ApiInternalServerErrorResponse({ description: 'Internal Server error.'})
+    async editUser(@Res() res, @Body() x: User): Promise<User> {
+        try {
+            const r = await this.service.editUser(x);
+            if (!r) {
+                return res.status(HttpStatus.NOT_FOUND).json();
+            } else {
+                return res.status(HttpStatus.OK).json(r);
+            }
+        } catch (e) {
+            return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ error: e.message.error.toString(), stack: e.stack});
+        }
+    }
+
     @Post()
     @ApiBody({ type: User })
     @ApiCreatedResponse({ description: 'Successfully.'})

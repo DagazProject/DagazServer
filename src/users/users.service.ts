@@ -323,6 +323,37 @@ export class UsersService {
         }
       }
 
+      async editUser(x: User): Promise<User> {
+        try {
+          const u = await this.findOneByLogin(x.username);
+          if (!u) return null;
+          await this.service.createQueryBuilder("users")
+          .update(users)
+          .set({ 
+            name: x.name,
+            email: x.email
+          })
+          .where("id = :id", {id: u.id})
+          .execute();
+          if (x.newpass) {
+            await this.service.createQueryBuilder("users")
+            .update(users)
+            .set({ 
+              pass: x.newpass
+            })
+            .where("id = :id", {id: u.id})
+            .execute();
+          }
+          return x;
+        } catch (error) {
+          console.error(error);
+          throw new InternalServerErrorException({
+              status: HttpStatus.BAD_REQUEST,
+              error: error
+          });
+        }
+      }
+
       async updateUser(user: number, x: User): Promise<User> {
         try {
           await this.service.createQueryBuilder("users")
