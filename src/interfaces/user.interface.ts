@@ -37,4 +37,7 @@ export class User {
 
     @ApiProperty()
     flags: number;
+
+    @ApiPropertyOptional()
+    newpass: string;
 }
