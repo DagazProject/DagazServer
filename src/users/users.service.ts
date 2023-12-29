@@ -326,7 +326,7 @@ export class UsersService {
       async editUser(x: User): Promise<User> {
         try {
           const u = await this.findOneByLogin(x.username);
-          if (!u) return null;
+          if (!u || !x.password || u.password != x.password) return null;
           await this.service.createQueryBuilder("users")
           .update(users)
           .set({ 
