@@ -329,7 +329,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(292, 30, 'Hexagonal Dragonfly', 'dragonfly-hex', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(293, 25, 'Tori Shogi', 'tori-shogi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(294, 22, 'Anathem', 'anathem', 2)`);
-        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(295, 24, 'King Adiyukh Checkers', 'king-adiuh-checkers', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(295, 24, 'King''s Adiyukh Checkers', 'king-adiuh-checkers', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -545,6 +545,10 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(187, 25, 293, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(188, 22, 294, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(189, 24, 295, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(190, 40, 94, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(191, 40, 95, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(192, 40, 96, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(193, 40, 97, null, null)`);
 
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(1, 25, 10, 1, 'Without Handicap')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(2, 25, 10, 2, 'Left-Kyo Handicap')`);
