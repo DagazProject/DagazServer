@@ -669,6 +669,7 @@ export class SessionService {
             const x = await this.service.query(
                 `select a.user, a.session_id as sid, a.game, a.url, a.opponent, a.created
                  from   notify a
+                 inner  join game_sessions b on (b.id = a.session_id)
                  where  a.scheduled < $1`, [dt]);
             if (!x || x.length == 0) {
                  return r;
