@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn } from "typeorm";
 
 @Entity()
-export class token_types {
+export class account_type {
     @PrimaryColumn()
     id: number;
 

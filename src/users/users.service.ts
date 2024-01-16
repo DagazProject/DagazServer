@@ -5,6 +5,7 @@ import { User } from '../interfaces/user.interface';
 import { tokens } from '../entity/tokens';
 import { picture } from '../entity/picture';
 import { tickets } from '../entity/tickets';
+import { account } from '../entity/account';
 
 @Injectable()
 export class UsersService {
@@ -85,6 +86,47 @@ export class UsersService {
       .where("user_id = :user_id", { user_id: x[0].user_id })
       .execute();
       return u;
+    }
+
+    async addAccount(user: any, type_id: number): Promise<void> {
+      try {
+        if (user.ext_id || user.ext_username || user.ext_firstname || user.ext_lastname) {
+          const x = await this.service.query(
+            `select id
+             from   account
+             where  user_id = $1 and type_id = $2 and external_id = $3`, [user.id, type_id, user.ext_id]);
+          if (!x || x.length == 0) {
+            await this.service.createQueryBuilder("account")
+            .insert()
+            .into(account)
+            .values({
+              user_id: user.id,
+              type_id: type_id,
+              external_id: user.ext_id,
+              username: user.ext_username,
+              firstname: user.ext_firstname,
+              lastname: user.ext_lastname
+            })
+            .execute();
+          } else {
+            await this.service.createQueryBuilder("account")
+            .update(account)
+            .set({ 
+              username: user.ext_username,
+              firstname: user.ext_firstname,
+              lastname: user.ext_lastname
+            })
+            .where("id = :id", {id: x[0].id})
+            .execute();
+          }
+        }
+      } catch (error) {
+        console.error(error);
+        throw new InternalServerErrorException({
+            status: HttpStatus.BAD_REQUEST,
+            error: error
+        });
+      }
     }
 
     async createTicket(user: number, sec: number): Promise<string> {

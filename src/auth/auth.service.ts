@@ -92,6 +92,7 @@ export class AuthService {
       const u = await this.usersService.findOneByLogin(user.username);
       if (!u || (u.password != user.password)) return null;
       const r = await this.usersService.createTicket(u.id, jwtConstants.access);
+      await this.usersService.addAccount(u, 1);
       if (r === null) return null;
       return {
         ticket: r

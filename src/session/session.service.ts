@@ -669,20 +669,19 @@ export class SessionService {
             const x = await this.service.query(
                 `select a.user, a.session_id as sid, a.game, a.url, a.opponent, a.created
                  from   notify a
-                 inner  join game_sessions b on (b.id = a.session_id)
+                 inner  join game_sessions b on (b.id = a.session_id and b.status_id = 2)
                  where  a.scheduled < $1`, [dt]);
-            if (!x || x.length == 0) {
-                 return r;
-            }
-            for (let i = 0; i < x.length; i++) {
-                let t = new Notify();
-                t.user = x[i].user;
-                t.sid = x[i].sid;
-                t.game = x[i].game;
-                t.url = x[i].url;
-                t.opponent = x[i].opponent;
-                t.created = x[i].created;
-                r.push(t);
+            if (x && x.length > 0) {
+                for (let i = 0; i < x.length; i++) {
+                    let t = new Notify();
+                    t.user = x[i].user;
+                    t.sid = x[i].sid;
+                    t.game = x[i].game;
+                    t.url = x[i].url;
+                    t.opponent = x[i].opponent;
+                    t.created = x[i].created;
+                    r.push(t);
+                }
             }
             await this.service.createQueryBuilder("notify")
             .delete()
