@@ -206,9 +206,13 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1938, 19, 'Troitzky Chess', 'troitzky-chess', 'troitzky-1', 'http://mlwi.magix.net/bg/troitzkychess.htm', 'Paul Byway')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1939, 19, 'Battle of the Kings', 'botk', 'botk', 'https://www.chessvariants.com/rules/battle-of-kings-', '2021 Vadrya Pokshtya')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1940, 19, 'Platform Chess', 'platform-chess', 'platform-chess-1', '2001 Robert Price')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules, copyright) values(1943, 19, 'Omega Chess', 'omega', 'https://en.wikipedia.org/wiki/Omega_Chess', '1992 Daniel MacDonald')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1941, 1922, 'Dragonfly', 'dragonfly', 'dragonfly', 'https://en.wikipedia.org/wiki/Dragonfly_(chess_variant)', '1983 Christian Freeling')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1942, 1922, 'Hexagonal Dragonfly', 'dragonfly-hex', 'dragonfly-hex', 'https://en.wikipedia.org/wiki/Dragonfly_(chess_variant)', '1983 Christian Freeling')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1944, 1943, 'Omega Chess', 'omega-chess', 'omega', 'https://en.wikipedia.org/wiki/Omega_Chess', '1992 Daniel MacDonald')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1945, 1943, 'Omega Chess Advanced', 'omega-chess-advanced', 'omega', 'https://en.wikipedia.org/wiki/Omega_Chess#Omega_Chess_Advanced', '1992 Daniel MacDonald')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(2501, 25, 'Hex', 'hex', 'hex', 'http://www.iggamecenter.com/info/en/hex.html', '1942 Piet Hein and John Nash')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(2502, 25, 'Gonnect', 'gonnect', 'gonnect', '2000 Joao Pedro Neto')`);
