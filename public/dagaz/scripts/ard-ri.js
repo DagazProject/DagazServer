@@ -89,8 +89,8 @@ Dagaz.Model.BuildDesign = function(design) {
     design.addPosition("f1", [-1, 1, 0, -7]);
     design.addPosition("g1", [-1, 0, 0, -7]);
 
-    design.addZone("throne", 2, [24]);
-    design.addZone("throne", 1, [24]);
+    design.addZone("throne", 2, []);
+    design.addZone("throne", 1, []);
     design.addZone("goal", 2, [42, 0, 48, 6]);
     design.addZone("goal", 1, [42, 0, 48, 6]);
     design.addZone("enemies", 2, [21, 22, 26, 27, 45, 38, 10, 3, 28, 14, 34, 20, 44, 46, 2, 4]);
