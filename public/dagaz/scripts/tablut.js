@@ -1,5 +1,8 @@
 Dagaz.Controller.persistense = "none";
 
+Dagaz.Model.WIDTH  = 9;
+Dagaz.Model.HEIGHT = 9;
+
 ZRF = {
     JUMP:          0,
     IF:            1,
@@ -121,10 +124,8 @@ Dagaz.Model.BuildDesign = function(design) {
 
     design.addZone("throne", 2, [40]);
     design.addZone("throne", 1, [40]);
-    design.addZone("goal", 2, [72, 0, 80, 8]);
-    design.addZone("goal", 1, [72, 0, 80, 8]);
-    design.addZone("enemies", 2, [45, 36, 27, 37, 75, 3, 76, 67, 13, 4, 77, 5, 43, 53, 44, 35]);
-    design.addZone("enemies", 1, [45, 36, 27, 37, 75, 3, 76, 67, 13, 4, 77, 5, 43, 53, 44, 35]);
+    design.addZone("goal", 2, [0]);
+    design.addZone("goal", 1, [0]);
 
     design.addCommand(0, ZRF.FUNCTION,	24);	// from
     design.addCommand(0, ZRF.PARAM,	0);	// $1
@@ -146,18 +147,6 @@ Dagaz.Model.BuildDesign = function(design) {
     design.addCommand(0, ZRF.JUMP,	-14);
     design.addCommand(0, ZRF.FUNCTION,	28);	// end
 
-    design.addCommand(1, ZRF.FUNCTION,	24);	// from
-    design.addCommand(1, ZRF.PARAM,	0);	// $1
-    design.addCommand(1, ZRF.FUNCTION,	22);	// navigate
-    design.addCommand(1, ZRF.FUNCTION,	1);	// empty?
-    design.addCommand(1, ZRF.FUNCTION,	20);	// verify
-    design.addCommand(1, ZRF.IN_ZONE,	0);	// throne
-    design.addCommand(1, ZRF.FUNCTION,	0);	// not
-    design.addCommand(1, ZRF.FUNCTION,	20);	// verify
-    design.addCommand(1, ZRF.FUNCTION,	25);	// to
-    design.addCommand(1, ZRF.FUNCTION,	28);	// end
-
-
     design.addPiece("Man", 0);
     design.addMove(0, 0, [3, 3], 0);
     design.addMove(0, 0, [2, 2], 0);
@@ -165,10 +154,10 @@ Dagaz.Model.BuildDesign = function(design) {
     design.addMove(0, 0, [1, 1], 0);
 
     design.addPiece("King", 1);
-    design.addMove(1, 1, [3], 0);
-    design.addMove(1, 1, [2], 0);
-    design.addMove(1, 1, [0], 0);
-    design.addMove(1, 1, [1], 0);
+    design.addMove(1, 0, [3, 3], 0);
+    design.addMove(1, 0, [0, 0], 0);
+    design.addMove(1, 0, [2, 2], 0);
+    design.addMove(1, 0, [1, 1], 0);
 
     design.setup("Black", "Man", 45);
     design.setup("Black", "Man", 36);
@@ -196,7 +185,7 @@ Dagaz.Model.BuildDesign = function(design) {
     design.setup("White", "Man", 41);
     design.setup("White", "Man", 42);
 
-    design.goal(0, "White", "King", [72, 0, 80, 8]);
+    design.goal(0, "White", "King", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 44, 45, 53, 54, 62, 63, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80]);
 }
 
 Dagaz.View.configure = function(view) {
