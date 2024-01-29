@@ -253,8 +253,11 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4902, 49, 'Brandubh', 'brandubh', 'brandubh')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4903, 49, 'Fidchell', 'fidchell', 'fidchell')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4904, 49, 'Gwyddbwyll', 'gwyddbwyll', 'gwyddbwyll')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4905, 49, 'Hnefatafl', 'tafl', 'tafl-1', 'https://en.wikipedia.org/wiki/Tafl_games')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4906, 49, 'Alea Evangeli', 'alea-evangeli', 'alea-evangeli', 'https://en.wikipedia.org/wiki/Alea_evangelii')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4905, 49, 'Tablut', 'tablut', 'tablut', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4906, 49, 'Tawlbwrdd', 'tawlbwrdd', 'tawlbwrdd', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4907, 49, 'Tawlbyund', 'tawlbyund', 'tawlbyund', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4908, 49, 'Hnefatafl', 'tafl', 'tafl-1', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4909, 49, 'Alea Evangeli', 'alea-evangeli', 'alea-evangeli', 'https://en.wikipedia.org/wiki/Alea_evangelii')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(5001, 50, 'Koma Janggi', 'koma-janggi', 'koma-janggi')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(5002, 50, 'Janggi', 'janggi', 'janggi', 'https://en.wikipedia.org/wiki/Janggi')`);

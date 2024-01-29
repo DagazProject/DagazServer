@@ -3,6 +3,10 @@ Dagaz.Controller.persistense = "none";
 Dagaz.Model.WIDTH  = 7;
 Dagaz.Model.HEIGHT = 7;
 
+Dagaz.Model.NEIGB  = [17, 23, 25, 31];
+Dagaz.Model.CENTR  = -1;
+Dagaz.Model.RESTR  = [42, 0, 48, 6];
+
 ZRF = {
     JUMP:          0,
     IF:            1,
@@ -134,6 +138,8 @@ Dagaz.Model.BuildDesign = function(design) {
     design.addMove(1, 1, [0], 0);
     design.addMove(1, 1, [1], 0);
 
+    design.addPiece("CapturedKing", 2);
+
     design.setup("Black", "Man", 21);
     design.setup("Black", "Man", 22);
     design.setup("Black", "Man", 26);
@@ -168,6 +174,7 @@ Dagaz.View.configure = function(view) {
     view.defPiece("WhiteMan", "White Man");
     view.defPiece("BlackMan", "Black Man");
     view.defPiece("WhiteKing", "White King");
+    view.defPiece("WhiteKing", "White CapturedKing");
  
     view.defPosition("a7", 21, 23, 69, 69);
     view.defPosition("b7", 90, 23, 69, 69);

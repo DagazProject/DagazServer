@@ -1,12 +1,12 @@
 <html>
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Gwyddbwyll</title>
+<title>Tawlbyund</title>
 <link rel="stylesheet" href="css/style-7eb2a9d6.css"/>
 </head>
 <body>
 
-<img id="Board" style="display:none" src="images/tafl/gwyddbwyll.png">
+<img id="Board" style="display:none" src="images/tafl/tawlbyund.png">
 <img id="WhiteMan" style="display:none" src="images/tafl/w.png">
 <img id="BlackMan" style="display:none" src="images/tafl/b.png">
 <img id="WhiteKing" style="display:none" src="images/tafl/k.png">
@@ -16,6 +16,7 @@
         <div class="section-menu" style="position:absolute;left:0;right:0;bottom:100%;padding-bottom:2px;">
         <a href="javascript:Dagaz.Controller.home()" title="Home" style="display:none" id="home"><img src="images/home.png"/></a>
         <a href="javascript:Dagaz.Controller.undo()" title="PgDown" style="display:none" id="undo"><img src="images/undo.png"/></a>
+        <a target="_blank" href="https://en.wikipedia.org/wiki/Tafl_games">Rules</a>
         <a href="javascript:Dagaz.Controller.resign()">I Resign</a>
         <a href="javascript:Dagaz.Controller.drawOffer()">Offer Draw</a>
         <a href="javascript:Dagaz.Controller.sound()" id="sound">no Sound</a>
@@ -23,7 +24,7 @@
         <div align="right" id="timer"></div>
         </div>
         <div class="cc2">
-        <canvas id="Canvas" width="525" height="530" style="cursor:default" class="canvas-body">Broken canvas...</canvas>
+        <canvas id="Canvas" width="801" height="806" style="cursor:default" class="canvas-body">Broken canvas...</canvas>
         </div>
     </div>
 </div>
@@ -36,12 +37,12 @@
 <script src="common-scripts/zobrist-v2.js"></script>
 <script src="common-scripts/2d-view-v2.js"></script>
 <script src="common-scripts/move-list-v2.js"></script>
-<script src="common-scripts/sound-manager-v2.js"></script>
 <script src="common-scripts/session-manager.js"></script>
+<script src="common-scripts/sound-manager-v2.js"></script>
 <script src="scripts/tafl-fen.js"></script>
 <script src="scripts/tafl-invariant.js"></script>
 <script src="scripts/tafl-extension.js"></script>
-<script src="scripts/gwyddbwyll.js"></script>
+<script src="scripts/tawlbyund.js"></script>
 <script src="common-scripts/app-net-v2.js"></script>
 
 </body>

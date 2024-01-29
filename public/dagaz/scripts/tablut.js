@@ -3,6 +3,55 @@ Dagaz.Controller.persistense = "none";
 Dagaz.Model.WIDTH  = 9;
 Dagaz.Model.HEIGHT = 9;
 
+Dagaz.Model.CROSS  = [22, 38, 42, 58];
+Dagaz.Model.NEIGB  = [31, 39, 41, 49];
+Dagaz.Model.CENTR  = 40;
+Dagaz.Model.RESTR  = [40];
+
+Dagaz.AI.pieceAdj = [
+[   0,    0,    0,    0,    0,    0,    0,    0,    0, // pieceEmpty
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0
+],
+[   0,    0,    0,    0,    0,    0,    0,    0,    0, // piecePawn
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0, -100,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0
+],
+[   2000000, 2000000, 2000000, 2000000, 2000000, 2000000, 2000000, 2000000, 2000000, // pieceKing
+    2000000,    0,    0,    0,    0,    0,    0,    0,    2000000,
+    2000000,    0,    0,    0,    0,    0,    0,    0,    2000000,
+    2000000,    0,    0,    0,    0,    0,    0,    0,    2000000,
+    2000000,    0,    0,    0,  -10,    0,    0,    0,    2000000,
+    2000000,    0,    0,    0,    0,    0,    0,    0,    2000000,
+    2000000,    0,    0,    0,    0,    0,    0,    0,    2000000,
+    2000000,    0,    0,    0,    0,    0,    0,    0,    2000000,
+    2000000, 2000000, 2000000, 2000000, 2000000, 2000000, 2000000, 2000000, 2000000
+],
+[   0,    0,    0,    0,    0,    0,    0,    0,    0, // pieceCaptured
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0
+]];
+
+Dagaz.AI.RESTRICTED = [0x68];
+
 ZRF = {
     JUMP:          0,
     IF:            1,
@@ -29,8 +78,7 @@ Dagaz.Model.BuildDesign = function(design) {
     design.checkVersion("smart-moves", "false");
     design.checkVersion("show-hints", "false");
     design.checkVersion("show-blink", "false");
-    design.checkVersion("tafl-extension", "restricted");
-    design.checkVersion("tafl-extension", "goals");
+    design.checkVersion("advisor-wait", "25");
 
     design.addDirection("w");
     design.addDirection("e");
@@ -124,8 +172,6 @@ Dagaz.Model.BuildDesign = function(design) {
 
     design.addZone("throne", 2, [40]);
     design.addZone("throne", 1, [40]);
-    design.addZone("goal", 2, [0]);
-    design.addZone("goal", 1, [0]);
 
     design.addCommand(0, ZRF.FUNCTION,	24);	// from
     design.addCommand(0, ZRF.PARAM,	0);	// $1
@@ -158,6 +204,8 @@ Dagaz.Model.BuildDesign = function(design) {
     design.addMove(1, 0, [0, 0], 0);
     design.addMove(1, 0, [2, 2], 0);
     design.addMove(1, 0, [1, 1], 0);
+
+    design.addPiece("CapturedKing", 2);
 
     design.setup("Black", "Man", 45);
     design.setup("Black", "Man", 36);
@@ -193,6 +241,7 @@ Dagaz.View.configure = function(view) {
     view.defPiece("WhiteMan", "White Man");
     view.defPiece("BlackMan", "Black Man");
     view.defPiece("WhiteKing", "White King");
+    view.defPiece("WhiteKing", "White CapturedKing");
  
     view.defPosition("a9", 21, 23, 69, 69);
     view.defPosition("b9", 90, 23, 69, 69);
