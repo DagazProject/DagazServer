@@ -1,12 +1,12 @@
 <html>
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Adiyukh Checkers (10x10)</title>
+<title>Adiyukh Checkers (8x8)</title>
 <link rel="stylesheet" href="css/style-7eb2a9d6.css"/>
 </head>
 <body>
 
-<img id="Board" style="display:none" src="images/adiuh/10x10.png">
+<img id="Board" style="display:none" src="images/adiuh/8x8.png">
 <img id="WhiteMan" style="display:none" src="images/adiuh/wman.png">
 <img id="BlackMan" style="display:none" src="images/adiuh/bman.png">
 <img id="WhiteKing" style="display:none" src="images/adiuh/wking.png">
@@ -32,12 +32,12 @@
         <a href="javascript:Dagaz.Controller.resign()">I Resign</a>
         <a href="javascript:Dagaz.Controller.drawOffer()">Offer Draw</a>
         <a href="javascript:Dagaz.Controller.sound()" id="sound">no Sound</a>
-        <a href="javascript:Dagaz.Controller.analyze('adiuh-checkers-10x10-black-offline')">Analyze</a>
+        <a href="javascript:Dagaz.Controller.analyze('adiuh-checkers-north-offline')">Analyze</a>
         <a href="javascript:Dagaz.Controller.redo()" title="PgUp" style="display:none" id="redo"><img src="images/redo.png"/></a>
         <div align="right" id="timer"></div>
         </div>
         <div class="cc2">
-        <canvas id="Canvas" width="684" height="726" style="cursor:default" class="canvas-body">Broken canvas...</canvas>
+        <canvas id="Canvas" width="548" height="590" style="cursor:default" class="canvas-body">Broken canvas...</canvas>
         </div>
     </div>
 </div>
@@ -53,11 +53,14 @@
 <script src="common-scripts/move-list-v2.js"></script>
 <script src="common-scripts/sound-manager-v2.js"></script>
 <script src="common-scripts/session-manager.js"></script>
+<script src="common-scripts/random-ai.js"></script>
+<script src="common-scripts/uct-ai-v4.js"></script>
+<script src="common-scripts/forced-ai.js"></script>
 <script src="scripts/adiuh-checkers-goal.js"></script>
 <script src="scripts/adiuh-checkers-restriction.js"></script>
 <script src="scripts/adiuh-checkers-extension.js"></script>
 <script src="scripts/columns-checkers-extension.js"></script>
-<script src="scripts/adiuh-checkers-10x10-black.js"></script>
+<script src="scripts/adiuh-checkers-black.js"></script>
 <script src="common-scripts/app-net-v2.js"></script>
 
 </body>

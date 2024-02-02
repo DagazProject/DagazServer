@@ -3,7 +3,7 @@ Dagaz.Controller.persistense = "none";
 Dagaz.Model.WIDTH  = 7;
 Dagaz.Model.HEIGHT = 7;
 
-Dagaz.Model.NEIGB  = [17, 23, 25, 31];
+Dagaz.Model.NEIGB  = [];
 Dagaz.Model.CENTR  = -1;
 Dagaz.Model.RESTR  = [42, 0, 48, 6];
 
@@ -124,7 +124,6 @@ Dagaz.Model.BuildDesign = function(design) {
     design.addCommand(1, ZRF.FUNCTION,	20);	// verify
     design.addCommand(1, ZRF.FUNCTION,	25);	// to
     design.addCommand(1, ZRF.FUNCTION,	28);	// end
-
 
     design.addPiece("Man", 0);
     design.addMove(0, 0, [3], 0);

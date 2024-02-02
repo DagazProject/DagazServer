@@ -1,9 +1,11 @@
 (function() {
 
+Dagaz.Model.CENTR  = 24;
+
 var checkVersion = Dagaz.Model.checkVersion;
 
 Dagaz.Model.checkVersion = function(design, name, value) {
-  if (name != "tafl-berserk") {
+  if (name != "brandubh-berserk") {
       checkVersion(design, name, value);
   }
 }
@@ -55,10 +57,7 @@ var undo = function(board, log) {
 
 var isBadDirection = function(design, r, dir) {
   var p = design.navigate(1, r.to, dir);
-  while (p !== null) {
-      if (p == r.from) return true;
-      p = design.navigate(1, p, dir);
-  }
+  if (p == r.from) return true;
   return false;
 }
 
@@ -99,8 +98,7 @@ Dagaz.Model.CheckInvariants = function(board) {
        _.each(design.allDirections(), function(dir) {
            if (isBadDirection(design, r, dir)) return;
            var p = design.navigate(1, r.to, dir);
-           while (p !== null) {
-               if (board.getPiece(p) !== null) break;
+           if ((p !== null) && (board.getPiece(p) === null)) {
                var m = copy(move); var f = false;
                m.movePiece(r.to, p, r.piece, rn + 1);
                _.each(design.allDirections(), function(d) {
@@ -148,7 +146,6 @@ Dagaz.Model.CheckInvariants = function(board) {
                if (f) {
                    board.moves.push(m);
                }
-               p = design.navigate(1, p, dir);
            }
        });
        undo(board, log);

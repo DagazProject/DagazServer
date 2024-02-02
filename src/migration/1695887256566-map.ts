@@ -249,15 +249,43 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(4601, 46, 'Halma 8x8', 'halma-8', 'halma-8', 'http://www.iggamecenter.com/info/en/halma.html', '1883 George Howard Monks')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(4602, 46, 'Halma 10x10', 'halma-10', 'halma-10', 'http://www.iggamecenter.com/info/en/halma.html', '1883 George Howard Monks')`);
 
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4901, 49, 'Ard-Ri', 'ard-ri', 'ard-ri')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4902, 49, 'Brandubh', 'brandubh', 'brandubh')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4903, 49, 'Fidchell', 'fidchell', 'fidchell')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4904, 49, 'Gwyddbwyll', 'gwyddbwyll', 'gwyddbwyll')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4905, 49, 'Tablut', 'tablut', 'tablut', 'https://en.wikipedia.org/wiki/Tafl_games')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4906, 49, 'Tawlbwrdd', 'tawlbwrdd', 'tawlbwrdd', 'https://en.wikipedia.org/wiki/Tafl_games')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4907, 49, 'Tawlbyund', 'tawlbyund', 'tawlbyund', 'https://en.wikipedia.org/wiki/Tafl_games')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4908, 49, 'Hnefatafl', 'tafl', 'tafl-1', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview) values(4902, 49, 'Brandubh', 'brandubh')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(4905, 49, 'Tablut', 'tablut', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(4908, 49, 'Hnefatafl', 'tafl-1', 'https://en.wikipedia.org/wiki/Tafl_games')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4909, 49, 'Alea Evangeli', 'alea-evangeli', 'alea-evangeli', 'https://en.wikipedia.org/wiki/Alea_evangelii')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview) values(4910, 4902, 'Ard-Ri', 'ard-ri')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview) values(4911, 4902, 'Brandubh', 'brandubh')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview) values(4912, 4902, 'Fidchell', 'fidchell')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview) values(4913, 4902, 'Gwyddbwyll', 'gwyddbwyll')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(4914, 4905, 'Tablut', 'tablut', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(4915, 4905, 'Tawlbwrdd', 'tawlbwrdd', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(4916, 4905, 'Tawlbyund', 'tawlbyund', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4917, 4910, 'Ard-Ri', 'ard-ri', 'ard-ri')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4918, 4910, 'Berserk Ard-Ri', 'ard-ri-berserk', 'ard-ri')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4919, 4911, 'Brandubh', 'brandubh', 'brandubh')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4920, 4911, 'Berserk Brandubh', 'brandubh-berserk', 'brandubh')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4921, 4912, 'Fidchell', 'fidchell', 'fidchell')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4922, 4912, 'Berserk Fidchell', 'fidchell-berserk', 'fidchell')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4923, 4913, 'Gwyddbwyll', 'gwyddbwyll', 'gwyddbwyll')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(4924, 4913, 'Berserk Gwyddbwyll', 'gwyddbwyll-berserk', 'gwyddbwyll')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4925, 4914, 'Tablut', 'tablut', 'tablut', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4926, 4914, 'Berserk Tablut', 'tablut-berserk', 'tablut', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4927, 4915, 'Tawlbwrdd', 'tawlbwrdd', 'tawlbwrdd', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4928, 4915, 'Berserk Tawlbwrdd', 'tawlbwrdd-berserk', 'tawlbwrdd', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4929, 4916, 'Tawlbyund', 'tawlbyund', 'tawlbyund', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4930, 4916, 'Berserk Tawlbyund', 'tawlbyund-berserk', 'tawlbyund', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4931, 4908, 'Hnefatafl', 'tafl', 'tafl-1', 'https://en.wikipedia.org/wiki/Tafl_games')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4932, 4908, 'Berserk Hnefatafl', 'tafl-berserk', 'tafl-1', 'https://en.wikipedia.org/wiki/Tafl_games')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(5001, 50, 'Koma Janggi', 'koma-janggi', 'koma-janggi')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(5002, 50, 'Janggi', 'janggi', 'janggi', 'https://en.wikipedia.org/wiki/Janggi')`);
