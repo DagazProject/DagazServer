@@ -135,8 +135,8 @@ Dagaz.AI.IsHashMoveValid = function(move) {
     // Can't move to a square that has something of the same color
     if ((captured != pieceEmpty) && (Dagaz.AI.g_toMove == (captured & Dagaz.AI.colorWhite))) return false;
 
+    var dir = to - from;
     if (captured == pieceEmpty) {
-        var dir = to - from;
         if (pieceType == pieceMan) {
             if ((dir > 17) || (dir < -17)) return false;
             if ((Dagaz.AI.g_toMove == Dagaz.AI.colorWhite) != (dir < 0)) return false;
@@ -163,16 +163,6 @@ function GenerateQuietMoves(moves) {
            GenerateQuietMovesFrom(moves, pos);
        }
   }
-}
-
-function isBad(move) {
-  var captured = [];
-  for (var i = 0; i < move.length; i++) {
-       var pos = (move[i] >> 16) & 0xFF;
-       if (_.indexOf(captured, pos) >= 0) return true;
-       captured.push(pos);
-  }
-  return false;
 }
 
 function CheckInvariant(moves) {
