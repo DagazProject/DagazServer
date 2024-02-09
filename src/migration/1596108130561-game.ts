@@ -340,6 +340,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(303, 40, 'Berserk Tawlbwrdd', 'tawlbwrdd-berserk', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(304, 40, 'Berserk Tawlbyund', 'tawlbyund-berserk', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, max_selector) values(305, 40, 'Berserk Hnefatafl', 'tafl-berserk', 2, 3)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(306, 42, 'Ludus Latrunculi', 'latrunculi', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(307, 42, 'Berserk Latrunculi', 'latrunculi-berserk', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -571,6 +573,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(203, 40, 303, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(204, 40, 304, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(205, 40, 305, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(206, 42, 306, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(207, 42, 307, null, null)`);
 
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(1, 25, 10, 1, 'Without Handicap')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(2, 25, 10, 2, 'Left-Kyo Handicap')`);
@@ -1248,8 +1252,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(699, 'tafl-berserk', 1, 'tafl-1', 'https://en.wikipedia.org/wiki/Tafl_games')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(700, 'tafl-berserk', 2, 'tafl-2', 'https://en.wikipedia.org/wiki/Tafl_games')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(701, 'tafl-berserk', 3, 'tafl-3', 'https://en.wikipedia.org/wiki/Tafl_games')`);
-
-        
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(702, 'latrunculi', null, 'latrunculi', 'https://en.wikipedia.org/wiki/Ludus_latrunculorum')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(703, 'latrunculi-berserk', null, 'latrunculi', 'https://en.wikipedia.org/wiki/Ludus_latrunculorum')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

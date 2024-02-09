@@ -1,21 +1,23 @@
 <html>
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Makneeb</title>
+<title>Ludus Latrunculi</title>
 <link rel="stylesheet" href="css/style-7eb2a9d6.css"/>
 </head>
 <body>
 
-<img id="Board" style="display:none" src="images/makyek/board.png">
-<img id="GreenMan" style="display:none" src="images/makyek/green.png">
-<img id="RedMan" style="display:none" src="images/makyek/red.png">
+<img id="Board" style="display:none" src="images/tafl/12x8.png">
+<img id="WhiteMan" style="display:none" src="images/tafl/w.png">
+<img id="BlackMan" style="display:none" src="images/tafl/b.png">
+<img id="WhiteKing" style="display:none" src="images/tafl/k.png">
+<img id="BlackKing" style="display:none" src="images/tafl/bk.png">
 
 <div class="center-body">
     <div class="canvas-wrap" id="canvasFit">
         <div class="section-menu" style="position:absolute;left:0;right:0;bottom:100%;padding-bottom:2px;">
         <a href="javascript:Dagaz.Controller.home()" title="Home" style="display:none" id="home"><img src="images/home.png"/></a>
         <a href="javascript:Dagaz.Controller.undo()" title="PgDown" style="display:none" id="undo"><img src="images/undo.png"/></a>
-        <a target="_blank" href="https://en.wikipedia.org/wiki/Mak-yek">Rules</a>
+        <a target="_blank" href="https://en.wikipedia.org/wiki/Ludus_latrunculorum">Rules</a>
         <a href="javascript:Dagaz.Controller.resign()">I Resign</a>
         <a href="javascript:Dagaz.Controller.drawOffer()">Offer Draw</a>
         <a href="javascript:Dagaz.Controller.sound()" id="sound">no Sound</a>
@@ -23,7 +25,7 @@
         <div align="right" id="timer"></div>
         </div>
         <div class="cc2">
-        <canvas id="Canvas" width="612" height="612" style="cursor:default" class="canvas-body">Broken canvas...</canvas>
+        <canvas id="Canvas" width="838" height="562" style="cursor:default" class="canvas-body">Broken canvas...</canvas>
         </div>
     </div>
 </div>
@@ -33,17 +35,21 @@
 <script src="common-scripts/autofit.js"></script>
 <script src="common-scripts/dagaz.js"></script>
 <script src="common-scripts/zrf-model.js"></script>
-<script src="common-scripts/zobrist.js"></script>
-<script src="common-scripts/common-setup-v2.js"></script>
-<script src="common-scripts/2d-view-v2.js"></script>
-<script src="common-scripts/move-list-v2.js"></script>
+<script src="common-scripts/zobrist-v2.js"></script>
+<script src="common-scripts/2d-view-v3.js"></script>
+<script src="common-scripts/move-list-v1.js"></script>
 <script src="common-scripts/sound-manager-v2.js"></script>
 <script src="common-scripts/session-manager.js"></script>
-<script src="scripts/makyek-extension.js"></script>
-<script src="scripts/makyek-goal.js"></script>
-<script src="scripts/makneeb-extension.js"></script>
-<script src="scripts/makyek.js"></script>
-<script src="common-scripts/app-net-v2.js"></script>
+<script src="common-scripts/random-ai.js"></script>
+<script src="common-scripts/garbo-ai-v2.js"></script>
+<script src="common-scripts/fast-ai.js"></script>
+<script src="scripts/latrunculi-ai.js"></script>
+<script src="scripts/tafl-fen.js"></script>
+<script src="scripts/latrunculi-invariant.js"></script>
+<script src="scripts/latrunculi-berserk.js"></script>
+<script src="scripts/latrunculi-extension.js"></script>
+<script src="scripts/latrunculi.js"></script>
+<script src="common-scripts/app-net-v5.js"></script>
 
 </body>
 </html>

@@ -315,8 +315,12 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7004, 70, 'Ninuki Renju', 'ninuki-renju', 'pente', 'https://en.wikipedia.org/wiki/Pente')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7005, 70, 'Pente', 'pente', 'pente', 'https://en.wikipedia.org/wiki/Pente', '1977 Gary Gabrel')`);
 
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7301, 73, 'Seega', 'seega', 'seega', 'http://www.cyningstan.com/game/120/seega')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(7301, 73, 'Seega', 'seega', 'seega', 'http://www.cyningstan.com/game/120/seega')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7302, 73, 'High Jump', 'high-jump', 'high-jump', 'https://en.wikipedia.org/wiki/High_Jump_(game)')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(7303, 73, 'Latrunculi', 'latrunculi', 'https://en.wikipedia.org/wiki/Ludus_latrunculorum')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7304, 7303, 'Ludus Latrunculi', 'latrunculi', 'latrunculi', 'https://en.wikipedia.org/wiki/Ludus_latrunculorum')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7305, 7303, 'Berserk Latrunculi', 'latrunculi-berserk', 'latrunculi', 'https://en.wikipedia.org/wiki/Ludus_latrunculorum')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7501, 75, 'Shatranj', 'shatranj', 'shatranj-93', 'https://en.wikipedia.org/wiki/Shatranj')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7502, 75, 'Oblong Shatranj', 'oblong-shatranj', 'oblong-1', 'http://history.chess.free.fr/oblong.htm')`);
