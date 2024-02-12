@@ -448,8 +448,8 @@ Dagaz.View.configure = function(view) {
     view.defBoard("Board_3", undefined, undefined, 1);
     view.defBoard("Board_2", undefined, undefined, 2);
     view.defBoard("Board_1", undefined, undefined, 3);
-    view.defPiece("WhiteMan", "White Man");
-    view.defPiece("BlackMan", "Black Man");
+    view.defPieceSvg("WhiteMan", "White Man", 49, 49);
+    view.defPieceSvg("BlackMan", "Black Man", 49, 49);
     view.defPiece("WhiteKing", "White King");
     view.defPiece("WhiteKing", "White CapturedKing");
  
