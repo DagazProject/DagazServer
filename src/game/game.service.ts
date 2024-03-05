@@ -62,7 +62,7 @@ export class GameService {
                     where  c.realm_id = 1
                  ) b on (a.filename = b.filename)
                  where  coalesce(a.parent_id, 0) = $1
-                 order  by a.id`, [id]);
+                 order  by a.name`, [id]);
                  let l: Game[] = x.map(x => {
                     let it = new Game();
                     it.id = x.id;

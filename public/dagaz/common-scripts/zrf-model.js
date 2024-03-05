@@ -103,11 +103,14 @@ Dagaz.Model.checkVersion = function(design, name, value, selector) {
      }
      if (name == "progressive-levels") {
          Dagaz.Model.progressive = (value == "true");
+         if ((value == "selector") && (Dagaz.Model.maxSetupSelector > Dagaz.Model.getSetupSelector())) {
+             Dagaz.Model.progressive = true;
+         }
          if (value == "silent") {
              Dagaz.Model.progressive = true;
              Dagaz.Model.silent      = true;
          }
-         if ((value != "silent") && (value != "true")) {
+         if ((value != "selector") && (value != "silent") && (value != "true")) {
              Dagaz.Model.progressive = true;
              Dagaz.Model.progressiveUrl = value;
          }
@@ -718,6 +721,7 @@ function ZrfDesign() {
   this.modes          = [];
   this.price          = [];
   this.goals          = [];
+  this.values         = [];
   this.failed         = false;
 }
 
@@ -726,6 +730,10 @@ Dagaz.Model.getDesign = function() {
       Dagaz.Model.design = new ZrfDesign();
   }
   return Dagaz.Model.design;
+}
+
+ZrfDesign.prototype.setValue = function(name, value) {
+  this.values[name] = value;
 }
 
 ZrfDesign.prototype.allPositions = function() {
@@ -854,7 +862,7 @@ ZrfDesign.prototype.getAttribute = function(type, name) {
 
 ZrfDesign.prototype.addPiece = function(name, type, price) {
   this.pieceNames[type] = name;
-  this.price[type] = price ? price : 1;
+  this.price[type] = _.isUndefined(price) ? 1 : price;
 }
 
 ZrfDesign.prototype.addMove = function(type, template, params, mode, sound, selector) {
@@ -1969,6 +1977,11 @@ ZrfBoard.prototype.generateInternal = function(callback, cont, cover, serial) {
       Dagaz.Model.Extension(this);
       if (cont) {
           Dagaz.Model.CheckInvariants(this);
+          _.each(this.moves, function(move) {
+              if (!design.isValidMode(this.turn, move.mode)) {
+                  move.failed = true;
+              }
+          }, this);
           Dagaz.Model.PostActions(this);
           if (Dagaz.Model.passTurn == 1) {
               this.moves.push(new ZrfMove());
@@ -2617,6 +2630,7 @@ Dagaz.Model.getSetupSelector = function(val) {
 }
 
 ZrfDesign.prototype.setupSelector = function(val) {
+  Dagaz.Model.maxSetupSelector = val;
   Dagaz.Model.getSetupSelector(val);
 }
 

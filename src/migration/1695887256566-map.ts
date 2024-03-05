@@ -92,13 +92,13 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(87, 'Three Musketeers', 'musketeers', 'musketeers', 'http://www.di.fc.ul.pt/~jpn/gv/3musketeers.htm', 'Haar Hoolim')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(88, 'Thud!', 'thud', 'thud', 'https://en.wikipedia.org/wiki/Games_of_the_Discworld#Thud', '2002 Trevor Truran')`);
         await queryRunner.query(`insert into game_map(id, name, preview) values(89, 'Tile Chess', 'tile-chess')`);
-        await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(90, 'Toguz Kumalak', 'toguz-kumalak', 'toguz-kumalak', 'https://mancala.fandom.com/wiki/Toguz_Kumalak')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(91, 'Turnover', 'turnover', 'turnover-1', 'https://www.chessvariants.com/rules/turnover', '2019 Lucio Jose Patrocinio Filho')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(92, 'Ultima', 'ultima', 'ultima', 'https://www.chessvariants.com/other.dir/ultima.html', '1962 Robert Abbott')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(93, 'Ur', 'ur', 'ur', 'https://www.ancientgames.org/royal-game-ur-game-20-squares/', '2011 Dmitry Skyruk')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(94, 'Walhall', 'walhall', 'walhall-3', '2017 Valentin Chelnokov')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(95, 'Watermelon Chess', 'watermelon', 'watermelon-1', 'https://sites.google.com/site/boardandpieces/list-of-games/watermelon-chess')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(96, 'XiangQi', 'xiangqi', 'https://en.wikipedia.org/wiki/Xiangqi')`);
+        await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(97, 'Nine-Tile Cyvasse', 'cyvasse', 'cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(201, 2, 'Adiyukh Checkers (8x8)', 'adiuh-checkers', 'adiuh-checkers', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(202, 2, 'Adiyukh Checkers (8x10)', 'adiuh-checkers-8x10', 'adiuh-checkers-8x10', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
@@ -296,6 +296,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(5903, 59, 'Cross Oware', 'cross-oware', 'oware', 'https://mancala.fandom.com/wiki/Cross-Wari')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(5904, 59, 'Ohojichi', 'ohojichi', 'ohojichi', 'https://mancala.fandom.com/wiki/Ohojichi')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(5905, 59, 'Hawalis', 'hawalis', 'hawalis', 'https://mancala.fandom.com/wiki/Hawalis')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(5906, 59, 'Toguz Kumalak', 'toguz-kumalak', 'toguz-kumalak', 'https://mancala.fandom.com/wiki/Toguz_Kumalak')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(6101, 61, 'Ming-Mang 9x9', 'ming-mang-9x9', 'ming-mang-9x9', 'http://homepages.di.fc.ul.pt/~jpn/gv/mingmang.htm')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(6102, 61, 'Ming-Mang 17x17', 'ming-mang-17x17', 'ming-mang-17x17', 'http://homepages.di.fc.ul.pt/~jpn/gv/mingmang.htm')`);

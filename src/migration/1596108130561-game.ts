@@ -340,6 +340,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, max_selector) values(305, 40, 'Berserk Hnefatafl', 'tafl-berserk', 2, 3)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(306, 37, 'Ludus Latrunculi', 'latrunculi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(307, 37, 'Berserk Latrunculi', 'latrunculi-berserk', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(308, 37, 'Nine-Tile Cyvasse', 'cyvasse', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -1252,6 +1253,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(701, 'tafl-berserk', 3, 'tafl-3', 'https://en.wikipedia.org/wiki/Tafl_games')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(702, 'latrunculi', null, 'latrunculi', 'https://en.wikipedia.org/wiki/Ludus_latrunculorum')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(703, 'latrunculi-berserk', null, 'latrunculi', 'https://en.wikipedia.org/wiki/Ludus_latrunculorum')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(704, 'cyvasse', null, 'cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
