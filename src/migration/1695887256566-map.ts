@@ -18,10 +18,9 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(13, 'Bushi', 'bushi', 'bushi', '1970 Henri Sala')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(14, 'Camelot', 'camelot', 'camelot', 'https://en.wikipedia.org/wiki/Camelot_(board_game)', '1930 George S. Parker')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(15, 'Captain''s Mistress', 'connect-four', 'connect-four', 'https://en.wikipedia.org/wiki/Connect_Four', '1974 Milton Bradley')`);
-        await queryRunner.query(`insert into game_map(id, name, preview, rules) values(16, 'Chaturanga', 'chaturanga', 'https://en.wikipedia.org/wiki/Chaturanga')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(17, 'Checkers', 'russian-checkers-1', 'https://en.wikipedia.org/wiki/Checkers')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(18, 'Cheskers', 'cheskers-8x8', 'https://en.wikipedia.org/wiki/Cheskers', '1948 Solomon W. Golomb')`);
-        await queryRunner.query(`insert into game_map(id, name, preview, rules) values(19, 'Chess', 'chess-1', 'https://en.wikipedia.org/wiki/Chess')`);
+        await queryRunner.query(`insert into game_map(id, name, preview) values(19, 'Chess Games', 'chess-1')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(20, 'Chessball', 'chessball', 'chessball', '1957 Kamzolov J.N.')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(21, 'Chessence', 'chessence', 'chessence', 'https://en.wikipedia.org/wiki/Chessence', '2000 Jason D. Wittman')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(22, 'Chess Go', 'chess-go', 'chess-go', '2020 Valentin Chelnokov')`);
@@ -47,18 +46,14 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(42, 'GESS', 'gess', 'gess', 'https://en.wikipedia.org/wiki/Gess', '1994 Puzzles and Games Ring of The Archimedeans')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(43, 'Go', 'go-19x19', 'https://en.wikipedia.org/wiki/Rules_of_Go')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(44, 'Grand Dice Chess', 'grand-dice-chess', 'grand-dice-chess', 'https://granddicechess.blogspot.com/2022/01/grand-dice-chess.html', '2021 Vadrya Pokshtya')`);
-        await queryRunner.query(`insert into game_map(id, name, preview, rules) values(45, 'Hexagonal Chess', 'glinski', 'https://en.wikipedia.org/wiki/Hexagonal_chess')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(46, 'Halma', 'halma-8', 'http://www.iggamecenter.com/info/en/halma.html', '1883 George Howard Monks')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(47, 'Hanga Roa', 'hanga-roa', 'hanga-roa', 'https://www.chessvariants.com/other.dir/hanga_roa/hanga_roa.html', 'Hernan Marcelo Dominguez Placencia and Juan Pablo Schweitzer Kirsinger')`);
-        await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(48, 'Hiashatar', 'hiashatar', 'hiashatar', 'https://en.wikipedia.org/wiki/Hiashatar')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(49, 'Hnefatafl', 'tafl-1', 'https://en.wikipedia.org/wiki/Tafl_games')`);
-        await queryRunner.query(`insert into game_map(id, name, preview, rules) values(50, 'Janggi', 'janggi', 'https://en.wikipedia.org/wiki/Janggi')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(51, 'Jasir', 'jasir', 'jasir', 'https://en.wikipedia.org/wiki/Jarmo_(game)')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(52, 'Jeson Mor', 'jeson-mor', 'jeson-mor', 'https://en.wikipedia.org/wiki/Jeson_Mor')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(53, 'Jungle', 'jungle', 'jungle', 'https://en.wikipedia.org/wiki/Jungle_(board_game)')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview) values(54, 'Khans', 'khans', 'khans')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(55, 'Lines of Action', 'loa', 'loa-1', 'http://www.iggamecenter.com/info/en/loa.html', 'Claude Soucie')`);
-        await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(56, 'Makruk', 'makruk', 'makruk', 'https://en.wikipedia.org/wiki/Makruk')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(57, 'Makyek', 'makyek', 'makyek-1', 'https://en.wikipedia.org/wiki/Mak-yek')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(58, 'Mana', 'mana', 'mana-1', 'http://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=2462', '2005 Claude Leroy')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(59, 'Mancala', 'oware', 'https://mancala.fandom.com/wiki/Category:Traditional_Mancala_Games')`);
@@ -77,10 +72,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(72, 'Rithmomachia', 'rithmomachia', 'rithm-1', 'http://www.boardspace.net/rithmomachy/english/rules.html')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(73, 'Seega', 'seega', 'http://www.cyningstan.com/game/120/seega')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(74, 'Senet', 'senet', 'senet', 'https://en.wikipedia.org/wiki/Senet')`);
-        await queryRunner.query(`insert into game_map(id, name, preview, rules) values(75, 'Shatranj', 'shatranj-93', 'https://en.wikipedia.org/wiki/Shatranj')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(76, 'Shen', 'shen', 'shen', 'https://en.wikipedia.org/wiki/Hounds_and_Jackals')`);
-        await queryRunner.query(`insert into game_map(id, name, preview, rules) values(77, 'Shogi', 'shogi-1', 'https://en.wikipedia.org/wiki/Shogi')`);
-        await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(78, 'Sittuyin', 'sittuyin', 'sittuyin', 'https://en.wikipedia.org/wiki/Sittuyin')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(79, 'Sovereign Chess', 'sovereign-chess', 'https://en.wikipedia.org/wiki/Sovereign_Chess', 'Mark Bates, Infinite Pi Games')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(80, 'Spock', 'spock', 'spock', '2017 Valentin Chelnokov')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(81, 'Stations', 'stations', 'stations', '2001 L. Lynn Smith')`);
@@ -97,8 +89,8 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(93, 'Ur', 'ur', 'ur', 'https://www.ancientgames.org/royal-game-ur-game-20-squares/', '2011 Dmitry Skyruk')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(94, 'Walhall', 'walhall', 'walhall-3', '2017 Valentin Chelnokov')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(95, 'Watermelon Chess', 'watermelon', 'watermelon-1', 'https://sites.google.com/site/boardandpieces/list-of-games/watermelon-chess')`);
-        await queryRunner.query(`insert into game_map(id, name, preview, rules) values(96, 'XiangQi', 'xiangqi', 'https://en.wikipedia.org/wiki/Xiangqi')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(97, 'Nine-Tile Cyvasse', 'cyvasse', 'cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
+        await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(98, 'Kings Valley', 'kings-valley', 'kings-valley', 'http://www.logygames.com/english/kingsvalley.html', '2006 Mitsuo Yamamoto')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(201, 2, 'Adiyukh Checkers (8x8)', 'adiuh-checkers', 'adiuh-checkers', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(202, 2, 'Adiyukh Checkers (8x10)', 'adiuh-checkers-8x10', 'adiuh-checkers-8x10', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
@@ -213,6 +205,17 @@ export class map1695887256566 implements MigrationInterface {
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1944, 1943, 'Omega Chess', 'omega-chess', 'omega', 'https://en.wikipedia.org/wiki/Omega_Chess', '1992 Daniel MacDonald')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1945, 1943, 'Omega Chess Advanced', 'omega-chess-advanced', 'omega', 'https://en.wikipedia.org/wiki/Omega_Chess#Omega_Chess_Advanced', '1992 Daniel MacDonald')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(1947, 19, 'Chess', 'chess-1', 'https://en.wikipedia.org/wiki/Chess')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(1948, 19, 'Chaturanga', 'chaturanga', 'https://en.wikipedia.org/wiki/Chaturanga')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(1949, 19, 'Hexagonal Chess', 'glinski', 'https://en.wikipedia.org/wiki/Hexagonal_chess')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1950, 19, 'Hiashatar', 'hiashatar', 'hiashatar', 'https://en.wikipedia.org/wiki/Hiashatar')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(1951, 19, 'Janggi', 'janggi', 'https://en.wikipedia.org/wiki/Janggi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1952, 19, 'Makruk', 'makruk', 'makruk', 'https://en.wikipedia.org/wiki/Makruk')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(1953, 19, 'Shatranj', 'shatranj-93', 'https://en.wikipedia.org/wiki/Shatranj')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(1954, 19, 'Shogi', 'shogi-1', 'https://en.wikipedia.org/wiki/Shogi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1955, 19, 'Sittuyin', 'sittuyin', 'sittuyin', 'https://en.wikipedia.org/wiki/Sittuyin')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(1956, 19, 'XiangQi', 'xiangqi', 'https://en.wikipedia.org/wiki/Xiangqi')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(2501, 25, 'Hex', 'hex', 'hex', 'http://www.iggamecenter.com/info/en/hex.html', '1942 Piet Hein and John Nash')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(2502, 25, 'Gonnect', 'gonnect', 'gonnect', '2000 Joao Pedro Neto')`);

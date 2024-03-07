@@ -341,6 +341,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(306, 37, 'Ludus Latrunculi', 'latrunculi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(307, 37, 'Berserk Latrunculi', 'latrunculi-berserk', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(308, 37, 'Nine-Tile Cyvasse', 'cyvasse', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(309, 37, 'Kings Valley', 'kings-valley', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -574,6 +575,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(205, 40, 305, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(206, 37, 306, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(207, 37, 307, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(208, 37, 309, null, null)`);
 
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(1, 25, 10, 1, 'Without Handicap')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(2, 25, 10, 2, 'Left-Kyo Handicap')`);
@@ -1254,6 +1256,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(702, 'latrunculi', null, 'latrunculi', 'https://en.wikipedia.org/wiki/Ludus_latrunculorum')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(703, 'latrunculi-berserk', null, 'latrunculi', 'https://en.wikipedia.org/wiki/Ludus_latrunculorum')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(704, 'cyvasse', null, 'cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(705, 'kings-valley', null, 'kings-valley', 'http://www.logygames.com/english/kingsvalley.html', '2006 Mitsuo Yamamoto')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
