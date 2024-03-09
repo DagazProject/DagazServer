@@ -1,27 +1,19 @@
 <html>
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Martian Chess</title>
+<title>Martian Chess (4x8)</title>
 <link rel="stylesheet" href="css/style-7eb2a9d6.css"/>
 </head>
 <body>
 
-<img id="Board-1" style="display:none" src="images/martian/8x8se.png">
-<img id="Board-2" style="display:none" src="images/martian/8x8sw.png">
-<img id="Board-3" style="display:none" src="images/martian/8x8nw.png">
-<img id="Board-4" style="display:none" src="images/martian/8x8ne.png">
+<img id="Board-1" style="display:none" src="images/martian/4x8se.png">
+<img id="Board-2" style="display:none" src="images/martian/4x8nw.png">
 <img id="PurpleBishop" style="display:none" src="images/martian/pbishop.png">
 <img id="OrangeBishop" style="display:none" src="images/martian/obishop.png">
-<img id="BlueBishop" style="display:none" src="images/martian/bbishop.png">
-<img id="GreenBishop" style="display:none" src="images/martian/gbishop.png">
 <img id="PurpleDrone" style="display:none" src="images/martian/prook.png">
 <img id="OrangeDrone" style="display:none" src="images/martian/orook.png">
-<img id="BlueDrone" style="display:none" src="images/martian/brook.png">
-<img id="GreenDrone" style="display:none" src="images/martian/grook.png">
 <img id="PurpleQueen" style="display:none" src="images/martian/pqueen.png">
 <img id="OrangeQueen" style="display:none" src="images/martian/oqueen.png">
-<img id="BlueQueen" style="display:none" src="images/martian/bqueen.png">
-<img id="GreenQueen" style="display:none" src="images/martian/gqueen.png">
 
 <div class="center-body">
     <div class="canvas-wrap" id="canvasFit">
@@ -37,7 +29,7 @@
         <div align="right" id="timer"></div>
         </div>
         <div class="cc2">
-        <canvas id="Canvas" width="440" height="424" style="cursor:default" class="canvas-body">Broken canvas...</canvas>
+        <canvas id="Canvas" width="240" height="424" style="cursor:default" class="canvas-body">Broken canvas...</canvas>
         </div>
     </div>
 </div>
@@ -48,16 +40,18 @@
 <script src="common-scripts/dagaz.js"></script>
 <script src="common-scripts/zrf-model.js"></script>
 <script src="common-scripts/zobrist.js"></script>
+<script src="common-scripts/ko.js"></script>
 <script src="common-scripts/common-setup-v3.js"></script>
 <script src="common-scripts/2d-view-v2.js"></script>
 <script src="common-scripts/move-list-v2.js"></script>
 <script src="common-scripts/session-manager.js"></script>
 <script src="common-scripts/sound-manager-v2.js"></script>
+<script src="common-scripts/random-ai.js"></script>
+<script src="common-scripts/uct-ai-v4.js"></script>
 <script src="scripts/martian-goal.js"></script>
 <script src="scripts/martian-promotion.js"></script>
 <script src="scripts/martian-extension.js"></script>
-<script src="scripts/martian-chess.js"></script>
+<script src="scripts/martian-chess-2.js"></script>
 <script src="common-scripts/app-net-v2.js"></script>
 
-</body>
 </html>

@@ -342,6 +342,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(307, 37, 'Berserk Latrunculi', 'latrunculi-berserk', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(308, 37, 'Nine-Tile Cyvasse', 'cyvasse', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(309, 37, 'Kings Valley', 'kings-valley', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(310, 37, 'Martian Chess (4x8)', 'martian-chess-2', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -1257,6 +1258,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(703, 'latrunculi-berserk', null, 'latrunculi', 'https://en.wikipedia.org/wiki/Ludus_latrunculorum')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(704, 'cyvasse', null, 'cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(705, 'kings-valley', null, 'kings-valley', 'http://www.logygames.com/english/kingsvalley.html', '2006 Mitsuo Yamamoto')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(706, 'martian-chess-2', null, 'martian-2', 'https://en.wikipedia.org/wiki/Martian_chess', '1999 Andrew Looney')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
