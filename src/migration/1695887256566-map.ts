@@ -56,7 +56,6 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(57, 'Makyek', 'makyek', 'makyek-1', 'https://en.wikipedia.org/wiki/Mak-yek')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(58, 'Mana', 'mana', 'mana-1', 'http://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=2462', '2005 Claude Leroy')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(59, 'Mancala', 'oware', 'https://mancala.fandom.com/wiki/Category:Traditional_Mancala_Games')`);
-        await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(60, 'Martian Chess', 'martian-chess', 'martian', 'https://en.wikipedia.org/wiki/Martian_chess', '1999 Andrew Looney')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(61, 'Ming-Mang', 'ming-mang-17x17', 'http://homepages.di.fc.ul.pt/~jpn/gv/mingmang.htm')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(62, 'Morris', '9-men', 'https://en.wikipedia.org/wiki/Nine_Men%27s_Morris')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(63, 'Nam Dinh', 'nam-dinh', 'nam-dinh', 'http://mlwi.magix.net/bg/nam_dinh.htm')`);
@@ -100,7 +99,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(203, 2, 'Adiyukh Checkers (10x10)', 'adiuh-checkers-10x10', 'adiuh-checkers-10x10', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(204, 2, 'Tavrida', 'tavrida-8x10', 'adiuh-checkers-8x10', '2007 Viktor Pankovich')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(205, 2, 'Stavropol Adiyukh Checkers (8x8)', 'stavropol-adiuh-checkers', 'adiuh-checkers', '2007 Viktor Pankovich')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(206, 2, 'King''s Adiyukh Checkers (8x8)', 'king-adiuh-checkers', 'king-adiuh-checkers', '2007 Viktor Pankovich')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(206, 2, 'King''s Adiyukh Checkers (10x10)', 'king-adiuh-checkers-10x10', 'king-adiuh-checkers-10x10', '2007 Viktor Pankovich')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(501, 5, 'Alquerque', 'alquerque', 'https://en.wikipedia.org/wiki/Alquerque')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(507, 5, 'Dablot', 'dablot-prejjesne', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);

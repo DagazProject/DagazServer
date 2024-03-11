@@ -327,7 +327,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(292, 30, 'Hexagonal Dragonfly', 'dragonfly-hex', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(293, 25, 'Tori Shogi', 'tori-shogi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(294, 22, 'Anathem', 'anathem', 2)`);
-        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(295, 24, 'King''s Adiyukh Checkers', 'king-adiuh-checkers', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(295, 24, 'King''s Adiyukh Checkers', 'king-adiuh-checkers-10x10', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(296, 40, 'Tawlbwrdd', 'tawlbwrdd', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(297, 40, 'Tawlbyund', 'tawlbyund', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(298, 40, 'Berserk Tablut', 'tablut-berserk', 2)`);
@@ -1241,7 +1241,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(686, 'tori-shogi', null, 'tori-shogi', 'https://en.wikipedia.org/wiki/Tori_shogi', '1799 Toyota Genryu')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(687, 'tori-shogi-kanji', null, 'tori-shogi-kanji', 'https://en.wikipedia.org/wiki/Tori_shogi', '1799 Toyota Genryu')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(688, 'anathem', null, 'anathem', '2016 Valentin Chelnokov')`);
-        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(689, 'king-adiuh-checkers', null, 'king-adiuh-checkers', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(689, 'king-adiuh-checkers-10x10', null, 'king-adiuh-checkers-10x10', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(690, 'tawlbwrdd', null, 'tawlbwrdd', 'https://en.wikipedia.org/wiki/Tafl_games')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(691, 'tawlbyund', null, 'tawlbyund', 'https://en.wikipedia.org/wiki/Tafl_games')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(692, 'tablut-berserk', null, 'tablut', 'https://en.wikipedia.org/wiki/Tafl_games')`);
