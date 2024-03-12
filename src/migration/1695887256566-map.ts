@@ -99,7 +99,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(203, 2, 'Adiyukh Checkers (10x10)', 'adiuh-checkers-10x10', 'adiuh-checkers-10x10', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(204, 2, 'Tavrida', 'tavrida-8x10', 'adiuh-checkers-8x10', '2007 Viktor Pankovich')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(205, 2, 'Stavropol Adiyukh Checkers (8x8)', 'stavropol-adiuh-checkers', 'adiuh-checkers', '2007 Viktor Pankovich')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(206, 2, 'King''s Adiyukh Checkers (10x10)', 'king-adiuh-checkers-10x10', 'king-adiuh-checkers-10x10', '2007 Viktor Pankovich')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(206, 2, 'King''s Adiyukh Checkers', 'king-adiuh-checkers-10x10', 'king-adiuh-checkers-10x10', '2007 Viktor Pankovich')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(501, 5, 'Alquerque', 'alquerque', 'https://en.wikipedia.org/wiki/Alquerque')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(507, 5, 'Dablot', 'dablot-prejjesne', 'https://en.wikipedia.org/wiki/Dablot_Prejjesne')`);
