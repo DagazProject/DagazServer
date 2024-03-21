@@ -29,7 +29,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(26, 'Column Checkers', 'column-checkers', 'https://en.wikipedia.org/wiki/Bashni')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(27, 'Dodgem', 'dodgem', 'dodgem', 'http://www.di.fc.ul.pt/~jpn/gv/dodgem.htm', '1972 Colin Vout')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(28, 'Dropper', 'dropper-10x10', 'dropper-10x10', 'https://andreachia.wordpress.com/2023/04/01/dropper/', 'Andrea Chia')`);
-        await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(29, 'Duel', 'duel', 'duel-1', 'Parker Brothers')`);
+        await queryRunner.query(`insert into game_map(id, name, preview, copyright) values(29, 'Duel', 'duel-1', 'Parker Brothers')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(30, 'Elementals', 'elementals', 'elementals-1', '2017 Valentin Chelnokov')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(31, 'Escalation', 'escalation', 'escalation', '1973 G. P. Jelliss')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(32, 'Euclid', 'euclid', 'euclid-1', 'http://www.di.fc.ul.pt/~jpn/gv/euclid.htm', '2003 Chris Huntoon')`);
@@ -390,6 +390,9 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(9608, 96, 'YitongQi', 'yitongqi', 'yitongqi', 'https://en.wikipedia.org/wiki/Manchu_chess')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(9609, 96, 'Xiang Hex', 'xiang-hex', 'xiang-hex', 'https://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=1645', '2008 L. Lynn Smith')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(9610, 96, 'Storm the Ivory Tower', 'ivory', 'ivory-1', 'https://www.chessvariants.com/large.dir/ivorytower.html', '2003 Fergus Duniho')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(2901, 29, 'Duel', 'duel', 'duel-1', 'Parker Brothers')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(2902, 29, 'CubWars', 'cub-wars', 'cub-wars', '2014 Achernar Studio')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
