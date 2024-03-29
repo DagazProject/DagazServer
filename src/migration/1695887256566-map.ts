@@ -87,9 +87,12 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(93, 'Ur', 'ur', 'ur', 'https://www.ancientgames.org/royal-game-ur-game-20-squares/', '2011 Dmitry Skyruk')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(94, 'Walhall', 'walhall', 'walhall-3', '2017 Valentin Chelnokov')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(95, 'Watermelon Chess', 'watermelon', 'watermelon-1', 'https://sites.google.com/site/boardandpieces/list-of-games/watermelon-chess')`);
-        await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(97, 'Nine-Tile Cyvasse', 'cyvasse', 'cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
+        await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(97, 'Nine-Tile Cyvasse', 'cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(98, 'Kings Valley', 'kings-valley', 'kings-valley', 'http://www.logygames.com/english/kingsvalley.html', '2006 Mitsuo Yamamoto')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(99, 'Martian Chess', 'martian', 'https://en.wikipedia.org/wiki/Martian_chess', '1999 Andrew Looney')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(9701, 97, 'Nine-Tile Cyvasse', 'cyvasse', 'cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(9702, 97, 'Dark Cyvasse', 'dark-cyvasse', 'dark-cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(9901, 99, 'Martian Chess (8x8)', 'martian-chess', 'martian', 'https://en.wikipedia.org/wiki/Martian_chess', '1999 Andrew Looney')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(9902, 99, 'Martian Chess (4x8)', 'martian-chess-2', 'martian-2', 'https://en.wikipedia.org/wiki/Martian_chess', '1999 Andrew Looney')`);
