@@ -73,7 +73,7 @@ Dagaz.Model.Done = function(design, board) {
       }
       // Spears
       if (piece.type == 2) {
-          _.each([4, 5], function(dir) {
+          _.each((board.player == 1) ? [4, 5] : [0, 1], function(dir) {
               var p = design.navigate(currentPlayer, pos, dir);
               if (p === null) return;
               if (_.indexOf(visible, +p) < 0) visible.push(p);
@@ -171,13 +171,16 @@ Dagaz.Model.Done = function(design, board) {
       }
   }
   Dagaz.Model.invisible = [];
-  _.each(design.allPositions(), function(pos) {
-      if (_.indexOf(visible, pos) < 0) {
+  _.each(_.range(108, 216), function(pos) {
+      if (design.isKilledPos(pos)) return;
+      var piece = board.getPiece(pos);
+      if ((piece !== null) && (_.indexOf(visible, pos) < 0)) {
           Dagaz.Model.invisible.push(pos);
       }
   });
   var ko = [];
-  _.each(design.allPositions(), function(pos) {
+  _.each(_.range(108, 216), function(pos) {
+      if (design.isKilledPos(pos)) return;
       if (_.indexOf(Dagaz.Model.invisible, pos) < 0) return;
       var piece = board.getPiece(pos);
       if ((piece !== null ) && (piece.player == currentPlayer)) return;
