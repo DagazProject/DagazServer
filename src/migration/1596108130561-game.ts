@@ -346,6 +346,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(311, 37, 'CubWars', 'cub-wars', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(312, 37, 'Dark Cyvasse', 'dark-cyvasse', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(313, 30, 'SMESS', 'smess', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, is_dice) values(314, 46, 'Khachapuri', 'khachapuri', 2, 1)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -581,6 +582,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(207, 37, 307, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(208, 37, 309, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(209, 30, 313, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(210, 46, 314, null, null)`);
 
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(1, 25, 10, 1, 'Without Handicap')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(2, 25, 10, 2, 'Left-Kyo Handicap')`);
@@ -1266,6 +1268,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(707, 'cub-wars', null, 'cub-wars', '2014 Achernar Studio')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(708, 'dark-cyvasse', null, 'dark-cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(709, 'smess', null, 'smess', 'https://www.chessvariants.com/other.dir/smess.html', '1970 Parker Brothers')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(710, 'khachapuri', null, 'khachapuri', 'https://www.bkgm.com/rgb/rgb.cgi?view+1537')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

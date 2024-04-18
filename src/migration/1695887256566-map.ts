@@ -124,6 +124,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1001, 10, 'Hypergammon', 'hypergammon', 'hypergammon', 'https://bkgm.com/variants/HyperBackgammon.html')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1002, 10, 'Backgammon', 'backgammon', 'backgammon', 'https://bkgm.com/rules.html')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1003, 10, 'Jacquet', 'jacquet', 'jacquet', 'https://www.bkgm.com/variants/Jacquet.html')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1004, 10, 'Khachapuri', 'khachapuri', 'khachapuri', 'https://www.bkgm.com/rgb/rgb.cgi?view+1537')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1101, 11, 'Chinese Banqi', 'banqi-chinese', 'banqi', 'https://en.wikipedia.org/wiki/Banqi')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1102, 11, 'Taiwanese Banqi', 'banqi-taiwanese', 'banqi', 'https://en.wikipedia.org/wiki/Banqi')`);
