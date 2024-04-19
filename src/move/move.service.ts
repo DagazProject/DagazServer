@@ -517,15 +517,16 @@ export class MoveService {
     async addMove(x: Move): Promise<Move> {
         try {
             const t = await this.service.query(
-                `select a.session_id, b.is_sandglass, b.last_setup, b.last_user, b.next_player as last_player, b.last_turn
+                `select a.session_id, b.is_sandglass, b.last_setup, b.last_user, b.next_player as last_player, b.last_turn, u.realm_id
                  from   user_games a
                  inner  join game_sessions b on (b.id = a.session_id)
+                 inner  join users u on (u.id = a.user_id)
                  where  a.id = $1`, [x.uid]);
             if (!t || t.length == 0) {
                  return null;
             }
             x.session_id = t[0].session_id;
-            if (x.turn_num !== null) {
+            if ((t[0].realm_id == 1) && (x.turn_num !== null)) {
                 const last_turn = await this.getLastTurn(x.session_id);
                 if (x.turn_num - 1 != last_turn) {
                     x.session_id = null;
