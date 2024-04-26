@@ -28,7 +28,7 @@ var g_moveUndoStack = new Array();
 // Evaulation variables
 var g_mobUnit;
 
-var materialTable = [0, 800, 800, 1500, 3350, 4000, 5500, 600000];
+var materialTable = [0, 700, 1100, 1100, 4000, 5000, 6000, 600000];
 
 Dagaz.AI.pieceAdj = [
 [   0,    0,    0,    0,    0,    0,    0,    0,    0, // pieceEmpty
@@ -42,13 +42,13 @@ Dagaz.AI.pieceAdj = [
     0,    0,    0,    0,    0,    0,    0,    0,    0, 
     0,    0,    0,    0,    0,    0,    0,    0,    0
 ],
-[  10,   20,   30,  100,  100,  100,   30,   20,   10, // piecePawn
-   10,   40,   60,  200,  200,  200,   60,   40,   10, 
-   20,   40,   50,  100,  100,  100,   50,   40,   20, 
-   20,   30,   40,   50,   50,   50,   40,   30,   20, 
-   10,   20,   30,   40,   40,   40,   30,   20,   10, 
-    0,    0,    0,    0,    0,    0,    0,    0,    0, 
-    0,    0,    0,    0,    0,    0,    0,    0,    0, 
+[   0,   30,   60,   90, 1200,   90,   60,   30,    0, // piecePawn
+  180,  360,  560,  800, 1200,  800,  560,  360,  180, 
+  140,  260,  420,  600,  800,  600,  420,  260,  140, 
+  100,  200,  300,  340,  400,  340,  300,  200,  100, 
+   60,  120,  180,  180,  200,  180,  180,  120,   60, 
+   20,    0,   80,    0,   80,    0,   80,    0,   20, 
+    0,    0,  -20,    0,   40,    0,  -20,    0,    0, 
     0,    0,    0,    0,    0,    0,    0,    0,    0, 
     0,    0,    0,    0,    0,    0,    0,    0,    0, 
     0,    0,    0,    0,    0,    0,    0,    0,    0
@@ -324,18 +324,18 @@ function InitializeEval() {
         g_mobUnit[i][0] = 1;
         g_mobUnit[i][pieceNo] = 0;
         g_mobUnit[i][enemy  | piecePawn]    = 1;
-        g_mobUnit[i][enemy  | pieceKnight]  = 2;
-        g_mobUnit[i][enemy  | pieceBishop]  = 1;
-        g_mobUnit[i][enemy  | pieceRook]    = 5;
         g_mobUnit[i][enemy  | pieceAdvisor] = 1;
+        g_mobUnit[i][enemy  | pieceBishop]  = 1;
+        g_mobUnit[i][enemy  | pieceKnight]  = 2;
         g_mobUnit[i][enemy  | pieceCannon]  = 4;
+        g_mobUnit[i][enemy  | pieceRook]    = 5;
         g_mobUnit[i][enemy  | pieceKing]    = 6;
         g_mobUnit[i][friend | piecePawn]    = 0;
-        g_mobUnit[i][friend | pieceKnight]  = 0;
-        g_mobUnit[i][friend | pieceBishop]  = 0;
-        g_mobUnit[i][friend | pieceRook]    = 0;
         g_mobUnit[i][friend | pieceAdvisor] = 0;
+        g_mobUnit[i][friend | pieceBishop]  = 0;
+        g_mobUnit[i][friend | pieceKnight]  = 0;
         g_mobUnit[i][friend | pieceCannon]  = 0;
+        g_mobUnit[i][friend | pieceRook]    = 0;
         g_mobUnit[i][friend | pieceKing]    = 0;
     }
 }
@@ -430,7 +430,7 @@ Dagaz.AI.InitializeFromFen = function(fen) {
     }
 
     // Check for king capture (invalid FEN)
-    kingPos = Dagaz.AI.g_pieceList[(them | pieceKing) << Dagaz.AI.COUNTER_SIZE]
+    kingPos = Dagaz.AI.g_pieceList[(them | pieceKing) << Dagaz.AI.COUNTER_SIZE];
     if ((kingPos != 0) && IsSquareAttackable(kingPos, Dagaz.AI.g_toMove)) {
         return 'Invalid FEN: Can capture king';
     }
