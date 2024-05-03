@@ -989,6 +989,14 @@ ZrfDesign.prototype.repeatMark = function(selector) {
   this.repeat = this.turns.length;
 }
 
+ZrfDesign.prototype.endMark = function() {
+  if (_.isUndefined(this.turns)) {
+      this.turns = [];
+  }
+  this.end = this.turns.length;
+  this.turns.push({});
+}
+
 ZrfDesign.prototype.isPuzzle = function() {
   if (!_.isUndefined(this.turns) && (this.turns.length == 1)) return true;
   return _.chain(_.keys(this.playerNames)).max().value() == 1;
@@ -1012,7 +1020,7 @@ ZrfDesign.prototype.nextTurn = function(board) {
           }
       }
   } else {
-      if (turn >= this.turns.length) {
+      if ((this.end && (turn == this.end)) || (turn >= this.turns.length)) {
           turn = 0;
           if (this.repeat) {
               turn += this.repeat;
@@ -1165,7 +1173,7 @@ ZrfDesign.prototype.navigate = function(player, pos, dir) {
       dir = this.players[player][dir];
   }
   if (this.positions[pos][dir] != 0) {
-      return + pos + this.positions[pos][dir];
+      return +pos + this.positions[pos][dir];
   } else {
       return null;
   }
@@ -1985,7 +1993,7 @@ ZrfBoard.prototype.generateInternal = function(callback, cont, cover, serial) {
           Dagaz.Model.PostActions(this);
           if (Dagaz.Model.passTurn == 1) {
               this.moves.push(new ZrfMove());
-          }
+          }          
           if (Dagaz.Model.passTurn == 2) {
               if (this.moves.length == 0) {
                   this.moves.push(new ZrfMove());
