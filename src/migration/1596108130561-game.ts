@@ -348,6 +348,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(313, 30, 'SMESS', 'smess', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, is_dice) values(314, 46, 'Khachapuri', 'khachapuri', 2, 1)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(315, 24, 'Stavropol Adiyukh Checkers (10x10)', 'stavropol-adiuh-checkers-10x10', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(316, 30, 'Hexes Chess', 'hexes', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -585,6 +586,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(209, 30, 313, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(210, 46, 314, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(211, 24, 315, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(212, 30, 316, null, null)`);
 
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(1, 25, 10, 1, 'Without Handicap')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(2, 25, 10, 2, 'Left-Kyo Handicap')`);
@@ -1272,6 +1274,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(709, 'smess', null, 'smess', 'https://www.chessvariants.com/other.dir/smess.html', '1970 Parker Brothers')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(710, 'khachapuri', null, 'khachapuri', 'https://www.bkgm.com/rgb/rgb.cgi?view+1537')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(711, 'stavropol-adiuh-checkers-10x10', null, 'adiuh-checkers-10x10', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(712, 'hexes', null, 'hexes', 'https://hexeschess.com/', '2002 Michael Layfield')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
