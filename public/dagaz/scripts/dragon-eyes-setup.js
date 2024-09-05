@@ -37,8 +37,11 @@ var getCookie = function() {
   }
 }
 
-var getSetup = function() {
+var getSetup = function(setup) {
   var str = window.location.search.toString();
+  if (setup) {
+      str = setup;
+  }
   var result = str.match(/[?&]setup=([^&]*)/);
   if (result) {
       return result[1];
