@@ -72,7 +72,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(74, 'Senet', 'senet', 'senet', 'https://en.wikipedia.org/wiki/Senet')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(76, 'Shen', 'shen', 'shen', 'https://en.wikipedia.org/wiki/Hounds_and_Jackals')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(79, 'Sovereign Chess', 'sovereign-chess', 'https://en.wikipedia.org/wiki/Sovereign_Chess', 'Mark Bates, Infinite Pi Games')`);
-        await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(80, 'Spock', 'spock', 'spock', '2017 Valentin Chelnokov')`);
+        await queryRunner.query(`insert into game_map(id, name, preview, copyright) values(80, 'Other games', 'rpns')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, copyright) values(81, 'Stations', 'stations', 'stations', '2001 L. Lynn Smith')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(82, 'Straits', 'straits', 'straits', 'https://www.chess.com/blog/Pokshtya/chess-variant-from-1893', '1893 Anna Marriott Watson')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(83, 'Stratego', 'stratego', 'https://en.wikipedia.org/wiki/Stratego')`);
@@ -91,6 +91,9 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(98, 'Kings Valley', 'kings-valley', 'kings-valley', 'http://www.logygames.com/english/kingsvalley.html', '2006 Mitsuo Yamamoto')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(99, 'Martian Chess', 'martian', 'https://en.wikipedia.org/wiki/Martian_chess', '1999 Andrew Looney')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(100, 'SMESS', 'smess', 'https://www.chessvariants.com/other.dir/smess.html', '1970 Parker Brothers')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(8001, 80, 'RPnS', 'rpns', 'rpns')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(8002, 80, 'Spock', 'spock', 'spock', '2017 Valentin Chelnokov')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(9701, 97, 'Nine-Tile Cyvasse', 'cyvasse', 'cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(9702, 97, 'Dark Cyvasse', 'dark-cyvasse', 'dark-cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
