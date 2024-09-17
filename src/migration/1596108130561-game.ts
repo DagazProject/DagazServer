@@ -1280,7 +1280,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(711, 'stavropol-adiuh-checkers-10x10', null, 'adiuh-checkers-10x10', 'https://ru.wikipedia.org/wiki/Столбовые_шашки#Шашки_Адиюх', '2007 Viktor Pankovich')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(712, 'hexes', null, 'hexes', 'https://hexeschess.com/', '2002 Michael Layfield')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(713, 'dragon-eyes', null, 'dragon-eyes', 'https://granddicechess.livejournal.com/14821.html', '2024 Vadrya Pokshtya')`);
-        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(714, 'rpns', null, 'rpns', 'Oleg Makarov')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(714, 'rpns', null, 'rpns', 'Oleg Makarenko')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

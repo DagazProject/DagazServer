@@ -92,7 +92,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(99, 'Martian Chess', 'martian', 'https://en.wikipedia.org/wiki/Martian_chess', '1999 Andrew Looney')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(100, 'SMESS', 'smess', 'https://www.chessvariants.com/other.dir/smess.html', '1970 Parker Brothers')`);
 
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(8001, 80, 'RPnS', 'rpns', 'rpns', 'Oleg Makarov')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(8001, 80, 'RPnS', 'rpns', 'rpns', 'Oleg Makarenko')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(8002, 80, 'Spock', 'spock', 'spock', '2017 Valentin Chelnokov')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(9701, 97, 'Nine-Tile Cyvasse', 'cyvasse', 'cyvasse', 'https://zanefisher.github.io/nine-tile-cyvasse/cyvasserules.pdf', '2014 Zane Fisher')`);
