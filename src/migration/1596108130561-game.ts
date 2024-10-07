@@ -351,6 +351,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(316, 30, 'Hexes Chess', 'hexes', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(317, 37, 'Dragon Eyes', 'dragon-eyes', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(318, 37, 'RPnS', 'rpns', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(319, 30, 'Jabberwocky Chess', 'jabberwocky', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -591,6 +592,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(212, 30, 316, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(213, 37, 317, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(214, 37, 318, null, null)`);
+//      await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(215, 30, 319, null, null)`);
 
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(1, 25, 10, 1, 'Without Handicap')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(2, 25, 10, 2, 'Left-Kyo Handicap')`);
@@ -1281,6 +1283,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(712, 'hexes', null, 'hexes', 'https://hexeschess.com/', '2002 Michael Layfield')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(713, 'dragon-eyes', null, 'dragon-eyes', 'https://granddicechess.livejournal.com/14821.html', '2024 Vadrya Pokshtya')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(714, 'rpns', null, 'rpns', 'Oleg Makarenko')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(715, 'jabberwocky', null, 'jabberwocky', 'https://www.chessvariants.com/rules/jabberwocky-chess', '2024 Vadrya Pokshtya')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
