@@ -183,6 +183,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(1955, 19, 'Sittuyin', 'sittuyin', 'sittuyin', 'https://en.wikipedia.org/wiki/Sittuyin')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(1956, 19, 'XiangQi', 'xiangqi', 'https://en.wikipedia.org/wiki/Xiangqi')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1957, 19, 'Alapo', 'alapo', 'alapo', 'https://www.chessvariants.com/small.dir/alapo.html', '1982 Johannes Tranelis')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1958, 19, 'Rutland''s Chess', 'rutland', 'rutland', 'https://www.chessvariants.org/historic.dir/rutland.html', '1747 John Manners')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1901, 1947, 'Knight''s Court', 'knights-court', 'knights-court', 'https://www.chessvariants.com/small.dir/knightcourt.html', '2000 Jason D. Wittman')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1902, 1947, 'Silverman''s Chess', 'silverman-chess', 'silverman', '1981 David Silverman')`);
