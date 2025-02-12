@@ -356,6 +356,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, no_ai, is_dice) values(321, 46, 'Equinox Rosespring Gammon', 'rosespring', 2, 0, 1)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(322, 30, 'Rutland''s Chess', 'rutland', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(323, 37, 'ZERTZ', 'zertz', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(324, 30, 'Abyss Angel Chess', 'abyss', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -1294,6 +1295,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(717, 'rosespring', null, 'jacquet', '2025 Stefan Videnov')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(718, 'rutland', null, 'rutland', 'https://www.chessvariants.org/historic.dir/rutland.html', '1747 John Manners')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(719, 'zertz', null, 'zertz', '1999 Kris Burm')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(720, 'abyss', null, 'abyss', 'https://boardgamegeek.com/thread/3450869/abyss-angel-chess', '2025 Vadrya Pokshtya')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
