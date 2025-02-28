@@ -28,9 +28,7 @@ export class SessionService {
 
        async getRealm(user: number): Promise<number> {
         const x = await this.service.query(
-          `select realm_id
-           from   users
-           where  id = $1`, [user]);
+          `select realm_id from users where id = $1`, [user]);
         if (!x || x.length != 1) {
             return null;
         }
@@ -40,12 +38,7 @@ export class SessionService {
       async exportSession(sid: number): Promise<Exp[]> {
           try {
             const x = await this.service.query(
-                `select a.turn_num as turn_num, b.player_num as player_num, 
-                        a.move_str as move_str
-                 from   game_moves a
-                 inner  join user_games b on (b.id = a.uid)
-                 where  a.session_id = $1
-                 order  by a.turn_num`, [sid]);
+                `select turn_num, player_num, move_str from export_session where session_id = $1 order by turn_num`, [sid]);
             if (!x || x.length == 0) {
                  return null;
             }

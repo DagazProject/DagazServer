@@ -25,9 +25,14 @@ export class init1592210976213 implements MigrationInterface {
         await queryRunner.query(`insert into users(is_admin, name, login, pass, created, last_actived) values(1, 'root', 'root', 'root', now(), now())`);
 
         await queryRunner.query(`insert into account_type(id, name) values(1, 'Telegram')`);
+        await queryRunner.query(`create view export_session as
+SELECT a.turn_num, b.player_num, a.move_str, a.session_id
+FROM   game_moves a
+INNER  JOIN user_games b ON b.id = a.uid`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
+        await queryRunner.query(`drop view export_session`);
         await queryRunner.query(`delete from account_type`);
         await queryRunner.query(`delete from users`);
         await queryRunner.query(`delete from game_statuses`);
