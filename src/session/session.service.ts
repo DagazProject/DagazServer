@@ -62,30 +62,16 @@ export class SessionService {
       async getTournSessions(tourn: number, auth: number, user: number): Promise<Sess[]> {
         try {
             const x = await this.service.query(
-                `select distinct a.id as id, a.status_id as status, a.game_id as game_id, d.id as variant_id,
-                        coalesce(d.name, b.name) || ' (' || a.id || ')' as game, coalesce(d.filename, b.filename) || coalesce(h.suffix, '') as filename, 
-                        a.created as created, c.name as creator, b.players_total as players_total, a.last_setup as last_setup, 
-                        string_agg(
-                            case
-                              when e.is_ai = 1 then 'AI'
-                              else f.name
-                            end || ' (' || e.player_num || 
-                        ')', ' / ' order by e.player_num) as player_name,
-                        coalesce(a.last_turn, 0) as last_turn, coalesce(a.selector_value, 0) as selector_value, x.id as ai, a.is_protected
-                 from   game_sessions a
-                 inner  join games b on (b.id = a.game_id)
-                 inner  join users c on (c.id = a.user_id)
-                 left   join game_variants d on (d.id = a.variant_id)
-                 inner  join user_games e on (e.session_id = a.id)
-                 inner  join users f on (f.id = e.user_id)
-                 left   join user_games x on (x.session_id = a.id and x.is_ai = 1)
-                 inner  join tournament_games i on (i.session_id = a.id and i.tournament_id = $1)
-                 left   join user_games j on (j.session_id = a.id and j.user_id = $2)
-                 left   join game_styles h on (h.game_id = b.id and h.player_num = j.player_num)
-                 left   join user_games k on (k.session_id = a.id and k.user_id = $3)
-                 where  coalesce(k.user_id, 0) = $4
-                 group  by a.id, a.status_id, a.game_id, d.id, d.name, b.name, d.filename, b.filename, a.created, c.name, b.players_total, a.last_setup, x.id, h.suffix, a.is_protected
-                 limit  200`, [tourn, auth, user, user]);
+                `select distinct  a.id, a.status, a.game_id, a.variant_id,
+                 a.game, a.filename || coalesce(h.suffix, '') as filename, 
+                 a.created, a.creator, a.players_total, a.last_setup, a.player_name, 
+                 a.last_turn, a.selector_value, a.ai, a.is_protected
+                 from   tourn_sess_vw a
+                 left   join user_games j on (j.session_id = a.id and j.user_id = $1)
+                 left   join game_styles h on (h.game_id = a.game_id and h.player_num = j.player_num)
+                 left   join user_games k on (k.session_id = a.id and k.user_id = $2)
+                 where  coalesce(k.user_id, 0) = $3 and a.tournament_id = $4
+                 limit  200`, [auth, user, user, tourn]);
                  let l: Sess[] = x.map(x => {
                     let it = new Sess();
                     it.id = x.id;
@@ -117,10 +103,9 @@ export class SessionService {
       async getCurrentSessionsVar(user: number, variant: number): Promise<Sess[]> {
           try {
             const x = await this.service.query(
-                `select a.id, a.last_setup, a.status_id as status, a.game_id, a.variant_id, a.last_turn
-                 from   game_sessions a
-                 inner  join user_games b on (b.session_id = a.id and b.player_num = a.next_player and b.user_id = $1)
-                 where  a.status_id = 2 and a.closed is null and a.variant_id = $2 and not a.last_setup is null
+                `select a.id, a.last_setup, a.status, a.game_id, a.variant_id, a.last_turn
+                 from   curr_sess_var_vw a
+                 where  a.user_id = $1 and a.variant_id = $2
                  order  by a.changed
                  limit  1`, [user, variant]);
                  let l: Sess[] = x.map(x => {
