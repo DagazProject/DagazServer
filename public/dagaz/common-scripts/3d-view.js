@@ -248,9 +248,9 @@ View3D.prototype.clearControls = function() {
 View3D.prototype.defControl = function(imgs, hint, isVisible, proc, args) {
   var type = 0;
   if (!_.isArray(imgs)) {
-     if (imgs == "UndoControl")   type = 1;
-     if (imgs == "RedoControl")   type = 2;
-     if (imgs == "CameraControl") type = 3;
+     if (imgs == "UndoControl") type = 1;
+     if (imgs == "RedoControl") type = 2;
+     if (imgs == "HomeControl") type = 3;
      imgs = [imgs];
   }
   imgs = _.map(imgs, function(res) {
