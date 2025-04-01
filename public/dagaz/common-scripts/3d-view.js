@@ -529,8 +529,8 @@ View3D.prototype.draw = function(canvas) {
          if (!_.isUndefined(Dagaz.View.augBoard)) {
             Dagaz.View.augBoard(this);
          }
-            const orbits = new THREE.OrbitControls(camera, renderer.domElement);
-            orbits.addEventListener('change', () => this.invalidate());
+         const orbits = new THREE.OrbitControls(camera, renderer.domElement);
+         orbits.addEventListener('change', () => this.invalidate());
          isFirstDraw = false;
       }
       this.invalidate();
