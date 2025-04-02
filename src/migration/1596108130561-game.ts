@@ -357,6 +357,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(322, 30, 'Rutland''s Chess', 'rutland', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(323, 37, 'ZERTZ', 'zertz', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(324, 30, 'Abyss Angel Chess', 'abyss', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(325, 17, 'Diamond Atari Go', 'diamond-atari-go', 2)`);
 
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -600,6 +601,7 @@ export class game1596108130561 implements MigrationInterface {
 //      await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(215, 30, 319, null, null)`);
 //      await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(216, 46, 321, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(217, 30, 322, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(218, 17, 325, null, null)`);
 
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(1, 25, 10, 1, 'Without Handicap')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(2, 25, 10, 2, 'Left-Kyo Handicap')`);
@@ -1296,6 +1298,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(718, 'rutland', null, 'rutland', 'https://www.chessvariants.org/historic.dir/rutland.html', '1747 John Manners')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(719, 'zertz', null, 'zertz', '1999 Kris Burm')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(720, 'abyss', null, 'abyss', 'https://boardgamegeek.com/thread/3450869/abyss-angel-chess', '2025 Vadrya Pokshtya')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(721, 'diamond-atari-go', null, 'diamond-go', 'http://www.segerman.org/diamond')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

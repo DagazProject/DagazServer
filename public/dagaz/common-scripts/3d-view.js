@@ -396,12 +396,12 @@ View3D.prototype.invalidate = function() {
       }
       o += (t.h[t.x].naturalWidth + 6) * mobileCoeff;
   }
-  for (let i = 0; i < this.ctrls.length; i++) {
+/*for (let i = 0; i < this.ctrls.length; i++) {
       if (this.ctrls[i].y == 3) {
           this.ctrls[i].t = Math.round(camera.position.x) + "," + Math.round(camera.position.y) + "," + Math.round(camera.position.z);
           break;
       }
-  }
+  }*/
   const s = camera.position.x + ';' + camera.position.y + ';' + camera.position.z + ';' + camera.zoom;
   if ((cameraSettings === null) || (cameraSettings != s)) {
       localStorage.setItem('dagaz.camera', s);

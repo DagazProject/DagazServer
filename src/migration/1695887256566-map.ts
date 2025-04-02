@@ -263,6 +263,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4304, 43, 'Go 19x19', 'go-19x19', 'go-19x19', 'https://en.wikipedia.org/wiki/Rules_of_Go')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(4305, 43, 'Redstone', 'redstone-19x19', 'go-19x19', 'https://senseis.xmp.net/?Redstone', '2012 Mark Steere')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4306, 43, 'Paper Go', 'paper-go', 'paper-go', 'https://en.wikipedia.org/wiki/Go_variants#Paper_and_Pencil_Go')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(4307, 43, 'Diamond Atari Go', 'diamond-atari-go', 'diamond-go', 'http://www.segerman.org/diamond')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(4501, 45, 'Glinski''s Chess', 'glinski', 'glinski', 'https://en.wikipedia.org/wiki/Hexagonal_chess#Gli%C5%84ski''s_hexagonal_chess', '1936 Wladyslaw Glinski')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(4502, 45, 'Glinski''s Cheskers', 'glinski-cheskers', 'glinski-cheskers', 'https://en.wikipedia.org/wiki/Hexagonal_chess#Gli%C5%84ski''s_hexagonal_chess', '1936 Wladyslaw Glinski')`);
