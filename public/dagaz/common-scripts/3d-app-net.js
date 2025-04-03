@@ -280,22 +280,22 @@ var recovery = function(s) {
          inProgress = false;
      },
      error: function() {
-         Dagaz.Controller.app.state = STATE.STOP;
+         Dagaz.Controller.app.setState(STATE.STOP, 20);
          console.log('Recovery: Error!');
      },
      statusCode: {
         401: function() {
-             Dagaz.Controller.app.state = STATE.STOP;
+             Dagaz.Controller.app.setState(STATE.STOP, 21);
              console.log('Recovery: Bad User!');
              window.location = '/';
         },
         404: function() {
-             Dagaz.Controller.app.state = STATE.STOP;
+             Dagaz.Controller.app.setState(STATE.STOP, 22);
              console.log('Recovery: Not found!');
              window.location = '/';
         },
         500: function() {
-             Dagaz.Controller.app.state = STATE.STOP;
+             Dagaz.Controller.app.setState(STATE.STOP, 23);
              console.log('Recovery: Internal Error!');
         }
      }
@@ -362,16 +362,16 @@ var watchMove = function() {
          inProgress = false;
      },
      error: function() {
-         Dagaz.Controller.app.state = STATE.STOP;
+         Dagaz.Controller.app.setState(STATE.STOP, 24);
          console.log('Watch Move: Error!');
      },
      statusCode: {
         401: function() {
-             Dagaz.Controller.app.state = STATE.STOP;
+             Dagaz.Controller.app.setState(STATE.STOP, 25);
              console.log('Watch Move: Bad User!');
         },
         500: function() {
-             Dagaz.Controller.app.state = STATE.STOP;
+             Dagaz.Controller.app.setState(STATE.STOP, 26);
              console.log('Watch Move: Internal Error!');
         }
      }
@@ -397,16 +397,16 @@ var acceptAlert = function() {
          inProgress = false;
      },
      error: function() {
-         Dagaz.Controller.app.state = STATE.STOP;
+         Dagaz.Controller.app.setState(STATE.STOP, 27);
          console.log('Accept: Error!');
      },
      statusCode: {
         401: function() {
-             Dagaz.Controller.app.state = STATE.STOP;
+             Dagaz.Controller.app.setState(STATE.STOP, 28);
              console.log('Accept: Bad User!');
         },
         500: function() {
-             Dagaz.Controller.app.state = STATE.STOP;
+             Dagaz.Controller.app.setState(STATE.STOP, 29);
              console.log('Accept: Internal Error!');
         }
      }
@@ -468,7 +468,7 @@ var winGame = function() {
      success: function(data) {
          console.log('Close: Succeed');
          inProgress = false;
-         this.setState(STATE.STOP, 6);
+         Dagaz.Controller.app.setState(STATE.STOP, 6);
          acceptAlert();
      },
      error: function() {
@@ -509,7 +509,7 @@ var loseGame = function() {
      success: function(data) {
          console.log('Close: Succeed');
          inProgress = false;
-         this.setState(STATE.STOP, 7);
+         Dagaz.Controller.app.setState(STATE.STOP, 7);
          acceptAlert();
      },
      error: function() {
@@ -551,7 +551,7 @@ var drawGame = function() {
      success: function(data) {
          console.log('Close: Succeed');
          inProgress = false;
-         this.setState(STATE.STOP, 8);
+         Dagaz.Controller.app.setState(STATE.STOP, 8);
          acceptAlert();
      },
      error: function() {
@@ -860,13 +860,25 @@ App.prototype.exec = function() {
           if ((ctx !== null) && (ai !== null) && (bot !== null)) {
               ai.setContext(ctx, this.board);
               var moves = Dagaz.AI.generate(ctx, ctx.board);
+              if (moves.length == 0) {
+                  var player = this.design.playerNames[this.board.player];
+                  App.prototype.setDone();
+                  Canvas.style.cursor = "default";
+                  if (!_.isUndefined(Dagaz.Controller.play) && onceWinPlay && (uid || !dice)) {
+                      Dagaz.Controller.play(Dagaz.Sounds.win);
+                      onceWinPlay = false;
+                  }
+                  winGame();
+                  this.gameOver(player + " lose", -this.board.player);
+                  return;
+              }
               Canvas.style.cursor = "wait";
               this.timestamp = Date.now();
               var player = this.design.playerNames[this.board.player];
               var result = this.getAI().getMove(ctx);
               this.setState(STATE.WAIT, 11);
               if (result && result.move) {
-                  Dagaz.AI.callback(result.move);
+//                Dagaz.AI.callback(result.move);
                   console.log("Player: " + player);
                   result.move.applyAll(this.view);
                   this.boardApply(result.move);
@@ -878,7 +890,7 @@ App.prototype.exec = function() {
                   Dagaz.Model.Done(this.design, this.board);
                   addMove(result.move.toString(), s, bot);
                   this.move = result.move;
-                  this.setState(STATE.WAIT, 12);
+                  this.setState(STATE.IDLE, 12);
                   return;
               }
           } else {
