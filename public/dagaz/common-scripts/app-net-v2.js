@@ -58,6 +58,11 @@ function App(canvas, params) {
   }
 }
 
+App.prototype.setState = function(state, mark) {
+//console.log(this.state + ' =(' + mark + ')=>' + state);
+  this.state = state;
+}
+
 var gameOver = function(text, self, player) {
   if (!Dagaz.Model.silent || (player != 0)) {
       if (!_.isUndefined(Dagaz.Controller.clearGame)) {
@@ -99,7 +104,7 @@ Dagaz.Controller.createApp = function(canvas) {
 
 App.prototype.done = function() {
   if ((this.state != STATE.DONE) && (this.state != STATE.INIT)) {
-      this.state = STATE.STOP;
+      this.setState(STATE.STOP, 1);
   } else {
       if (this.doneMessage) {
           this.gameOver(this.doneMessage, this.winPlayer);
@@ -109,9 +114,9 @@ App.prototype.done = function() {
 
 App.prototype.setDone = function() {
   if (uid) {
-      this.state = STATE.DONE;
+      this.setState(STATE.DONE, 2);
   } else {
-      this.state = STATE.IDLE;
+      this.setState(STATE.IDLE, 3);
   }
 }
 
@@ -176,7 +181,7 @@ App.prototype.setPosition = function(pos) {
   if (this.params.SHOW_ATTACKING && Dagaz.Model.showCaptures && _.isUndefined(Dagaz.Model.getMarked)) {
       this.view.markPositions(Dagaz.View.markType.ATTACKING, this.list.getCaptures());
   }
-  this.state = STATE.EXEC;
+  this.setState(STATE.EXEC, 4);
   Canvas.style.cursor = "default";
   this.view.markPositions(Dagaz.View.markType.CURRENT, [ pos ]);
 }
@@ -285,7 +290,7 @@ App.prototype.mouseDown = function(view, pos) {
                           s = Dagaz.Model.getSetup(this.design, this.board);
                       }
                       addMove(m.toString(), s, uid);
-                      this.state = STATE.IDLE;
+                      this.setState(STATE.IDLE, 5);
                       delete this.list;
                       this.view.clearDrops();
                       lastPosition = null;
@@ -392,7 +397,7 @@ App.prototype.setMove = function(move) {
       this.boardApply(move);
       Dagaz.Model.Done(this.design, this.board);
       this.move = move;
-      this.state = STATE.EXEC;
+      this.setState(STATE.EXEC, 6);
   }
 }
 
@@ -656,7 +661,7 @@ var winGame = function() {
      success: function(data) {
          console.log('Close: Succeed');
          inProgress = false;
-         this.state = STATE.STOP;
+         Dagaz.Controller.app.setState(STATE.STOP, 7);
          acceptAlert();
      },
      error: function() {
@@ -697,7 +702,7 @@ var loseGame = function() {
      success: function(data) {
          console.log('Close: Succeed');
          inProgress = false;
-         this.state = STATE.STOP;
+         Dagaz.Controller.app.setState(STATE.STOP, 8);
          acceptAlert();
      },
      error: function() {
@@ -739,7 +744,7 @@ var drawGame = function() {
      success: function(data) {
          console.log('Close: Succeed');
          inProgress = false;
-         this.state = STATE.STOP;
+         Dagaz.Controller.app.setState(STATE.STOP, 9);
          acceptAlert();
      },
      error: function() {
@@ -1058,7 +1063,7 @@ App.prototype.exec = function() {
   this.updateTimer();
   if (inProgress) return;
   if (this.state == STATE.STOP) {
-      this.state = STATE.IDLE;
+      this.setState(STATE.IDLE, 10);
       return;
   }
   if (!onceGameOver && uid) return;
@@ -1086,7 +1091,7 @@ App.prototype.exec = function() {
           setup = null;
       }
       if (player_num === null) return;
-      this.state = STATE.IDLE;
+      this.setState(STATE.IDLE, 11);
   }
   if (this.state == STATE.IDLE) {
       if (this.isRandom() && (Dagaz.AI.isFriend(player_num, this.board.player) || (bot !== null))) {
@@ -1128,7 +1133,7 @@ App.prototype.exec = function() {
                   u = bot;
               }
               addMove(this.move.toString(), s, u);
-              this.state = STATE.EXEC;
+              this.setState(STATE.EXEC, 12);
               return;
           }
       }
@@ -1271,9 +1276,8 @@ App.prototype.exec = function() {
               this.timestamp = Date.now();
               var player = this.design.playerNames[this.board.player];
               var result = this.getAI().getMove(ctx);
-              this.state = STATE.WAIT;
+              this.setState(STATE.WAIT, 13);
               if (result && result.move) {
-//                Dagaz.AI.callback(result.move);
                   console.log("Player: " + player);
                   result.move.applyAll(this.view);
                   this.boardApply(result.move);
@@ -1285,11 +1289,11 @@ App.prototype.exec = function() {
                   Dagaz.Model.Done(this.design, this.board);
                   addMove(result.move.toString(), s, bot);
                   this.move = result.move;
-                  this.state = STATE.WAIT;
+                  this.setState(STATE.WAIT, 14);
                   return;
               }
           } else {
-              this.state = STATE.BUZY;
+              this.setState(STATE.BUZY, 15);
               this.timestamp = Date.now();
           }
       }
@@ -1338,12 +1342,12 @@ App.prototype.exec = function() {
           if (recovery_setup !== null) {
               Dagaz.Controller.setup(recovery_setup);
               console.log('Buzy: Setup recovered [' + recovery_setup + ']');
-              this.state = STATE.IDLE;
+              this.setState(STATE.IDLE, 16);
               recovery_setup = null;
               last_move = null;
               return;
           }
-          this.state = STATE.STOP;
+          this.setState(STATE.STOP, 17);
           var s = '';
           if (!_.isUndefined(Dagaz.Model.getSetup)) {
               s = ', setup=' + Dagaz.Model.getSetup(this.design, this.board);
@@ -1364,11 +1368,11 @@ App.prototype.exec = function() {
       }
       this.boardApply(this.move);
       Dagaz.Model.Done(this.design, this.board);
-      this.state = STATE.EXEC;
+      this.setState(STATE.EXEC, 18);
       last_move = null;
   }
   if (this.state == STATE.EXEC) {       
-      this.state = STATE.IDLE;
+      this.setState(STATE.IDLE, 19);
       delete Dagaz.AI.advisorStamp;
       if (!_.isUndefined(Dagaz.AI.clearAdvisor)) {
           Dagaz.AI.clearAdvisor();
@@ -1393,7 +1397,7 @@ App.prototype.exec = function() {
           if (!_.isUndefined(this.list)) {
               this.view.markPositions(Dagaz.View.markType.CURRENT, [ this.move.getTarget() ]);
           }
-          this.state = STATE.WAIT;
+          this.setState(STATE.WAIT, 20);
       }
       if (!_.isUndefined(this.list)) {
           if (this.list.isDone() || (Dagaz.Model.completePartial && !this.move.isPass())) {

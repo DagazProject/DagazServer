@@ -1296,7 +1296,6 @@ App.prototype.exec = function() {
               var result = this.getAI().getMove(ctx);
               this.state = STATE.WAIT;
               if (result && result.move) {
-//                Dagaz.AI.callback(result.move);
                   console.log("Player: " + player);
                   result.move.applyAll(this.view);
                   this.boardApply(result.move);

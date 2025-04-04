@@ -177,9 +177,9 @@ Dagaz.Controller.redo = function() {
   } else {
       Dagaz.Controller.setup(node.setup, node.player, node.limit);
       console.log('redo: ' + node.setup);
-      if (!_.isUndefined(Dagaz.Controller.play)) {
-          Dagaz.Controller.play(Dagaz.Sounds.page);
-      }
+  }
+  if (!_.isUndefined(Dagaz.Controller.play)) {
+      Dagaz.Controller.play(Dagaz.Sounds.page);
   }
   curr = node;
   checkButtons();

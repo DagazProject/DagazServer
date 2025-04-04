@@ -878,7 +878,6 @@ App.prototype.exec = function() {
               var result = this.getAI().getMove(ctx);
               this.setState(STATE.WAIT, 11);
               if (result && result.move) {
-//                Dagaz.AI.callback(result.move);
                   console.log("Player: " + player);
                   result.move.applyAll(this.view);
                   this.boardApply(result.move);
@@ -890,7 +889,7 @@ App.prototype.exec = function() {
                   Dagaz.Model.Done(this.design, this.board);
                   addMove(result.move.toString(), s, bot);
                   this.move = result.move;
-                  this.setState(STATE.IDLE, 12);
+                  this.setState(STATE.EXEC, 12);
                   return;
               }
           } else {
