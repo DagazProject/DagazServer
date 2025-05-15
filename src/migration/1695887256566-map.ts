@@ -380,7 +380,8 @@ export class map1695887256566 implements MigrationInterface {
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7744, 7720, 'Micro Shogi', 'micro-shogi', 'micro-shogi', 'https://en.wikipedia.org/wiki/Micro_shogi', '1982 Oyama Yasuharu')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7745, 7720, 'Kyoto Shogi', 'kyoto-shogi', 'kyoto-shogi', 'https://en.wikipedia.org/wiki/Kyoto_shogi', '1976 Tamiya Katsuya')`);
-        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7746, 7720, 'Hexagonal Kyoto Shogi', 'hex-kyoto-shogi', 'hex-kyoto-shogi', '2000 Jochen Drechsler')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7746, 7720, 'Kinkei Mai Shogi', 'kinkei-mai-shogi', 'kinkei-mai', 'https://en.wikipedia.org/wiki/Kyoto_shogi', '1976 Tamiya Katsuya')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7751, 7720, 'Hexagonal Kyoto Shogi', 'hex-kyoto-shogi', 'hex-kyoto-shogi', '2000 Jochen Drechsler')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7747, 7722, 'Chu Shogi', 'chu-shogi', 'chu-shogi', 'https://en.wikipedia.org/wiki/Chu_shogi')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7748, 7722, 'Tenjiku Shogi', 'tenjiku-shogi', 'tenjiku-shogi', 'https://en.wikipedia.org/wiki/Tenjiku_shogi')`);

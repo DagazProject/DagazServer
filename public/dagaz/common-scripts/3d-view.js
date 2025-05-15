@@ -284,9 +284,9 @@ View3D.prototype.defControl = function(imgs, hint, isVisible, proc, args, select
   if (!_.isUndefined(selector) && (selector != Dagaz.Model.getResourceSelector())) return;
   var type = 0;
   if (!_.isArray(imgs)) {
-     if (imgs == "UndoControl")   type = 1;
-     if (imgs == "RedoControl")   type = 2;
-     if (imgs == "CameraControl") type = 3;
+     if (imgs == "UndoControl") type = 1;
+     if (imgs == "RedoControl") type = 2;
+     if (imgs == "HomeControl") type = 3;
      imgs = [imgs];
   }
   imgs = _.map(imgs, function(res) {
@@ -447,12 +447,6 @@ View3D.prototype.invalidate = function() {
          };
       }
       o += (t.h[t.x].naturalWidth + 6) * mobileCoeff;
-  }
-  for (let i = 0; i < this.ctrls.length; i++) {
-      if (this.ctrls[i].y == 3) {
-          this.ctrls[i].t = Math.round(camera.position.x) + "," + Math.round(camera.position.y) + "," + Math.round(camera.position.z);
-          break;
-      }
   }
   const s = camera.position.x + ';' + camera.position.y + ';' + camera.position.z + ';' + camera.zoom;
   if ((cameraSettings === null) || (cameraSettings != s)) {

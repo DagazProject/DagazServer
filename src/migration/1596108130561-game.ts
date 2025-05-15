@@ -358,7 +358,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(323, 37, 'ZERTZ', 'zertz', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(324, 30, 'Abyss Angel Chess', 'abyss', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, max_selector) values(325, 17, 'Diamond Atari Go', 'diamond-atari-go', 2, 2)`);
-
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(326, 25, 'Kinkei Mai Shogi', 'kinkei-mai-shogi', 2)`);
+        
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(3, 23, 'Opposite', '-north', 2)`);
@@ -602,6 +603,7 @@ export class game1596108130561 implements MigrationInterface {
 //      await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(216, 46, 321, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(217, 30, 322, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(218, 17, 325, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(219, 25, 326, null, null)`);
 
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(1, 25, 10, 1, 'Without Handicap')`);
         await queryRunner.query(`insert into game_setups(id, game_id, variant_id, selector_value, name) values(2, 25, 10, 2, 'Left-Kyo Handicap')`);
@@ -1302,6 +1304,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(720, 'abyss', null, 'abyss', 'https://boardgamegeek.com/thread/3450869/abyss-angel-chess', '2025 Vadrya Pokshtya')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(721, 'diamond-atari-go', 1, 'diamond-go', 'http://www.segerman.org/diamond')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(722, 'diamond-atari-go', 2, 'tamago')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(723, 'kinkei-mai-shogi', null, 'kinkei-mai', 'https://en.wikipedia.org/wiki/Kyoto_shogi', '2025 Vadrya Pokshtya')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(724, 'kinkei-mai-shogi-kanji', null, 'kinkei-mai-kanji', 'https://en.wikipedia.org/wiki/Kyoto_shogi', '2025 Vadrya Pokshtya')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
