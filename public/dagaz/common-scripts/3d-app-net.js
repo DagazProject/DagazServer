@@ -164,7 +164,7 @@ App.prototype.setPosition = function(pos) {
   this.move = this.list.setPosition(pos);
   this.clearPositions();
   this.setState(STATE.EXEC, 4);
-  overlay.style.cursor = "default";
+  Canvas.style.cursor = "default";
 }
 
 App.prototype.boardApply = function(move) {
@@ -178,9 +178,9 @@ App.prototype.mouseLocate = function(view, pos) {
   if (isAnimating) return;
   if ((this.state == STATE.IDLE) && !_.isUndefined(this.list)) {
        if (pos !== null) {
-           overlay.style.cursor = "pointer";
+           Canvas.style.cursor = "pointer";
        } else {
-           overlay.style.cursor = "default";
+           Canvas.style.cursor = "default";
        }
   }
 }
@@ -267,6 +267,8 @@ App.prototype.setBoard = function(board, isForced) {
       this.view.reInit(board);
       this.setHots();
       delete this.list;
+      this.clearPositions();
+      this.view.markPositions(Dagaz.View.markType.TARGET, []);
   }
 }
 
@@ -838,6 +840,31 @@ App.prototype.getAI = function() {
   return this.ai;
 }
 
+App.prototype.checkCaptures = function(move) {
+  let f = false;
+  const a = [];
+  for (let i = 0; i < move.actions.length; i++) {
+       const m = move.actions[i];
+       if ((m[0] !== null) && (m[1] !== null) && (m[0][0] != m[1][0])) {
+           const piece = this.board.getPiece(m[1][0]);
+           if (piece !== null) {
+               f = true;
+               a.push([ [m[1][0]], null, null, m[3]]);
+               m[3] = m[3] + 1;
+           }
+       }
+       a.push(m);
+  }
+  if (f) {
+      move.actions = a;
+  }
+}
+
+App.prototype.animate = function(f) {
+  isAnimating = f;
+  this.state = STATE.IDLE;
+}
+
 Dagaz.AI.callback = function(result) {
   var app = Dagaz.Controller.app;
   var player = app.design.playerNames[app.board.player];
@@ -873,7 +900,7 @@ App.prototype.animate = function(f) {
 
 App.prototype.exec = function() {
   this.view.configure();
-  if (onceDraw) {
+  if (onceDraw || isAnimating) {
       this.view.draw(this.canvas);
       onceDraw = false;
   }
@@ -882,6 +909,7 @@ App.prototype.exec = function() {
       this.setState(STATE.IDLE, 9);
       return;
   }
+  if (isAnimating) return;
   if (!onceGameOver && uid) return;
   if (this.state == STATE.INIT) {
       authorize();
@@ -940,7 +968,7 @@ App.prototype.exec = function() {
               if (moves.length == 0) {
                   var player = this.design.playerNames[this.board.player];
                   App.prototype.setDone();
-                  overlay.style.cursor = "default";
+                  Canvas.style.cursor = "default";
                   if (!_.isUndefined(Dagaz.Controller.play) && onceWinPlay && (uid || !dice)) {
                       Dagaz.Controller.play(Dagaz.Sounds.win);
                       onceWinPlay = false;
@@ -949,7 +977,7 @@ App.prototype.exec = function() {
                   this.gameOver(player + " lose", -this.board.player);
                   return;
               }
-              overlay.style.cursor = "wait";
+              Canvas.style.cursor = "wait";
               this.timestamp = Date.now();
               var player = this.design.playerNames[this.board.player];
               var result = this.getAI().getMove(ctx);
@@ -1033,6 +1061,7 @@ App.prototype.exec = function() {
           if ((moves.length == 1) && (moves[0].isDropMove())) this.move = moves[0];
       }
       if (!this.move.isPass()) {
+          this.checkCaptures(this.move);
           lastPosition = null;
           if (Dagaz.Model.showMoves) {
               console.log(this.move.toString());
@@ -1082,7 +1111,7 @@ App.prototype.exec = function() {
           if (g !== null) {
               var player = this.design.playerNames[this.board.parent.player];
               App.prototype.setDone();
-              overlay.style.cursor = "default";
+              Canvas.style.cursor = "default";
               if (g > 0) {
                   if (player_num == this.board.parent.player) {
                       winGame();
