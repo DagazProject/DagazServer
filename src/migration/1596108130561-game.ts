@@ -359,6 +359,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(324, 30, 'Abyss Angel Chess', 'abyss', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, max_selector) values(325, 17, 'Diamond Atari Go', 'diamond-atari-go', 2, 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(326, 25, 'Kinkei Mai Shogi', 'kinkei-mai-shogi', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(327, 25, 'Migi Shogi', 'migi-shogi', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(328, 25, 'Hidari Shogi', 'hidari-shogi', 2)`);
         
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -1306,6 +1308,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview) values(722, 'diamond-atari-go', 2, 'tamago')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(723, 'kinkei-mai-shogi', null, 'kinkei-mai', 'https://en.wikipedia.org/wiki/Kyoto_shogi', '2025 Vadrya Pokshtya')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(724, 'kinkei-mai-shogi-kanji', null, 'kinkei-mai-kanji', 'https://en.wikipedia.org/wiki/Kyoto_shogi', '2025 Vadrya Pokshtya')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(725, 'migi-shogi', null, 'migi-shogi', '2025 Oleg Makarenko')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(726, 'hidari-shogi', null, 'hidari-shogi', '2025 Oleg Makarenko')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

@@ -357,6 +357,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules, copyright) values(7720, 77, 'Kyoto Shogi', 'kyoto-shogi', 'https://en.wikipedia.org/wiki/Kyoto_shogi', '1976 Tamiya Katsuya')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(7722, 77, 'Chu Shogi', 'chu-shogi', 'https://en.wikipedia.org/wiki/Chu_shogi')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, preview, rules) values(7724, 77, 'Wa Shogi', 'wa-shogi', 'https://www.chessvariants.com/rules/wa-shogi')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, preview, copyright) values(7725, 77, 'Migi Shogi', 'migi-shogi', '2025 Oleg Makarenko')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7726, 7701, 'Doubutsu Shogi', 'doubutsu-shogi', 'doubutsu-shogi', 'https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi', 'Madoka Kitao')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7727, 7701, 'Goro Goro Shogi', 'gorogoro-shogi', 'goro', 'https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi', 'Madoka Kitao')`);
@@ -388,6 +389,9 @@ export class map1695887256566 implements MigrationInterface {
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(7749, 7724, 'Wa Shogi', 'wa-shogi', 'wa-shogi', 'https://www.chessvariants.com/rules/wa-shogi')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7750, 7724, 'Tori Shogi', 'tori-shogi', 'tori-shogi', 'https://en.wikipedia.org/wiki/Tori_shogi', '1799 Toyota Genryu')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7752, 7725, 'Migi Shogi', 'migi-shogi', 'migi-shogi', '2025 Oleg Makarenko')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(7753, 7725, 'Hidari Shogi', 'hidari-shogi', 'hidari-shogi', '2025 Oleg Makarenko')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7901, 79, 'Sovereign Chess', 'sovereign-chess', 'sovereign-chess', 'https://en.wikipedia.org/wiki/Sovereign_Chess', 'Mark Bates, Infinite Pi Games')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(7902, 79, 'Sovereign Chess Arena', 'sovereign-chess-12x12', 'sovereign-chess-12x12', 'https://en.wikipedia.org/wiki/Sovereign_Chess', 'Mark Bates, Infinite Pi Games')`);
