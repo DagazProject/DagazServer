@@ -387,6 +387,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(27, 257, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(28, 263, 'Chinese', '', null)`);
         await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(29, 275, 'Japanese', '', null)`);
+        await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(30, 327, 'Japanese', '', null)`);
+        await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(31, 328, 'Japanese', '', null)`);
 
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(1, 35, 50, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(2, 31, null, null, null)`);
