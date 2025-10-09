@@ -1,6 +1,6 @@
 (function() {
 
-Dagaz.Controller.persistense = "setup";
+Dagaz.Controller.persistense = "none";
 
 var checkVersion = Dagaz.Model.checkVersion;
 var cnt = 0;

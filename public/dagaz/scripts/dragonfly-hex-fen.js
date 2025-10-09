@@ -1,4 +1,4 @@
-Dagaz.Controller.persistense = "setup";
+Dagaz.Controller.persistense = "none";
 
 var WIDTH  = 9;
 var HEIGHT = 10;

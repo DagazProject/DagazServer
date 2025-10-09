@@ -1,6 +1,6 @@
 (function() {
 
-Dagaz.Controller.persistense = "setup";
+Dagaz.Controller.persistense = "none";
 
 var getName = function() {
   var str = window.location.pathname.toString();
