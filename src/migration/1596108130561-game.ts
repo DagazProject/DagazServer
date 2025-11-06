@@ -886,8 +886,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(226, 'fidchell', null, 'fidchell', 'https://en.wikipedia.org/wiki/Tafl_games')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(227, 'gwyddbwyll', null, 'gwyddbwyll', 'https://en.wikipedia.org/wiki/Tafl_games')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(228, 'alice-chess', null, 'chess-1', 'https://en.wikipedia.org/wiki/Alice_Chess', '1953 V.R. Parton')`);
-        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(229, 'platform-chess', 1, 'platform-chess-1', '2001 Robert Price')`);
-        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(230, 'platform-chess', 2, 'platform-chess-2', '2001 Robert Price')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(229, 'platform-chess', null, 'platform-chess-1', '2001 Robert Price')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(231, 'annan-shogi', null, 'annan-shogi', 'https://en.wikipedia.org/wiki/Annan_shogi')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules) values(232, 'annan-shogi-kanji', null, 'annan-shogi-kanji', 'https://en.wikipedia.org/wiki/Annan_shogi')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(233, 'halma-10', null, 'halma-10', 'http://www.iggamecenter.com/info/en/halma.html', '1883 George Howard Monks')`);
