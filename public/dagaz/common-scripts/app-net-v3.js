@@ -876,7 +876,7 @@ App.prototype.exec = function() {
       }
       var s = null;
       if (!_.isUndefined(Dagaz.Model.getSetup)) {
-          s = Dagaz.Model.getSetup(this.design, this.board);
+          s = Dagaz.Model.getSetup(this.design, this.getBoard());
       }
       if (!_.isUndefined(Dagaz.Controller.init)) {
           Dagaz.Controller.init(s, this.board.player);
