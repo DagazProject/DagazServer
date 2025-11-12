@@ -9,7 +9,7 @@ var getName = function() {
   var str = window.location.pathname.toString();
   var result = str.match(/\/([^.\/]+)\./);
   if (result) {
-      return result[1].replace("-board", "").replace("-ai", "");
+      return result[1].replace("-board", "").replace("-ai", "").replace("-3d", "");
   } else {
       return str;
   }
@@ -144,11 +144,12 @@ Dagaz.Model.setup = function(board, init) {
 }
 
 var getPieceNotation = function(design, piece) {
-  var r = 'P';
+  var r = 'X';
   if (piece.type == design.getPieceType("King")) r = 'K';
   if (piece.type == design.getPieceType("Sang")) r = 'B';
   if (piece.type == design.getPieceType("Jang")) r = 'R';
   if (piece.type == design.getPieceType("Hu"))   r = 'Q';
+  if (piece.type == design.getPieceType("Za"))   r = 'P';
   if (piece.player > 1) {
       return r.toLowerCase();
   }

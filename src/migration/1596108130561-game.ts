@@ -42,6 +42,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into games(id, name, filename, players_total, main_time, additional_time) values(44, 'Fang Qi', 'tibetian-checkers', 2, 0, 1000)`);
         await queryRunner.query(`insert into games(id, name, filename, players_total, main_time, additional_time) values(45, 'Dice games', 'ur', 2, 0, 1000)`);
         await queryRunner.query(`insert into games(id, name, filename, players_total, main_time, additional_time) values(46, 'Backgammon', 'backgammon', 2, 0, 1000)`);
+        await queryRunner.query(`insert into games(id, name, filename, players_total, main_time, additional_time) values(47, '3D Games', 'doubutsu-shogi', 2, 0, 1000)`);
 
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(1, 17, 'Go (9x9)', 'go-9x9', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(2, 17, 'Go (19x19)', 'go-19x19', 2)`);
@@ -148,7 +149,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(106, 30, 'Momentum Chess', 'momentum-chess', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(107, 22, 'Italian Damone', 'italian-damone', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(108, 25, 'Chu Shogi', 'chu-shogi', 2)`);
-        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(109, 25, 'Doubutsu Shogi', 'doubutsu-shogi', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(109, 47, 'Doubutsu Shogi', 'doubutsu-shogi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(110, 37, 'Gala', 'gala', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(111, 37, 'Thud!', 'thud', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(112, 37, 'Surakarta', 'surakarta', 2)`);
@@ -389,6 +390,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(29, 275, 'Japanese', '', null)`);
         await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(30, 327, 'Japanese', '', null)`);
         await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(31, 328, 'Japanese', '', null)`);
+        await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(32, 47, '2D', '', null)`);
+        await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(33, 47, '3D', '-3d', null)`);
 
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(1, 35, 50, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(2, 31, null, null, null)`);
@@ -1314,6 +1317,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(724, 'kinkei-mai-shogi-kanji', null, 'kinkei-mai-kanji', 'https://en.wikipedia.org/wiki/Kyoto_shogi', '2025 Vadrya Pokshtya')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(725, 'migi-shogi', null, 'migi-shogi', '2025 Oleg Makarenko')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(726, 'hidari-shogi', null, 'hidari-shogi', '2025 Oleg Makarenko')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(727, 'doubutsu-shogi-3d', null, 'doubutsu-shogi-3d', 'https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi', 'Madoka Kitao')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
