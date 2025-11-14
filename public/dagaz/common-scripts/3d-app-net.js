@@ -165,6 +165,7 @@ App.prototype.setPosition = function(pos) {
   this.clearPositions();
   this.setState(STATE.EXEC, 4);
   Canvas.style.cursor = "default";
+  this.view.markPositions(Dagaz.View.markType.CURRENT, [ pos ]);
 }
 
 App.prototype.boardApply = function(move) {
@@ -684,7 +685,7 @@ var getConfirmed = function() {
                          Dagaz.Controller.play(Dagaz.Sounds.lose);
                          onceWinPlay = false;
                      }
-                     App.prototype.setDone();
+                     Dagaz.Controller.app.setDone();
                      app.doneMessage = player + " won";
                      app.winPlayer   = app.board.player;
                      gameOver(app.doneMessage, app, app.winPlayer);
@@ -694,7 +695,7 @@ var getConfirmed = function() {
                          Dagaz.Controller.play(Dagaz.Sounds.win);
                          onceWinPlay = false;
                      }
-                     App.prototype.setDone();
+                     Dagaz.Controller.app.setDone();
                      app.doneMessage = player + " lose";
                      app.winPlayer   = -app.board.player;
                      gameOver(app.doneMessage, app, app.winPlayer);
@@ -705,7 +706,7 @@ var getConfirmed = function() {
                              Dagaz.Controller.play(Dagaz.Sounds.draw);
                              onceWinPlay = false;
                          }
-                         App.prototype.setDone();
+                         Dagaz.Controller.app.setDone();
                          app.doneMessage = "Draw";
                          app.winPlayer   = 0;
                          gameOver(app.doneMessage, app, app.winPlayer);
@@ -967,7 +968,7 @@ App.prototype.exec = function() {
               var moves = Dagaz.AI.generate(ctx, ctx.board);
               if (moves.length == 0) {
                   var player = this.design.playerNames[this.board.player];
-                  App.prototype.setDone();
+                  Dagaz.Controller.app.setDone();
                   Canvas.style.cursor = "default";
                   if (!_.isUndefined(Dagaz.Controller.play) && onceWinPlay && (uid || !dice)) {
                       Dagaz.Controller.play(Dagaz.Sounds.win);
@@ -1110,7 +1111,7 @@ App.prototype.exec = function() {
           }
           if (g !== null) {
               var player = this.design.playerNames[this.board.parent.player];
-              App.prototype.setDone();
+              Dagaz.Controller.app.setDone();
               Canvas.style.cursor = "default";
               if (g > 0) {
                   if (player_num == this.board.parent.player) {
