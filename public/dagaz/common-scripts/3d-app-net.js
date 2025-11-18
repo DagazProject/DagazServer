@@ -846,9 +846,9 @@ App.prototype.checkCaptures = function(move) {
   const a = [];
   for (let i = 0; i < move.actions.length; i++) {
        const m = move.actions[i];
-       if ((m[0] !== null) && (m[1] !== null) && (m[0][0] != m[1][0])) {
+       if ((m[0] !== null) && (m[1] !== null) && (m[0][0] != m[1][0]) && (m[2] !== null)) {
            const piece = this.board.getPiece(m[1][0]);
-           if (piece !== null) {
+           if ((piece !== null) && (piece.player != m[2][0].player)) {
                f = true;
                a.push([ [m[1][0]], null, null, m[3]]);
                m[3] = m[3] + 1;
