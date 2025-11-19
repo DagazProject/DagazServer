@@ -363,6 +363,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(327, 25, 'Migi Shogi', 'migi-shogi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(328, 25, 'Hidari Shogi', 'hidari-shogi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(329, 47, 'Raumschach', 'raumschach', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(330, 47, '3D XiangQi', '3d-xiangqi', 2)`);
         
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(1, 23, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(2, 23, 'Chinese', '-kanji', null)`);
@@ -1325,6 +1326,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(728, 'raumschach', null, 'raumschach', 'https://www.chessvariants.com/3d.dir/3d5.html', '1907 Herr Doktor Ferdinand Maack')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(729, 'platform-chess-3d', null, 'platform-chess-3d', '2001 Robert Price')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(730, 'gorogoro-shogi-3d', null, 'gorogoro-shogi-3d', 'https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi', 'Madoka Kitao')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(731, '3d-xiangqi', null, '3d-xiangqi', 'https://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=920', '2003 L. Lynn Smith')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(732, '3d-xiangqi-3d', null, '3d-xiangqi-3d', 'https://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=920', '2003 L. Lynn Smith')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

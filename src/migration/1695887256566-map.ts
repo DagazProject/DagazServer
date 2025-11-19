@@ -415,6 +415,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(9607, 96, 'Dark WojiaoQi', 'dark-wojiaoqi', 'dark-wojiaoqi', '1890 Tong Xie Geng')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(9608, 96, 'YitongQi', 'yitongqi', 'yitongqi', 'https://en.wikipedia.org/wiki/Manchu_chess')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(9609, 96, 'Xiang Hex', 'xiang-hex', 'xiang-hex', 'https://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=1645', '2008 L. Lynn Smith')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(9611, 96, '3D XiangQi', '3d-xiangqi', '3d-xiangqi', 'https://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=920', '2003 L. Lynn Smith')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(2901, 29, 'Duel', 'duel', 'duel-1', 'Parker Brothers')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(2902, 29, 'CubWars', 'cub-wars', 'cub-wars', '2014 Achernar Studio')`);
