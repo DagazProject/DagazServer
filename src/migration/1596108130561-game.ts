@@ -360,8 +360,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(324, 30, 'Abyss Angel Chess', 'abyss', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, max_selector) values(325, 47, 'Diamond Atari Go', 'diamond-atari-go', 2, 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(326, 25, 'Kinkei Mai Shogi', 'kinkei-mai-shogi', 2)`);
-        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(327, 25, 'Migi Shogi', 'migi-shogi', 2)`);
-        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(328, 25, 'Hidari Shogi', 'hidari-shogi', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(327, 47, 'Migi Shogi', 'migi-shogi', 2)`);
+        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(328, 47, 'Hidari Shogi', 'hidari-shogi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(329, 47, 'Raumschach', 'raumschach', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(330, 47, '3D XiangQi', '3d-xiangqi', 2)`);
         
@@ -389,9 +389,6 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(26, 46, 'Opposite', '-north', 2)`);
         await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(27, 257, 'European', '', null)`);
         await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(28, 263, 'Chinese', '', null)`);
-//      await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(29, 275, 'Japanese', '', null)`);
-        await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(30, 327, 'Japanese', '', null)`);
-        await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(31, 328, 'Japanese', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(32, 47, '2D', '', null)`);
         await queryRunner.query(`insert into game_styles(id, game_id, name, suffix, player_num) values(33, 47, '3D', '-3d', null)`);
         await queryRunner.query(`insert into game_styles(id, variant_id, name, suffix, player_num) values(34, 329, '3D', '', null)`);
@@ -615,8 +612,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(217, 30, 322, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(218, 17, 325, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(219, 25, 326, null, null)`);
-        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(220, 25, 327, null, null)`);
-        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(221, 25, 328, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(220, 47, 327, null, null)`);
+        await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(221, 47, 328, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(222, 47, 99, null, null)`);
         await queryRunner.query(`insert into game_bots(id, game_id, variant_id, selector_value, player_num) values(223, 47, 329, null, null)`);
 
@@ -1328,6 +1325,8 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(730, 'gorogoro-shogi-3d', null, 'gorogoro-shogi-3d', 'https://en.wikipedia.org/wiki/D%C5%8Dbutsu_sh%C5%8Dgi', 'Madoka Kitao')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(731, '3d-xiangqi', null, '3d-xiangqi', 'https://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=920', '2003 L. Lynn Smith')`);
         await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, rules, copyright) values(732, '3d-xiangqi-3d', null, '3d-xiangqi-3d', 'https://www.zillions-of-games.com/cgi-bin/zilligames/submissions.cgi?do=show;id=920', '2003 L. Lynn Smith')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(733, 'migi-shogi-3d', null, 'migi-shogi-3d', '2025 Oleg Makarenko')`);
+        await queryRunner.query(`insert into game_previews(id, filename, selector_value, preview, copyright) values(734, 'hidari-shogi-3d', null, 'hidari-shogi-3d', '2025 Oleg Makarenko')`);
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
