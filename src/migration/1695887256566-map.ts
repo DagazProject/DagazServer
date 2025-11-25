@@ -50,7 +50,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, preview, rules) values(49, 'Hnefatafl', 'tafl-1', 'https://en.wikipedia.org/wiki/Tafl_games')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(51, 'Jasir', 'jasir', 'jasir', 'https://en.wikipedia.org/wiki/Jarmo_(game)')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(52, 'Jeson Mor', 'jeson-mor', 'jeson-mor', 'https://en.wikipedia.org/wiki/Jeson_Mor')`);
-        await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(53, 'Jungle', 'jungle', 'jungle', 'https://en.wikipedia.org/wiki/Jungle_(board_game)')`);
+        await queryRunner.query(`insert into game_map(id, name, preview, rules) values(53, 'Jungle', 'jungle', 'https://en.wikipedia.org/wiki/Jungle_(board_game)')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview) values(54, 'Khans', 'khans', 'khans')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(55, 'Lines of Action', 'loa', 'loa-1', 'http://www.iggamecenter.com/info/en/loa.html', 'Claude Soucie')`);
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules) values(57, 'Makyek', 'makyek', 'makyek-1', 'https://en.wikipedia.org/wiki/Mak-yek')`);
@@ -91,6 +91,9 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, name, filename, preview, rules, copyright) values(98, 'Kings Valley', 'kings-valley', 'kings-valley', 'http://www.logygames.com/english/kingsvalley.html', '2006 Mitsuo Yamamoto')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(99, 'Martian Chess', 'martian', 'https://en.wikipedia.org/wiki/Martian_chess', '1999 Andrew Looney')`);
         await queryRunner.query(`insert into game_map(id, name, preview, rules, copyright) values(100, 'SMESS', 'smess', 'https://www.chessvariants.com/other.dir/smess.html', '1970 Parker Brothers')`);
+
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules) values(5301, 53, 'Jungle', 'jungle', 'jungle', 'https://en.wikipedia.org/wiki/Jungle_(board_game)')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview) values(5302, 53, 'Animal Checkers', 'animal-checkers', 'animal-checkers')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(8001, 80, 'RPnS', 'rpns', 'rpns', 'Oleg Makarenko')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(8002, 80, 'Spock', 'spock', 'spock', '2017 Valentin Chelnokov')`);
