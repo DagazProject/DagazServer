@@ -989,6 +989,7 @@ App.prototype.exec = function() {
               if (result && result.move) {
                   console.log("Player: " + player);
                   result.move.applyAll(this.view);
+                  this.checkCaptures(result.move, this.board);
                   this.boardApply(result.move);
                   var s = result.move.toString();
                   if (!_.isUndefined(Dagaz.Model.getSetup)) {
