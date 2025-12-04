@@ -18,9 +18,12 @@ const MOVE_TYPE = {
    SOUND:             4
 };
 
+Dagaz.View.IS_DIAGONAL   = false;
 Dagaz.View.TARGET_COLOR  = 0x004000;
-Dagaz.View.TARGET_RADIUS = 3;
+Dagaz.View.TARGET_RADIUS = 2;
+Dagaz.View.LARGE_RADIUS  = 3;
 Dagaz.View.TARGET_FLAT   = false;
+Dagaz.View.TARGET_LARGE  = false;
 Dagaz.View.TARGET_SZ     = 0;
 
 const TEXTURE_CANVAS_SZ  = 256;
@@ -156,6 +159,7 @@ const dotGeometry    = new THREE.SphereGeometry(0.5, 15, 15);
 const koGeometry     = new THREE.SphereGeometry(1, 15, 15);
 
 let targetGeometry   = null;
+let largeGeometry    = null;
 
 const koMaterial = new THREE.MeshStandardMaterial({
     color: 0xFF0000,
@@ -233,8 +237,20 @@ View3D.prototype.setCamera = function(dx, dy, dz, x, y, z) {
 View3D.prototype.clearTargets = function() {
   _.each(this.targets, function(pos) {
       const t = this.pos[pos].t;
+      const l = this.pos[pos].l;
       t.material = posMaterial;
+      if (l !== null) {
+          l.material = posMaterial;
+      }
   }, this);
+}
+
+View3D.prototype.existsPiece = function(pos) {
+  for (let i = 0; i < pieces.length; i++) {
+      const p = pieces[i];
+      if (p.pos == pos) return true;
+  }
+  return false;
 }
 
 View3D.prototype.markPositions = function(type, positions) {
@@ -244,7 +260,12 @@ View3D.prototype.markPositions = function(type, positions) {
       this.targets = positions;
       _.each(this.targets, function(pos) {
           const t = this.pos[pos].t;
-          t.material = targetMaterial;
+          const l = this.pos[pos].l;
+          if (this.existsPiece(pos) && (l !== null)) {
+              l.material = targetMaterial;
+          } else {
+              t.material = targetMaterial;
+          }
       }, this);
   }
   if (type == Dagaz.View.markType.KO) {
@@ -453,8 +474,16 @@ View3D.prototype.addPiece = function(piece, pos, model) {
           pieces.push(piece);
       } else if (pieceType && pieceType.kind == PIECE_TYPE.MODEL) {
           const piece = new THREE.Mesh(pieceType.geometry, pieceType.material);
-          if (model.player == 1) {
-              piece.rotation.y = Math.PI;
+          if (Dagaz.View.IS_DIAGONAL) {
+              if (model.player == 1) {
+                  piece.rotation.y = Math.PI * 1.25;
+              } else {
+                  piece.rotation.y = Math.PI * 0.25;
+              }
+          } else {
+              if (model.player == 1) {
+                  piece.rotation.y = Math.PI;
+              }
           }
           piece.pos = pos;
           piece.type = pieceType;
@@ -702,6 +731,9 @@ View3D.prototype.defPosition = function(name, x, y, dx, dy, z, dz, selector) {
   allPositions.push(p);
   if (Dagaz.View.TARGET_FLAT) {
       targetGeometry = new THREE.CylinderGeometry(Dagaz.View.TARGET_RADIUS, Dagaz.View.TARGET_RADIUS, 1, 32);
+      if (Dagaz.View.TARGET_LARGE) {
+          largeGeometry  = new THREE.CylinderGeometry(Dagaz.View.LARGE_RADIUS, Dagaz.View.LARGE_RADIUS, 1, 32);
+      }
   } else {
       targetGeometry = new THREE.SphereGeometry(Dagaz.View.TARGET_RADIUS, 32, 32); 
   }
@@ -710,12 +742,21 @@ View3D.prototype.defPosition = function(name, x, y, dx, dy, z, dz, selector) {
   if (Dagaz.View.RENDER_ORDER) {
       t.renderOrder = 2;
   }
+  let l = null;
+  if (largeGeometry !== null) {
+      l = new THREE.Mesh(largeGeometry, posMaterial);
+      l.position.set((x / 10), (z / 10) + Dagaz.View.TARGET_SZ, (y / 10));
+      if (Dagaz.View.RENDER_ORDER) {
+          l.renderOrder = 2;
+      }
+      scene.add(l);
+  }
   this.pos[ix] = {
       x: x, dx: dx,
       y: y, dy: dy,
       z: z, dz: dz,
       p: p, nm: name,
-      t: t
+      t: t, l:  l
   };
   scene.add(p);
   scene.add(t);
@@ -1061,8 +1102,16 @@ View3D.prototype.animate = function() {
       if (q.state != ANIMATE_STATE.READY) return;
       if (q.phase != phase) return;
       const piece = new THREE.Mesh(q.pieceType.geometry, q.pieceType.material);
-      if (q.player == 1) {
-          piece.rotation.y = Math.PI;
+      if (Dagaz.View.IS_DIAGONAL) {
+          if (q.player == 1) {
+              piece.rotation.y = Math.PI * 1.25;
+          } else {
+              piece.rotation.y = Math.PI * 0.25;
+          }
+      } else {
+          if (q.player == 1) {
+              piece.rotation.y = Math.PI;
+          }
       }
       piece.pos = q.piece.pos;
       piece.type = q.pieceType;
