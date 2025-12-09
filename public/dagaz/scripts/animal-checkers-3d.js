@@ -210,7 +210,7 @@ Dagaz.View.configure = function(view) {
     view.setCamera(0, 0, 0, -109, 215, 155);
  
     view.defControl("UndoControl", "Undo Move", false, Dagaz.Controller.undo);
-    view.defControl(Dagaz.AI.ON ? "AiOnControl" : "AiOffControl", Dagaz.AI.ON ? "AI" : "No AI", true, Dagaz.Controller.go, Dagaz.AI.ON ? 'animal-checkers-3d-board.htm' : 'animal-checkers-3d.htm');
+    view.defControl(Dagaz.AI.ON ? "AiOnControl" : "AiOffControl", Dagaz.AI.ON ? "AI" : "No AI", true);
     view.defControl(Dagaz.Controller.soundOff ? ["SoundOffControl", "SoundOnControl"] : ["SoundOnControl", "SoundOffControl"], "Sound", true, Dagaz.Controller.switchSound);
     view.defControl("RedoControl", "Redo Move", false, Dagaz.Controller.redo);
  
