@@ -285,7 +285,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(249, 44, 'Tibetan checkers', 'tibetian-checkers', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(250, 44, 'Da Fang', 'dafang', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(251, 32, 'Khans', 'khans', 2)`);
-        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(252, 24, 'Adiyukh Checkers (10x10)', 'adiuh-checkers-10x10', 2)`);
+//      await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(252, 24, 'Adiyukh Checkers (10x10)', 'adiuh-checkers-10x10', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(253, 24, 'Tavrida', 'tavrida-8x10', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(254, 37, 'Crazy Tile Chess', 'tile-chess', 2)`);
 //      await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, is_dice) values(255, 45, 'Sahkku', 'sahkku', 2, 1)`);
@@ -328,7 +328,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(292, 30, 'Hexagonal Dragonfly', 'dragonfly-hex', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(293, 25, 'Tori Shogi', 'tori-shogi', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(294, 22, 'Anathem', 'anathem', 2)`);
-        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(295, 24, 'King''s Adiyukh Checkers', 'king-adiuh-checkers-10x10', 2)`);
+//      await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(295, 24, 'King''s Adiyukh Checkers', 'king-adiuh-checkers-10x10', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(296, 40, 'Tawlbwrdd', 'tawlbwrdd', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(297, 40, 'Tawlbyund', 'tawlbyund', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(298, 40, 'Berserk Tablut', 'tablut-berserk', 2)`);
@@ -348,7 +348,7 @@ export class game1596108130561 implements MigrationInterface {
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(312, 37, 'Dark Cyvasse', 'dark-cyvasse', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(313, 30, 'SMESS', 'smess', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total, is_dice) values(314, 46, 'Khachapuri', 'khachapuri', 2, 1)`);
-        await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(315, 24, 'Stavropol Adiyukh Checkers (10x10)', 'stavropol-adiuh-checkers-10x10', 2)`);
+//      await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(315, 24, 'Stavropol Adiyukh Checkers (10x10)', 'stavropol-adiuh-checkers-10x10', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(316, 30, 'Hexes Chess', 'hexes', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(317, 37, 'Dragon Eyes', 'dragon-eyes', 2)`);
         await queryRunner.query(`insert into game_variants(id, game_id, name, filename, players_total) values(318, 37, 'RPnS', 'rpns', 2)`);
