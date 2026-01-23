@@ -191,6 +191,7 @@ export class map1695887256566 implements MigrationInterface {
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1959, 19, 'Abyss Angel Chess', 'abyss', 'abyss', 'https://boardgamegeek.com/thread/3450869/abyss-angel-chess', '2025 Vadrya Pokshtya')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1960, 19, 'Raumschach', 'raumschach', 'raumschach', 'https://www.chessvariants.com/3d.dir/3d5.html', '1907 Herr Doktor Ferdinand Maack')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1961, 19, 'Dragonchess', 'dragonchess-3d', 'dragonchess', 'https://en.wikipedia.org/wiki/Dragonchess', '1985 Gary Gygax')`);
+        await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1962, 19, 'Klin Zha', 'klin-zha', 'klin-zha', 'http://www.tasigh.org/takzh/open.html', '1989 Leonard B. Loyd, Jr')`);
 
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, rules, copyright) values(1901, 1947, 'Knight''s Court', 'knights-court', 'knights-court', 'https://www.chessvariants.com/small.dir/knightcourt.html', '2000 Jason D. Wittman')`);
         await queryRunner.query(`insert into game_map(id, parent_id, name, filename, preview, copyright) values(1902, 1947, 'Silverman''s Chess', 'silverman-chess', 'silverman', '1981 David Silverman')`);

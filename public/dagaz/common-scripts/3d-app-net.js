@@ -843,12 +843,18 @@ App.prototype.getAI = function() {
 
 App.prototype.checkCaptures = function(move, board) {
   let f = false;
-  const a = [];
   if (move.isChecked) return;
   move.isChecked = true;
+  let p = [];
+  _.each(move.actions, function(a) {
+      if (a[0] === null) return;
+      if (a[1] === null) return;
+      p.push(+a[0][0]);
+  });
+  const a = [];
   for (let i = 0; i < move.actions.length; i++) {
        const m = move.actions[i];
-       if ((m[0] !== null) && (m[1] !== null) && (m[0][0] != m[1][0])) {
+       if ((m[0] !== null) && (m[1] !== null) && (m[0][0] != m[1][0]) && (_.indexOf(p, +m[1][0]) < 0)) {
            const piece = board.getPiece(m[1][0]);
            if (piece !== null) {
                f = true;
@@ -894,6 +900,7 @@ Dagaz.AI.callback = function(result) {
   Dagaz.Model.Done(app.design, app.board);
   addMove(move.toString(), s, bot);
   move.applyAll(app.view);
+  move.isAi = true;
   app.move = move;
   app.state = STATE.EXEC;
 }
@@ -913,7 +920,7 @@ App.prototype.exec = function() {
       this.setState(STATE.IDLE, 9);
       return;
   }
-  if (isAnimating) return;
+  if (isAnimating || !onceGameOver) return;
   if (!onceGameOver && uid) return;
   if (this.state == STATE.INIT) {
       authorize();
@@ -1071,7 +1078,9 @@ App.prototype.exec = function() {
           if (Dagaz.Model.showMoves) {
               console.log(this.move.toString());
           }
-          this.move.applyAll(this.view);
+          if (_.isUndefined(this.move.isAi)) {
+              this.move.applyAll(this.view);
+          }
           this.setState(STATE.IDLE, 18);
       }
       if (!_.isUndefined(this.list)) {
