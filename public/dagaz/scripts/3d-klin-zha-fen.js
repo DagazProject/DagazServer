@@ -1,7 +1,7 @@
 Dagaz.Controller.persistense = "none";
 
-Dagaz.Model.WIDTH   = 9;
-Dagaz.Model.SIZE    = 81;
+Dagaz.Model.WIDTH   = 7;
+Dagaz.Model.SIZE    = 140;
 Dagaz.Model.RESERVE = 10;
 
 (function() {
@@ -10,7 +10,7 @@ var getName = function() {
   var str = window.location.pathname.toString();
   var result = str.match(/\/([^.\/]+)\./);
   if (result) {
-      return result[1].replace("-board", "").replace("-ai", "").replace("-2d", "");
+      return result[1].replace("-board", "").replace("-ai", "").replace("-3d", "");
   } else {
       return str;
   }
@@ -156,7 +156,8 @@ var getPieceNotation = function(design, piece) {
 Dagaz.Model.getSetup = function(design, board) {
   var str = "?turn=" + board.turn + ";&setup=";
   var k = 0; var c = 0; 
-  var n = 1; var w = Dagaz.Model.WIDTH;
+  var n = 1; var a = Dagaz.Model.WIDTH;
+  var w = a;
   for (var pos = 0; pos < Dagaz.Model.SIZE; pos++) {
        if (k >= w) {
            if (c > 0) {
@@ -167,6 +168,11 @@ Dagaz.Model.getSetup = function(design, board) {
            if (n == 0) {
                w--;
                n = 2;
+           } 
+           if (w == 0) {
+               a--;
+               w = a;
+               n = 1;
            }
            k = 0;
            c = 0;
